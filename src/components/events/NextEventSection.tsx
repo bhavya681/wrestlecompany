@@ -108,11 +108,20 @@ export function NextEventSection() {
 }
 
 function findMainEvent(event: EventItem): Match | undefined {
-  const mainMatch = matches.find(
-    (m) => m.eventId === event.id && m.isMainEvent
+  const eventMatches = matches.filter((match) => match.eventId === event.id);
+  const hasRosterCompetitors = (match: Match) =>
+    wrestlers.some(
+      (wrestler) => wrestler.id === match.competitors[0].wrestlerId
+    ) &&
+    wrestlers.some(
+      (wrestler) => wrestler.id === match.competitors[1].wrestlerId
+    );
+
+  const mainMatch = eventMatches.find(
+    (match) => match.isMainEvent && hasRosterCompetitors(match)
   );
   if (mainMatch) return mainMatch;
-  return matches.find((m) => m.eventId === event.id);
+  return eventMatches.find(hasRosterCompetitors);
 }
 
 function matchTypeLabel(type: string): string {

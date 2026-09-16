@@ -22,18 +22,31 @@ import {
 const upcomingEvent = events.find((e) => e.status === "upcoming");
 const featuredMatch =
   matches.find(
-    (m) => m.eventId === upcomingEvent?.id && m.isMainEvent
-  ) || matches.find((m) => m.eventId === upcomingEvent?.id);
+    (match) =>
+      (match.eventId === upcomingEvent?.id && match.isMainEvent) &&
+      wrestlers.some(
+        (wrestler) => wrestler.id === match.competitors[0].wrestlerId
+      ) &&
+      wrestlers.some(
+        (wrestler) => wrestler.id === match.competitors[1].wrestlerId
+      )
+  ) ||
+  matches.find(
+    (match) =>
+      match.eventId === upcomingEvent?.id &&
+      wrestlers.some(
+        (wrestler) => wrestler.id === match.competitors[0].wrestlerId
+      ) &&
+      wrestlers.some(
+        (wrestler) => wrestler.id === match.competitors[1].wrestlerId
+      )
+  );
 
 const rosterPreviewIds = [
-  "arjun-rao",
-  "vikram-singh",
-  "kabir-khan",
-  "dev-malhotra",
-  "riya-sharma",
-  "ananya-desai",
-  "sameer-verma",
-  "mumbai-mavericks",
+  "bde",
+  "alisha-edwards",
+  "the-great-hands",
+  "mila-moore",
 ];
 const rosterPreview = wrestlers.filter((w) =>
   rosterPreviewIds.includes(w.id)

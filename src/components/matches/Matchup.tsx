@@ -31,8 +31,10 @@ export function Matchup({
   const w1 = wrestlers.find((w) => w.id === match.competitors[0].wrestlerId);
   const w2 = wrestlers.find((w) => w.id === match.competitors[1].wrestlerId);
 
-  const displayName = (w: Wrestler | undefined) =>
-    w ? w.name : match.competitors[0].wrestler;
+  const displayName = (
+    wrestler: Wrestler | undefined,
+    fallback: string
+  ) => wrestler?.name || fallback;
 
   return (
     <div className="relative w-full max-w-5xl">
@@ -41,19 +43,25 @@ export function Matchup({
         <div className="text-center">
           <div className="group relative mx-auto mb-2 overflow-hidden shadow-2xl shadow-black/50">
             <div className="relative aspect-[3/4] w-36 overflow-hidden md:w-48">
-              <Image
-                src={w1?.imageFull || w1?.image || ""}
-                alt={displayName(w1)}
-                fill
-                className="object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                loading="lazy"
-              />
+              {w1?.imageFull || w1?.image ? (
+                <Image
+                  src={w1.imageFull || w1.image || ""}
+                  alt={displayName(w1, match.competitors[0].wrestler)}
+                  fill
+                  className="object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-background-secondary p-4 text-center font-mono text-[10px] uppercase tracking-widest text-foreground-muted">
+                  Image unavailable
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </div>
           <h3 className="font-display text-2xl font-bold tracking-wider text-foreground">
-            {displayName(w1)}
+            {displayName(w1, match.competitors[0].wrestler)}
           </h3>
           {w1 && <p className="font-body text-sm text-foreground-muted">{w1.nickname}</p>}
         </div>
@@ -93,18 +101,24 @@ export function Matchup({
         <div className="text-center">
           <div className="group relative mx-auto mb-2 overflow-hidden shadow-2xl shadow-black/50">
             <div className="relative aspect-[3/4] w-36 overflow-hidden md:w-48">
-              <Image
-                src={w2?.imageFull || w2?.image || ""}
-                alt={displayName(w2)}
-                fill
-                className="object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                loading="lazy"
-              />
+              {w2?.imageFull || w2?.image ? (
+                <Image
+                  src={w2.imageFull || w2.image || ""}
+                  alt={displayName(w2, match.competitors[1].wrestler)}
+                  fill
+                  className="object-cover grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-background-secondary p-4 text-center font-mono text-[10px] uppercase tracking-widest text-foreground-muted">
+                  Image unavailable
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             </div>
           </div>
           <h3 className="font-display text-2xl font-bold tracking-wider text-foreground">
-            {displayName(w2)}
+            {displayName(w2, match.competitors[1].wrestler)}
           </h3>
           {w2 && <p className="font-body text-sm text-foreground-muted">{w2.nickname}</p>}
         </div>
@@ -148,12 +162,18 @@ function WrestlerStats({
       )}
     >
       <div className="relative h-28 w-28 shrink-0 overflow-hidden">
-        <Image
-          src={wrestler.image}
-          alt={wrestler.name}
-          fill
-          className="object-cover grayscale"
-        />
+        {wrestler.image ? (
+          <Image
+            src={wrestler.image}
+            alt={wrestler.ringName}
+            fill
+            className="object-cover grayscale"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-background-secondary p-3 text-center font-mono text-[9px] uppercase tracking-widest text-foreground-muted">
+            Image unavailable
+          </div>
+        )}
       </div>
       <div className="text-center md:text-left">
         <h4 className="font-display text-lg font-bold text-foreground">

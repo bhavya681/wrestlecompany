@@ -107,12 +107,18 @@ export default async function StoryPage({ params }: PageProps) {
                 >
                   <div className="flex items-center gap-3">
                     <div className="relative h-12 w-12 overflow-hidden">
-                      <Image
-                        src={wrestler.image}
-                        alt={wrestler.name}
-                        fill
-                        className="object-cover grayscale group-hover:grayscale-0"
-                      />
+                      {wrestler.image ? (
+                        <Image
+                          src={wrestler.image}
+                          alt={wrestler.ringName}
+                          fill
+                          className="object-cover grayscale group-hover:grayscale-0"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-background-secondary p-1 text-center font-mono text-[8px] uppercase tracking-widest text-foreground-muted">
+                          No image
+                        </div>
+                      )}
                     </div>
                     <div>
                       <p className="font-display text-sm font-bold text-foreground group-hover:text-accent-red">

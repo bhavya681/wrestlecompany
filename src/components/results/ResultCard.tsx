@@ -75,20 +75,27 @@ export function ResultCard({
               return (
                 <div key={c.wrestlerId} className="flex items-center gap-3">
                   <div className="relative h-12 w-12 overflow-hidden">
-                    <Image
-                      src={w?.image || ""}
-                      alt={c.wrestler}
-                      fill
-                      className="object-cover grayscale"
-                    />
+                    {w?.image ? (
+                      <Image
+                        src={w.image}
+                        alt={c.wrestler}
+                        fill
+                        className="object-cover grayscale"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-background-secondary p-1 text-center font-mono text-[8px] uppercase tracking-widest text-foreground-muted">
+                        No image
+                      </div>
+                    )}
                   </div>
                   <div className="text-center">
                     <p className="font-display text-sm font-bold text-foreground">
                       {c.wrestler}
                     </p>
                     <p className="font-body text-xs text-foreground-muted">
-                      {w?.record.wins}W - {w?.record.losses}L -{" "}
-                      {w?.record.draws}D
+                      {w
+                        ? `${w.record.wins}W - ${w.record.losses}L - ${w.record.draws}D`
+                        : "Record unavailable"}
                     </p>
                   </div>
                 </div>

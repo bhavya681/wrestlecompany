@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/Button";
 import { RatingStars } from "@/components/ui/RatingStars";
 import { VideoCard } from "@/components/media/VideoCard";
 import { StoryCard } from "@/components/stories/StoryCard";
-import { cn, formatDate, getMatchTypeLabel } from "@/lib/utils";
+import { cn, calculateWinRate, formatDate, getMatchTypeLabel } from "@/lib/utils";
 import { wrestlers, matches, events, championships, stories, mediaItems } from "@/data";
 import type { Championship, Match, Wrestler } from "@/types";
 
@@ -25,17 +25,21 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!wrestler) return { title: "Not Found" };
 
+  const imageUrl = wrestler.imageFull || wrestler.image;
+
   return {
     title: wrestler.ringName,
     description: wrestler.bio,
     openGraph: {
       title: wrestler.ringName,
       description: wrestler.bio,
-      images: [
-        {
-          url: wrestler.imageFull || wrestler.image,
-        },
-      ],
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+            },
+          ]
+        : [],
     },
   };
 }
@@ -45,6 +49,22 @@ export default async function WrestlerProfile({ params }: PageProps) {
   const wrestler = wrestlers.find((item) => item.id === slug);
 
   if (!wrestler) notFound();
+
+  const recordTotal =
+    wrestler.record.wins +
+    wrestler.record.losses +
+    wrestler.record.draws;
+  const winRateLabel = recordTotal > 0 ? `${calculateWinRate(wrestler.record)}%` : "N/A";
+  const roleLabel =
+    wrestler.role === "manager"
+      ? "MANAGER"
+      : wrestler.role === "tag-team"
+        ? "TAG TEAM"
+        : "WRESTLER";
+  const divisionLabel =
+    wrestler.role === "manager" || wrestler.role === "tag-team"
+      ? roleLabel
+      : wrestler.weightClass;
 
   const wrestlerMatches = matches
     .filter(
@@ -70,14 +90,16 @@ export default async function WrestlerProfile({ params }: PageProps) {
     <>
       <section className="profile-enter relative overflow-hidden border-b border-border bg-gradient-to-b from-background-secondary to-background py-14 md:py-20">
         <div className="absolute inset-0" aria-hidden="true">
-          <Image
-            src={wrestler.imageFull || wrestler.image}
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover object-top opacity-[0.16] grayscale"
-            priority
-          />
+          {(wrestler.imageFull || wrestler.image) && (
+            <Image
+              src={wrestler.imageFull || wrestler.image || ""}
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover object-top opacity-[0.16] grayscale"
+              priority
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/88 to-background/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
           <div className="profile-grid-bg absolute inset-0" />
@@ -114,9 +136,20 @@ export default async function WrestlerProfile({ params }: PageProps) {
               >
                 {wrestler.status}
               </Badge>
+              <Badge
+                variant={
+                  wrestler.role === "manager" || wrestler.role === "tag-team"
+                    ? "gold"
+                    : "red"
+                }
+                size="sm"
+                className="profile-reveal"
+              >
+                {roleLabel}
+              </Badge>
               <span className="inline-flex items-center gap-2 border border-border bg-background-secondary/80 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground-muted">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" />
-                {wrestler.division}
+                {divisionLabel}
               </span>
             </div>
 
@@ -126,6 +159,12 @@ export default async function WrestlerProfile({ params }: PageProps) {
             <p className="profile-reveal mt-4 font-display text-lg font-medium text-accent-gold md:text-2xl">
               &ldquo;{wrestler.nickname}&rdquo;
             </p>
+
+            {wrestler.members && wrestler.members.length > 0 && (
+              <p className="profile-reveal mt-3 font-mono text-xs font-bold uppercase tracking-[0.18em] text-accent-gold">
+                Team: {wrestler.members.join(" / ")}
+              </p>
+            )}
 
             {wrestler.bio && (
               <p className="profile-reveal mt-6 max-w-2xl font-body text-sm leading-7 text-foreground-muted md:text-base">
@@ -166,27 +205,38 @@ export default async function WrestlerProfile({ params }: PageProps) {
             <div className="relative mx-auto w-full max-w-xs lg:max-w-none">
               <div className="profile-glow absolute -inset-3 rounded-full" aria-hidden="true" />
               <div className="profile-image-frame relative aspect-[3/4] overflow-hidden border border-foreground/10 bg-background-secondary/50 shadow-2xl shadow-black/50">
-                <Image
-                  src={wrestler.image}
-                  alt={wrestler.name}
-                  fill
-                  sizes="(max-width: 1024px) 70vw, 22rem"
-                  className="h-full w-full object-cover object-top grayscale transition-transform duration-700 hover:scale-[1.03]"
-                  priority
-                />
+                {wrestler.image ? (
+                  <Image
+                    src={wrestler.image}
+                    alt={wrestler.ringName}
+                    fill
+                    sizes="(max-width: 1024px) 70vw, 22rem"
+                    className="h-full w-full object-cover object-top grayscale transition-transform duration-700 hover:scale-[1.03]"
+                    priority
+                  />
+                ) : (
+                  <div className="flex h-full w-full flex-col items-center justify-center p-6 text-center">
+                    <p className="font-display text-2xl font-black uppercase tracking-tight text-foreground">
+                      {wrestler.ringName}
+                    </p>
+                    <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.18em] text-foreground-muted">
+                      Image unavailable
+                    </p>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/10 to-background/25" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-4">
                   <div>
                     <span className="block font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-muted">
-                      IM athlete
+                      {roleLabel}
                     </span>
                     <span className="mt-1 block font-display text-sm font-bold text-foreground">
-                      {wrestler.weightClass}
+                      {divisionLabel}
                     </span>
                   </div>
                   <div className="text-right">
                     <span className="block font-display text-3xl font-black leading-none text-accent-gold">
-                      {wrestler.winRate}%
+                      {winRateLabel}
                     </span>
                     <span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.18em] text-foreground-muted">
                       win rate
@@ -313,14 +363,20 @@ export default async function WrestlerProfile({ params }: PageProps) {
                   className="group flex items-center gap-4 border border-border bg-background p-4 transition-all duration-300 hover:border-accent-red hover:bg-background-secondary hover:shadow-lg hover:shadow-black/20"
                 >
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden border border-border">
-                    <Image
-                      src={rival.image}
-                      alt={rival.name}
-                      fill
-                      sizes="4rem"
-                      className="object-cover grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110"
-                      loading="lazy"
-                    />
+                    {rival.image ? (
+                      <Image
+                        src={rival.image}
+                        alt={rival.ringName}
+                        fill
+                        sizes="4rem"
+                        className="object-cover grayscale transition-all duration-300 group-hover:grayscale-0 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-background-secondary p-2 text-center font-mono text-[8px] uppercase tracking-widest text-foreground-muted">
+                        No image
+                      </div>
+                    )}
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="truncate font-display text-sm font-bold text-foreground group-hover:text-accent-red">
@@ -480,6 +536,7 @@ function RecordPanel({ wrestler }: { wrestler: Wrestler }) {
   const winPercent = total > 0 ? (wrestler.record.wins / total) * 100 : 0;
   const lossPercent = total > 0 ? (wrestler.record.losses / total) * 100 : 0;
   const drawPercent = total > 0 ? (wrestler.record.draws / total) * 100 : 0;
+  const winRateLabel = total > 0 ? `${calculateWinRate(wrestler.record)}%` : "N/A";
 
   return (
     <div className="relative overflow-hidden border border-border bg-background p-6 shadow-2xl shadow-black/20 md:p-8">
@@ -495,7 +552,7 @@ function RecordPanel({ wrestler }: { wrestler: Wrestler }) {
         </div>
         <div className="text-right">
           <span className="font-display text-5xl font-black leading-none text-accent-gold">
-            {wrestler.winRate}%
+            {winRateLabel}
           </span>
           <span className="mt-2 block font-mono text-[10px] uppercase tracking-[0.18em] text-foreground-muted">
             win rate
@@ -533,7 +590,7 @@ function RecordPanel({ wrestler }: { wrestler: Wrestler }) {
       <div className="mt-6">
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.16em] text-foreground-muted">
           <span>Outcome distribution</span>
-          <span>{wrestler.winRate}% win</span>
+          <span>{winRateLabel} win</span>
         </div>
         <div className="mt-3 flex h-2 overflow-hidden rounded-full bg-foreground/10" aria-hidden="true">
           <span className="h-full bg-accent-red" style={{ width: `${winPercent}%` }} />
