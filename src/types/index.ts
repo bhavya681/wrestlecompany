@@ -11,14 +11,18 @@ export type WrestlerRole =
   | "manager"
   | "tag-team"
   | "referee"
-  | "announcer";
+  | "announcer"
+  | "commentator"
+  | "commentators";
 
 export type WrestlerType =
   | "singles"
   | "tag-team"
   | "manager"
   | "referee"
-  | "announcer";
+  | "announcer"
+  | "commentator"
+  | "commentators";
 
 export type Division =
   | "Singles"

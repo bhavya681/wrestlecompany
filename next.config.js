@@ -29,7 +29,7 @@ const nextConfig = {
       "www.si.com",
 
       "chatgpt.com",
-
+      "m.media-amazon.com",
       "user32962.na.imgto.link",
     ],
   },

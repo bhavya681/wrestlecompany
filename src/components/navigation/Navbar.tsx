@@ -4,20 +4,23 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ImLogo } from "@/components/logo/ImLogo";
-import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "@/components/navigation/MobileMenu";
 
-const navLinks = [
-  { href: "/", label: "HOME" },
-  { href: "/events", label: "EVENTS" },
-  { href: "/roster", label: "ROSTER" },
-  { href: "/championships", label: "CHAMPIONSHIPS" },
-  { href: "/matches", label: "MATCHES" },
-  { href: "/stories", label: "STORIES" },
-  { href: "/news", label: "NEWS" },
-  { href: "/media", label: "MEDIA" },
-  { href: "/shop", label: "SHOP" },
+const primaryNavLinks = [
+  { href: "/", label: "Home" },
+  { href: "/roster", label: "Wrestlers" },
+  { href: "/championships", label: "Championships" },
+  { href: "/events", label: "Events" },
+  { href: "/results", label: "Results" },
+  { href: "/news", label: "News" },
+  { href: "/media", label: "Media" },
+];
+
+const actionNavLinks = [
+  { href: "/events", label: "Tickets", variant: "primary" as const },
+  { href: "/media", label: "Watch", variant: "ghost" as const },
+  { href: "/shop", label: "Shop", variant: "ghost" as const },
 ];
 
 export function Navbar() {
@@ -27,7 +30,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 32);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -50,74 +53,106 @@ export function Navbar() {
   return (
     <>
       <header
+        role="banner"
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-background/80 py-2 shadow-md shadow-black/20 backdrop-blur-sm"
-            : "bg-transparent py-4",
-          scrolled && "border-b border-border"
+            ? "border-b border-border/60 bg-background/90 shadow-lg shadow-black/30 backdrop-blur-md"
+            : "bg-transparent"
         )}
       >
-        <div className="container-wide flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center">
+        <div className="container-wide flex items-center justify-between gap-4">
+          {/* Left — Logo */}
+          <Link
+            href="/"
+            className="flex shrink-0 items-center py-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            aria-label="Indus Matworks — Home"
+          >
             <ImLogo size="md" priority />
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => (
+          {/* Center — Primary Nav */}
+          <nav
+            aria-label="Primary navigation"
+            className="hidden items-center xl:flex"
+          >
+            {primaryNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium tracking-widest uppercase transition-colors duration-200 hover:text-accent-red",
+                  "group relative px-3 py-5 text-[11px] font-bold uppercase tracking-[0.14em] transition-colors duration-200",
                   isActive(link.href)
-                    ? "text-accent-red"
-                    : "text-foreground-muted"
+                    ? "text-foreground"
+                    : "text-foreground-muted hover:text-foreground"
                 )}
               >
                 {link.label}
-                {isActive(link.href) && (
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent-red" />
-                )}
+
+                {/* Active / hover underline */}
+                <span
+                  className={cn(
+                    "absolute bottom-3.5 left-3 right-3 h-[1.5px] rounded-full bg-accent-red transition-all duration-300",
+                    isActive(link.href)
+                      ? "opacity-100 scale-x-100"
+                      : "opacity-0 scale-x-0 group-hover:opacity-60 group-hover:scale-x-100"
+                  )}
+                />
               </Link>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="hidden sm:inline-flex"
-              asChild
+          {/* Right — Actions */}
+          <div className="flex items-center gap-1">
+            {/* Watch — ghost, desktop only */}
+            <Link
+              href="/media"
+              className="hidden items-center gap-1.5 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-foreground-muted transition-colors duration-200 hover:text-foreground xl:flex"
+              aria-label="Watch Indus Matworks"
             >
-              <Link href="/media">WATCH</Link>
-            </Button>
-            <Button
-              variant="primary"
-              size="sm"
-              className="hidden sm:inline-flex"
-              asChild
+              Watch
+            </Link>
+
+            {/* Shop — ghost, desktop only */}
+            <Link
+              href="/shop"
+              className="hidden items-center gap-1.5 px-3 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-foreground-muted transition-colors duration-200 hover:text-foreground xl:flex"
+              aria-label="Shop"
             >
-              <Link href="/events">TICKETS</Link>
-            </Button>
+              Shop
+            </Link>
+
+            {/* Tickets CTA */}
+            <Link
+              href="/events"
+              className="hidden items-center px-4 py-2 text-[11px] font-bold uppercase tracking-[0.14em] text-background transition-all duration-200 bg-accent-red hover:bg-accent-red-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:flex"
+              aria-label="Get tickets"
+            >
+              Tickets
+            </Link>
+
+            {/* Hamburger — mobile */}
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="md:hidden hover:text-accent-red focus:text-accent-red"
+              className="ml-2 flex h-10 w-10 flex-col items-center justify-center gap-[5px] text-foreground transition-colors hover:text-accent-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red xl:hidden"
               aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
-              <span className="block h-0.5 w-6 bg-current transition-colors duration-200" />
-              <span className="mt-1 block h-0.5 w-6 bg-current" />
-              <span className="mt-1 block h-0.5 w-6 bg-current" />
+              <span className="block h-[1.5px] w-5 bg-current transition-all duration-300" />
+              <span className="block h-[1.5px] w-5 bg-current transition-all duration-300" />
+              <span className="block h-[1.5px] w-3 self-start bg-current transition-all duration-300" />
             </button>
           </div>
         </div>
       </header>
 
       <MobileMenu
+        id="mobile-menu"
         open={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        navLinks={navLinks}
+        navLinks={primaryNavLinks}
         pathname={pathname}
         isActive={isActive}
       />

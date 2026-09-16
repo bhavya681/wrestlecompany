@@ -3,148 +3,76 @@ import type { Story } from "@/types";
 export const stories: Story[] = [
   {
     id: "story-01",
-    slug: "rao-vs-singh-brotherhood-becomes-war",
-    title: "RAO VS SINGH",
-    subtitle: "Brotherhood Becomes War",
+    slug: "gujjar-vs-akki-respect-becomes-war",
+    title: "GUJJAR VS AKKI",
+    subtitle: "Powerhouse vs Technocrat",
     excerpt:
-      "What began as a mentoring relationship between Arjun Rao and Vikram Singh has deteriorated into the most bitter rivalry in Indus Matworks history. The steel cage at Aftermath may finally deliver justice.",
+      "What began as mutual respect between Bhupinder Gujjar and Baliyaan Akki has ignited into the premier rivalry in Indus Matworks history. The steel cage at Aftermath will settle the score.",
     content: `
-# Brotherhood Becomes War
+# Powerhouse vs Technocrat
 
 ## The Beginning
 
-Arjun Rao and Vikram Singh were never supposed to become rivals. In the early days of IM's development, Singh was one of the first names on the roster, and Rao was the company's chosen standard-bearer. They trained together, shared meals, and spoke of elevating Indian wrestling on the world stage.
-
-Their bond was real. When Singh's father fell ill during the initial IM tryouts, it was Rao who paid the medical bills. When Rao struggled with his signature finishing move, Singh spent weeks helping him perfect it.
+Bhupinder Gujjar and Baliyaan Akki represent the two pillars of contemporary Indian professional wrestling. Gujjar, the immovable powerhouse from Gurdaspur, and Akki, the globe-trotting aerial technician from Uttar Pradesh, initially formed an alliance representing India across international rings.
 
 ## The Turning Point
 
-Everything changed at IM: Revolution. With the inaugural IM World Championship on the line, Singh and Rao stood across from each other in the ring. But Singh's manager, Karan Mehta, cut a deal with IM officials behind Singh's back — if Singh lost, he would be guaranteed the next title shot at the following PPV.
+Everything shifted at IM: Revolution. When Gujjar captured the World Championship, Akki claimed the victory came with caveats. The tension boiled over when Akki defeated Kevin Malik for the National Title and boldly challenged Gujjar to unify the belts.
 
-Rao won the title. But the victory felt hollow when Singh learned of the backroom deal.
+## The Climax
 
-## The Betrayal
-
-Two weeks later, Singh attacked Rao in the IM parking lot. The footage went viral. What followed was a year of escalating conflict — interference, ambushes, contract tampering, and ultimately, the challenge for IM: Aftermath.
-
-## The Endgame
-
-This Sunday in Mumbai, there are no more games. No more deals. No more brotherhood. Just a steel cage, two champions, and one winner.
-
-Will Rao survive his longest night as champion? Will Singh finally break through?
-
-The answer comes at IM: Aftermath.
+This Sunday in Mumbai, inside a brutal 15-foot Steel Cage at IM: Aftermath, there will be no countouts, no outside interference, and no escape. Only one undisputed standard-bearer will walk out.
 `,
     status: "active",
-    participants: ["arjun-rao", "vikram-singh"],
+    participants: ["bhupinder-gujjar", "baliyaan-akki"],
     image: "https://picsum.photos/seed/story-01/1200/800",
   },
   {
     id: "story-02",
-    slug: "rise-of-riya-sharma",
-    title: "THE RISE OF RIYA SHARMA",
-    subtitle: "Storm Against Still Waters",
+    slug: "rise-of-ishani-rathore",
+    title: "THE RISE OF ISHANI RATHORE",
+    subtitle: "Royal Blood in the Ring",
     excerpt:
-      "From Chennai's underground wrestling scene to the IM Women's Championship, Riya Sharma's ascent has been meteoric — and dangerous.",
+      "From Jaipur's storied wrestling heritage to the IM Women's Championship, Ishani Rathore's ascent has cemented her as the queen of technical dominance.",
     content: `
-# The Rise of The Storm
+# The Rise of the Rajput Queen
 
-## From Chennai's Underground
+## Royal Lineage
 
-Riya Sharma didn't come through IM's official training program. She earned her way onto the roster through the Chennai Underground Circuit, where she built an undefeated streak that caught IM scouts' attention.
+Ishani Rathore didn't arrive in Indus Matworks to blend in. Carrying centuries of martial pride from Rajasthan, Rathore built an unmatched submission streak that swept the inaugural women's tournament.
 
-## Breaking Through
+## Title Defense
 
-At IM: Storm Front, Sharma defeated Zara Mirza to become the inaugural IM Women's Champion. But her real coming-out party was at Revolution, where she submitted the previously unbeaten Meera Patel in a match that earned a standing ovation from the Delhi crowd.
+At IM: Storm Front, Rathore captured the inaugural IM Women's Championship in a classic contest. But Scottish firebrand Angel Hayze has pushed the champion to her absolute physical limits.
 
-## The Storm Approaches
+## The Aftermath
 
-Now facing Ananya Desai at Aftermath, Sharma must navigate not just a skilled opponent, but the weight of being the face of IM's women's division.
+At Aftermath in Mumbai, Rathore must defend against Hayze's relentless strike combinations in the most crucial title defense of her reign.
 `,
     status: "active",
-    participants: ["riya-sharma", "ananya-desai"],
+    participants: ["ishani-rathore", "angel-hayze"],
     image: "https://picsum.photos/seed/story-02/1200/800",
   },
   {
     id: "story-03",
-    slug: "the-title-hunt",
-    title: "THE TITLE HUNT",
-    subtitle: "The Battle for the National Crown",
+    slug: "the-clash-of-styles",
+    title: "SPEED VS BRUTE FORCE",
+    subtitle: "BDE Collides with Malkeet Brawler",
     excerpt:
-      "Kabir Khan's IM National Championship has made him a target. From Bangalore to Kolkata, contenders line up to test 'The Technician' — but only one can be next.",
+      "High-flying prodigy BDE steps into the ring with hardcore veteran Malkeet Brawler in an explosive collision of modern velocity and brutal power.",
     content: `
-# The Title Hunt
+# Speed vs Brute Force
 
-## The Prize
+## Contrasting Universes
 
-The IM National Championship represents more than gold. It's a statement that the holder is the best technical wrestler in India. Kabir Khan has held that honor for 45 days and counting.
-
-## The Challengers
-
-Dev Malhotra earned his shot at IM: Rising with a tournament victory. Their contrasting styles — Malhotra's high-flying precision against Khan's methodical submission grappling — make for a fascinating chess match.
-
-But beyond the official contenders, whispers persist that Riya Sharma may challenge for the National Championship next, potentially setting up an unprecedented inter-gender title match.
+BDE brings high-flying athleticism and global digital fame to the squared circle. Across the ring stands Malkeet Brawler, a scarred veteran forged in the fiercest no-disqualification wars across India.
 
 ## The Stakes
 
-At IM: Rising, the National Championship is on the line. But the bigger question is: who will be next in line after that?
+At IM: Aftermath, BDE looks to prove that speed and agility can overcome raw brutality, while Malkeet is determined to remind the world that power always reigns supreme.
 `,
     status: "active",
-    participants: ["kabir-khan", "dev-malhotra", "riya-sharma"],
+    participants: ["bde", "malkeet-brawler"],
     image: "https://picsum.photos/seed/story-03/1200/800",
-  },
-  {
-    id: "story-04",
-    slug: "architect-vs-technician",
-    title: "ARCHITECT VS TECHNICIAN",
-    subtitle: "Clash of the Minds",
-    excerpt:
-      "Dev Malhotra's calculated high-flying approach meets Kabir Khan's methodical submission game in what many predict will be a technical masterclass at IM: Aftermath.",
-    content: `
-# Clash of the Minds
-
-## Two Approaches
-
-Dev Malhotra and Kabir Khan represent fundamentally different philosophies of professional wrestling. Malhotra, the architect, builds his victories with precision and strategy. Khan, the technician, methodically breaks opponents down piece by piece.
-
-## The History
-
-Their rivalry began at IM: Storm Front, where both competed in the World Championship tournament. Though Khan lost in the finals, his performance earned respect from everyone in the building.
-
-## The Mathematics
-
-At Aftermath, Malhotra needs to solve Khan's submission game before it's too late. Khan needs to neutralize Malhotra's aerial threat. The question isn't who will win — it's how.
-
-This is chess at 200 miles per hour.
-`,
-    status: "active",
-    participants: ["dev-malhotra", "kabir-khan"],
-    image: "https://picsum.photos/seed/story-04/1200/800",
-  },
-  {
-    id: "story-05",
-    slug: "the-persian-nightmare-revenge",
-    title: "THE PERSIAN NIGHTMARE",
-    subtitle: "Revenge of the Forgotten",
-    excerpt:
-      "Rustom Irani's path to redemption has been paved with near-misses and heartbreaking defeats. Can he break through the glass ceiling at IM: Aftermath?",
-    content: `
-# Revenge of the Forgotten
-
-## The Forgotten Ace
-
-Before Sameer Verma became the face of IM, there was Rustom Irani. With a grappling background that traces back to traditional Persian pahlevani wrestling, Irani was expected to be IM's first breakout star.
-
-## The Reality
-
-But Verma's meteoric rise pushed Irani to the background. Three years of being the "next big thing" that never arrived has simmered into something darker.
-
-## The Opportunity
-
-At Aftermath, Irani gets his chance to prove he belongs — not as a stepping stone, but as a champion. But first, he must get past Verma in a match that could define both careers.
-`,
-    status: "active",
-    participants: ["rustom-irani", "sameer-verma"],
-    image: "https://picsum.photos/seed/story-05/1200/800",
   },
 ];

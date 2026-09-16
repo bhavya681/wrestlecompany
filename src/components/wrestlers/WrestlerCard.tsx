@@ -156,15 +156,13 @@ function getRoleLabel(wrestler: Wrestler) {
     return "RING ANNOUNCER";
   }
 
-  /* FEMALE / DIVA */
+  /* FEMALE ATHLETE */
   if (wrestler.gender === "women") {
-    // female/diva
-  
-    return "DIVA";
+    return "ATHLETE";
   }
 
   /* MALE WRESTLER */
-  return "WRESTLER";
+  return "ATHLETE";
 }
 
 /* =========================================================
@@ -229,9 +227,7 @@ function getDivisionLabel(wrestler: Wrestler) {
 
   /* FEMALE */
   if (wrestler.gender === "women") {
-    // female/diva
-  
-    return wrestler.division || "WOMEN'S SINGLES";
+    return wrestler.division || "WOMEN'S DIVISION";
   }
 
   /* MALE */
@@ -702,7 +698,7 @@ export function WrestlerCard({
                       ? "BROADCAST TEAM"
                       : wrestler.gender === "women"
                         ? "WOMEN'S ROSTER"
-                        : "ROSTER"}
+                        : "INDUS MATWORKS"}
             </p>
 
             <h3 className="font-display text-2xl font-bold uppercase leading-none tracking-tight text-white">

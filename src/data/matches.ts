@@ -1,7 +1,9 @@
 import type { Match } from "@/types";
 
 export const matches: Match[] = [
+  // =========================================================
   // IM: AFTERMATH (Upcoming - 2026-10-18)
+  // =========================================================
   {
     id: "match-af-01",
     eventId: "aftermath",
@@ -12,18 +14,18 @@ export const matches: Match[] = [
     type: "steel-cage",
     championship: "im-world-championship",
     competitors: [
-      { wrestlerId: "arjun-rao", wrestler: "Arjun Rao" },
-      { wrestlerId: "vikram-singh", wrestler: "Vikram Singh" },
+      { wrestlerId: "bhupinder-gujjar", wrestler: "Bhupinder Gujjar" },
+      { wrestlerId: "baliyaan-akki", wrestler: "Baliyaan Akki" },
     ],
     result: {
-      winner: "arjun-rao",
+      winner: "",
       method: "pinfall",
-      time: "22:18",
-      winnerImage: "https://i.pravatar.cc/400?img=11",
+      time: "",
+      winnerImage: "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     },
     rating: 0,
     description:
-      "The culmination of a year-long rivalry. Arjun Rao defends the IM World Championship inside Steel Cage against 'The Colossus' Vikram Singh. No escape, no disqualification.",
+      "The culmination of an intense rivalry. Bhupinder Gujjar defends the IM World Championship inside a Steel Cage against 'The Technocrat' Baliyaan Akki. No escape, no disqualification.",
     isMainEvent: true,
   },
   {
@@ -35,8 +37,8 @@ export const matches: Match[] = [
     city: "Mumbai",
     type: "singles",
     competitors: [
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
+      { wrestlerId: "dev", wrestler: "Dev" },
+      { wrestlerId: "kevin-malik", wrestler: "Kevin Malik" },
     ],
     result: {
       winner: "",
@@ -44,7 +46,7 @@ export const matches: Match[] = [
       time: "",
     },
     description:
-      "A clash of styles: 'The Architect' Dev Malhotra takes on 'The Technician' Kabir Khan in a technical masterpiece.",
+      "A clash of heavy power: Dev takes on Kevin Malik in an explosive heavyweight showcase.",
   },
   {
     id: "match-af-03",
@@ -55,8 +57,8 @@ export const matches: Match[] = [
     city: "Mumbai",
     type: "singles",
     competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
+      { wrestlerId: "ishani-rathore", wrestler: "Ishani Rathore" },
+      { wrestlerId: "angel-hayze", wrestler: "Angel Hayze" },
     ],
     result: {
       winner: "",
@@ -65,7 +67,7 @@ export const matches: Match[] = [
     },
     championship: "im-womens-championship",
     description:
-      "Riya Sharma defends the IM Women's Championship against the cunning Ananya Desai in a crucial title defense.",
+      "Ishani Rathore defends the IM Women's Championship against the relentless Angel Hayze in a high-stakes title bout.",
   },
   {
     id: "match-af-04",
@@ -76,8 +78,8 @@ export const matches: Match[] = [
     city: "Mumbai",
     type: "tag-team",
     competitors: [
-      { wrestlerId: "mumbai-mavericks", wrestler: "The Mumbai Mavericks" },
-      { wrestlerId: "delhi-dynasty", wrestler: "The Delhi Dynasty" },
+      { wrestlerId: "star-twin", wrestler: "Star Twin" },
+      { wrestlerId: "epico", wrestler: "Epico" },
     ],
     result: {
       winner: "",
@@ -86,7 +88,7 @@ export const matches: Match[] = [
     },
     championship: "im-tag-team-championship",
     description:
-      "The Mumbai Mavericks put their IM Tag Team Championships on the line against the Delhi Dynasty in a rematch from Revolution.",
+      "Star Twin put their IM Tag Team Championships on the line against Epico in a fiercely anticipated rematch.",
   },
   {
     id: "match-af-05",
@@ -97,8 +99,8 @@ export const matches: Match[] = [
     city: "Mumbai",
     type: "singles",
     competitors: [
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-      { wrestlerId: "rustom-irani", wrestler: "Rustom Irani" },
+      { wrestlerId: "bde", wrestler: "BDE" },
+      { wrestlerId: "malkeet-brawler", wrestler: "Malkeet Brawler" },
     ],
     result: {
       winner: "",
@@ -106,7 +108,7 @@ export const matches: Match[] = [
       time: "",
     },
     description:
-      "Veteran ace Sameer Verma faces 'The Persian Nightmare' Rustom Irani in a battle of experience versus hunger.",
+      "High-flying sensation BDE collides with hardcore veteran Malkeet Brawler in a battle of pure velocity versus brute force.",
   },
   {
     id: "match-af-06",
@@ -115,367 +117,23 @@ export const matches: Match[] = [
     eventName: "IM: AFTERMATH",
     date: "2026-10-18",
     city: "Mumbai",
-    type: "battle-royal",
+    type: "ladder",
     competitors: [
-      { wrestlerId: "meera-patel", wrestler: "Meera Patel" },
-      { wrestlerId: "zara-mirza", wrestler: "Zara Mirza" },
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
+      { wrestlerId: "aleah-james", wrestler: "Aleah James" },
+      { wrestlerId: "samara", wrestler: "Samara" },
     ],
     result: {
       winner: "",
-      method: "elimination",
+      method: "ladder",
       time: "",
     },
     description:
-      "A four-way battle royal to determine the next IM National Championship number one contender.",
+      "A high-flying ladder match to determine the next top contender for the IM Women's Championship.",
   },
 
-  // IM: REVOLUTION (2024-11-22)
-  {
-    id: "match-rev-01",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "singles",
-    championship: "im-world-championship",
-    competitors: [
-      { wrestlerId: "arjun-rao", wrestler: "Arjun Rao" },
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-    ],
-    result: {
-      winner: "arjun-rao",
-      method: "submission",
-      time: "28:34",
-      winnerImage: "https://i.pravatar.cc/400?img=11",
-    },
-    rating: 4.5,
-    description:
-      "In the main event of IM's historic debut PPV, Arjun Rao defeated Sameer Verma to capture the inaugural IM World Championship.",
-    isMainEvent: true,
-  },
-  {
-    id: "match-rev-02",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "singles",
-    championship: "im-womens-championship",
-    competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "meera-patel", wrestler: "Meera Patel" },
-    ],
-    result: {
-      winner: "riya-sharma",
-      method: "pinfall",
-      time: "14:05",
-      winnerImage: "https://i.pravatar.cc/400?img=26",
-    },
-    rating: 3.5,
-    description:
-      "Riya Sharma retained the IM Women's Championship with a devastating Bay of Bengal on Meera Patel.",
-  },
-  {
-    id: "match-rev-03",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "singles",
-    championship: "im-national-championship",
-    competitors: [
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-    ],
-    result: {
-      winner: "kabir-khan",
-      method: "submission",
-      time: "19:42",
-      winnerImage: "https://i.pravatar.cc/400?img=13",
-    },
-    rating: 4.0,
-    description:
-      "Kabir Khan submitted Dev Malhotra with the Bangalore Lock to win the IM National Championship.",
-  },
-  {
-    id: "match-rev-04",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "tag-team",
-    championship: "im-tag-team-championship",
-    competitors: [
-      { wrestlerId: "mumbai-mavericks", wrestler: "The Mumbai Mavericks" },
-      { wrestlerId: "delhi-dynasty", wrestler: "The Delhi Dynasty" },
-    ],
-    result: {
-      winner: "mumbai-mavericks",
-      method: "pinfall",
-      time: "16:58",
-      winnerImage: "https://picsum.photos/seed/mumbai-mavericks/400/500",
-    },
-    rating: 3.5,
-    description:
-      "The Mumbai Mavericks won the inaugural IM Tag Team Championship in a hard-fought contest against the Delhi Dynasty.",
-  },
-  {
-    id: "match-rev-05",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-      { wrestlerId: "vikram-singh", wrestler: "Vikram Singh" },
-    ],
-    result: {
-      winner: "vikram-singh",
-      method: "pinfall",
-      time: "21:15",
-      winnerImage: "https://i.pravatar.cc/400?img=12",
-    },
-    rating: 4.0,
-    description:
-      "In a shocking upset, Vikram Singh defeated the reigning ace Sameer Verma with a thunderous powerbomb.",
-  },
-  {
-    id: "match-rev-06",
-    eventId: "revolution",
-    eventSlug: "revolution",
-    eventName: "IM: REVOLUTION",
-    date: "2024-11-22",
-    city: "Delhi",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
-    ],
-    result: {
-      winner: "riya-sharma",
-      method: "submission",
-      time: "12:33",
-      winnerImage: "https://i.pravatar.cc/400?img=26",
-    },
-    rating: 3.0,
-    description:
-      "Riya Sharma submitted Ananya Desai after a grueling back-and-forth contest.",
-  },
-
-  // IM: RISING (2024-12-14)
-  {
-    id: "match-ris-01",
-    eventId: "rising",
-    eventSlug: "rising",
-    eventName: "IM: RISING",
-    date: "2024-12-14",
-    city: "Bengaluru",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "arjun-rao", wrestler: "Arjun Rao" },
-      { wrestlerId: "rustom-irani", wrestler: "Rustom Irani" },
-    ],
-    result: {
-      winner: "arjun-rao",
-      method: "pinfall",
-      time: "15:22",
-      winnerImage: "https://i.pravatar.cc/400?img=11",
-    },
-    rating: 4.0,
-    description: "Arjun Rao dispatched Rustom Irani in a methodical championship defense.",
-    championship: "im-world-championship",
-  },
-  {
-    id: "match-ris-02",
-    eventId: "rising",
-    eventSlug: "rising",
-    eventName: "IM: RISING",
-    date: "2024-12-14",
-    city: "Bengaluru",
-    type: "singles",
-    championship: "im-womens-championship",
-    competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "meera-patel", wrestler: "Meera Patel" },
-    ],
-    result: {
-      winner: "riya-sharma",
-      method: "pinfall",
-      time: "16:45",
-      winnerImage: "https://i.pravatar.cc/400?img=26",
-    },
-    rating: 3.5,
-    description: "Riya Sharma retained her title against a resilient Meera Patel.",
-  },
-  {
-    id: "match-ris-03",
-    eventId: "rising",
-    eventSlug: "rising",
-    eventName: "IM: RISING",
-    date: "2024-12-14",
-    city: "Bengaluru",
-    type: "tournament",
-    competitors: [
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-    ],
-    result: {
-      winner: "dev-malhotra",
-      method: "submission",
-      time: "13:18",
-      winnerImage: "https://i.pravatar.cc/400?img=10",
-    },
-    rating: 4.0,
-    description: "The cruiserweight tournament final saw Dev Malhotra upset the odds to defeat Sameer Verma.",
-  },
-  {
-    id: "match-ris-04",
-    eventId: "rising",
-    eventSlug: "rising",
-    eventName: "IM: RISING",
-    date: "2024-12-14",
-    city: "Bengaluru",
-    type: "tag-team",
-    championship: "im-tag-team-championship",
-    competitors: [
-      { wrestlerId: "mumbai-mavericks", wrestler: "The Mumbai Mavericks" },
-      { wrestlerId: "zara-mirza", wrestler: "Zara Mirza" },
-      { wrestlerId: "meera-patel", wrestler: "Meera Patel" },
-    ],
-    result: {
-      winner: "mumbai-mavericks",
-      method: "pinfall",
-      time: "11:08",
-      winnerImage: "https://picsum.photos/seed/mumbai-mavericks/400/500",
-    },
-    rating: 3.0,
-    description: "The Mumbai Mavericks retained in a non-title triple threat encounter.",
-  },
-  {
-    id: "match-ris-05",
-    eventId: "rising",
-    eventSlug: "rising",
-    eventName: "IM: RISING",
-    date: "2024-12-14",
-    city: "Bengaluru",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
-    ],
-    result: {
-      winner: "kabir-khan",
-      method: "pinfall",
-      time: "17:55",
-      winnerImage: "https://i.pravatar.cc/400?img=13",
-    },
-    rating: 3.5,
-    championship: "im-national-championship",
-    description: "Kabir Khan successfully defended the National Championship against Ananya Desai.",
-  },
-
-  // IM: STORM FRONT (2024-09-30) - Inaugural event
-  {
-    id: "match-sf-01",
-    eventId: "storm-front",
-    eventSlug: "storm-front",
-    eventName: "IM: STORM FRONT",
-    date: "2024-09-30",
-    city: "Chennai",
-    type: "tournament",
-    competitors: [
-      { wrestlerId: "arjun-rao", wrestler: "Arjun Rao" },
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
-    ],
-    result: {
-      winner: "arjun-rao",
-      method: "submission",
-      time: "24:15",
-      winnerImage: "https://i.pravatar.cc/400?img=11",
-    },
-    rating: 5.0,
-    description:
-      "The tournament final to crown the inaugural IM World Champion. Arjun Rao submitted Kabir Khan with a modified finisher.",
-    championship: "im-world-championship",
-    isMainEvent: true,
-  },
-  {
-    id: "match-sf-02",
-    eventId: "storm-front",
-    eventSlug: "storm-front",
-    eventName: "IM: STORM FRONT",
-    date: "2024-09-30",
-    city: "Chennai",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "zara-mirza", wrestler: "Zara Mirza" },
-    ],
-    result: {
-      winner: "riya-sharma",
-      method: "pinfall",
-      time: "10:22",
-      winnerImage: "https://i.pravatar.cc/400?img=26",
-    },
-    rating: 4.0,
-    description: "Riya Sharma captured the inaugural IM Women's Championship with a decisive victory.",
-    championship: "im-womens-championship",
-  },
-  {
-    id: "match-sf-03",
-    eventId: "storm-front",
-    eventSlug: "storm-front",
-    eventName: "IM: STORM FRONT",
-    date: "2024-09-30",
-    city: "Chennai",
-    type: "tag-team",
-    competitors: [
-      { wrestlerId: "delhi-dynasty", wrestler: "The Delhi Dynasty" },
-      { wrestlerId: "rustom-irani", wrestler: "Rustom Irani" },
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-    ],
-    result: {
-      winner: "delhi-dynasty",
-      method: "pinfall",
-      time: "18:40",
-      winnerImage: "https://picsum.photos/seed/delhi-dynasty/400/500",
-    },
-    rating: 3.5,
-    description:
-      "In a wildcard tag team match, the Delhi Dynasty defeated the surprise team of Rustom Irani and Sameer Verma.",
-  },
-  {
-    id: "match-sf-04",
-    eventId: "storm-front",
-    eventSlug: "storm-front",
-    eventName: "IM: STORM FRONT",
-    date: "2024-09-30",
-    city: "Chennai",
-    type: "singles",
-    competitors: [
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-    ],
-    result: {
-      winner: "sameer-verma",
-      method: "pinfall",
-      time: "19:50",
-      winnerImage: "https://i.pravatar.cc/400?img=15",
-    },
-    rating: 4.5,
-    description:
-      "Sameer Verma defeated Dev Malhotra in a classic encounter that ended with a dramatic rope-hung kick.",
-  },
-
-  // IM: NATIONAL SHOWCASE (2025-02-15)
+  // =========================================================
+  // IM: NATIONAL SHOWCASE (2025-02-15) - Recent Results
+  // =========================================================
   {
     id: "match-ns-01",
     eventId: "national-showcase",
@@ -484,19 +142,20 @@ export const matches: Match[] = [
     date: "2025-02-15",
     city: "Kolkata",
     type: "singles",
-    championship: undefined,
+    championship: "im-world-championship",
     competitors: [
-      { wrestlerId: "sameer-verma", wrestler: "Sameer Verma" },
-      { wrestlerId: "vikram-singh", wrestler: "Vikram Singh" },
+      { wrestlerId: "bhupinder-gujjar", wrestler: "Bhupinder Gujjar" },
+      { wrestlerId: "big-kon", wrestler: "Big Kon" },
     ],
     result: {
-      winner: "draw",
-      method: "draw",
-      time: "25:00",
+      winner: "bhupinder-gujjar",
+      method: "pinfall",
+      time: "24:18",
+      winnerImage: "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
     },
-    rating: 4.5,
+    rating: 4.8,
     description:
-      "A 25-minute war ended in a time-limit draw, with both competitors refusing to yield. The rivalry continues.",
+      "In a colossal main event, Bhupinder Gujjar withstood the punishing onslaught of Big Kon to retain the IM World Title with a staggering spinebuster.",
     isMainEvent: true,
   },
   {
@@ -509,17 +168,18 @@ export const matches: Match[] = [
     type: "singles",
     championship: "im-national-championship",
     competitors: [
-      { wrestlerId: "kabir-khan", wrestler: "Kabir Khan" },
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
+      { wrestlerId: "baliyaan-akki", wrestler: "Baliyaan Akki" },
+      { wrestlerId: "dev", wrestler: "Dev" },
     ],
     result: {
-      winner: "kabir-khan",
+      winner: "baliyaan-akki",
       method: "submission",
-      time: "14:33",
-      winnerImage: "https://i.pravatar.cc/400?img=13",
+      time: "18:42",
+      winnerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
     },
-    rating: 4.0,
-    description: "Kabir Khan retained the National Championship against Riya Sharma in an inter-gender title defense.",
+    rating: 4.5,
+    description:
+      "Baliyaan Akki proved his technical mastery by locking in a modified crossface on Dev to successfully retain the National Championship.",
   },
   {
     id: "match-ns-03",
@@ -528,65 +188,278 @@ export const matches: Match[] = [
     eventName: "IM: NATIONAL SHOWCASE",
     date: "2025-02-15",
     city: "Kolkata",
-    type: "tag-team",
-    competitors: [
-      { wrestlerId: "mumbai-mavericks", wrestler: "The Mumbai Mavericks" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
-      { wrestlerId: "zara-mirza", wrestler: "Zara Mirza" },
-      { wrestlerId: "meera-patel", wrestler: "Meera Patel" },
-    ],
-    result: {
-      winner: "mumbai-mavericks",
-      method: "pinfall",
-      time: "22:10",
-      winnerImage: "https://picsum.photos/seed/mumbai-mavericks/400/500",
-    },
-    rating: 3.5,
-    description: "The Mumbai Mavericks retained in a chaotic tag team gauntlet.",
-  },
-  {
-    id: "match-ns-04",
-    eventId: "national-showcase",
-    eventSlug: "national-showcase",
-    eventName: "IM: NATIONAL SHOWCASE",
-    date: "2025-02-15",
-    city: "Kolkata",
-    type: "ladder",
-    competitors: [
-      { wrestlerId: "dev-malhotra", wrestler: "Dev Malhotra" },
-      { wrestlerId: "rustom-irani", wrestler: "Rustom Irani" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
-      { wrestlerId: "zara-mirza", wrestler: "Zara Mirza" },
-    ],
-    result: {
-      winner: "dev-malhotra",
-      method: "ladder",
-      time: "28:45",
-      winnerImage: "https://i.pravatar.cc/400?img=10",
-    },
-    rating: 4.0,
-    description: "Dev Malhotra climbed the ladder to retrieve a briefcase, securing a future title opportunity.",
-  },
-  {
-    id: "match-ns-05",
-    eventId: "national-showcase",
-    eventSlug: "national-showcase",
-    eventName: "IM: NATIONAL SHOWCASE",
-    date: "2025-02-15",
-    city: "Kolkata",
     type: "singles",
     championship: "im-womens-championship",
     competitors: [
-      { wrestlerId: "riya-sharma", wrestler: "Riya Sharma" },
-      { wrestlerId: "ananya-desai", wrestler: "Ananya Desai" },
+      { wrestlerId: "ishani-rathore", wrestler: "Ishani Rathore" },
+      { wrestlerId: "aleah-james", wrestler: "Aleah James" },
     ],
     result: {
-      winner: "riya-sharma",
+      winner: "ishani-rathore",
       method: "pinfall",
-      time: "13:55",
-      winnerImage: "https://i.pravatar.cc/400?img=26",
+      time: "15:20",
+      winnerImage: "https://user32962.na.imgto.link/public/20260916/image-2.avif",
     },
-    rating: 3.5,
-    description: "Riya Sharma retained the Women's Championship with a thunderous finisher.",
+    rating: 4.2,
+    description:
+      "Ishani Rathore retained her Women's Championship against the agile Aleah James with her signature finishing maneuver.",
+  },
+
+  // =========================================================
+  // IM: RISING (2024-12-14)
+  // =========================================================
+  {
+    id: "match-ris-01",
+    eventId: "rising",
+    eventSlug: "rising",
+    eventName: "IM: RISING",
+    date: "2024-12-14",
+    city: "Bengaluru",
+    type: "singles",
+    competitors: [
+      { wrestlerId: "bhupinder-gujjar", wrestler: "Bhupinder Gujjar" },
+      { wrestlerId: "shane-haste", wrestler: "Shane Haste" },
+    ],
+    result: {
+      winner: "bhupinder-gujjar",
+      method: "pinfall",
+      time: "16:40",
+      winnerImage: "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    },
+    rating: 4.5,
+    description: "Bhupinder Gujjar defeated international contender Shane Haste in a physical brawl.",
+    championship: "im-world-championship",
+    isMainEvent: true,
+  },
+  {
+    id: "match-ris-02",
+    eventId: "rising",
+    eventSlug: "rising",
+    eventName: "IM: RISING",
+    date: "2024-12-14",
+    city: "Bengaluru",
+    type: "singles",
+    championship: "im-womens-championship",
+    competitors: [
+      { wrestlerId: "ishani-rathore", wrestler: "Ishani Rathore" },
+      { wrestlerId: "angel-hayze", wrestler: "Angel Hayze" },
+    ],
+    result: {
+      winner: "ishani-rathore",
+      method: "pinfall",
+      time: "14:15",
+      winnerImage: "https://user32962.na.imgto.link/public/20260916/image-2.avif",
+    },
+    rating: 4.0,
+    description: "Ishani Rathore retained her title after countering Angel Hayze's top-rope attempt.",
+  },
+  {
+    id: "match-ris-03",
+    eventId: "rising",
+    eventSlug: "rising",
+    eventName: "IM: RISING",
+    date: "2024-12-14",
+    city: "Bengaluru",
+    type: "singles",
+    competitors: [
+      { wrestlerId: "bde", wrestler: "BDE" },
+      { wrestlerId: "dev", wrestler: "Dev" },
+    ],
+    result: {
+      winner: "bde",
+      method: "pinfall",
+      time: "12:50",
+      winnerImage: "https://tnawrestling.com/media/fighters/cutouts/d74d3bd9c9d458580a3a4b4f7a9e37e0-2-1.png",
+    },
+    rating: 4.2,
+    description: "BDE surprised the audience with an electric Fall From Glory to pin Dev clean.",
+  },
+  {
+    id: "match-ris-04",
+    eventId: "rising",
+    eventSlug: "rising",
+    eventName: "IM: RISING",
+    date: "2024-12-14",
+    city: "Bengaluru",
+    type: "tag-team",
+    championship: "im-tag-team-championship",
+    competitors: [
+      { wrestlerId: "star-twin", wrestler: "Star Twin" },
+      { wrestlerId: "beer-city-bruiser", wrestler: "Beer City Bruiser" },
+    ],
+    result: {
+      winner: "star-twin",
+      method: "pinfall",
+      time: "17:10",
+      winnerImage: "https://www.postwrestling.com/wp-content/uploads/2022/04/maxresdefault-1-1-678x381.jpg",
+    },
+    rating: 4.0,
+    description: "Star Twin retained the Tag Team titles with a synchronized double-team finisher.",
+  },
+
+  // =========================================================
+  // IM: REVOLUTION (2024-11-22)
+  // =========================================================
+  {
+    id: "match-rev-01",
+    eventId: "revolution",
+    eventSlug: "revolution",
+    eventName: "IM: REVOLUTION",
+    date: "2024-11-22",
+    city: "Delhi",
+    type: "singles",
+    championship: "im-world-championship",
+    competitors: [
+      { wrestlerId: "bhupinder-gujjar", wrestler: "Bhupinder Gujjar" },
+      { wrestlerId: "malkeet-brawler", wrestler: "Malkeet Brawler" },
+    ],
+    result: {
+      winner: "bhupinder-gujjar",
+      method: "pinfall",
+      time: "26:14",
+      winnerImage: "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    },
+    rating: 4.9,
+    description:
+      "In the monumental main event, Bhupinder Gujjar defeated veteran Malkeet Brawler to claim the IM World Championship.",
+    isMainEvent: true,
+  },
+  {
+    id: "match-rev-02",
+    eventId: "revolution",
+    eventSlug: "revolution",
+    eventName: "IM: REVOLUTION",
+    date: "2024-11-22",
+    city: "Delhi",
+    type: "singles",
+    championship: "im-national-championship",
+    competitors: [
+      { wrestlerId: "baliyaan-akki", wrestler: "Baliyaan Akki" },
+      { wrestlerId: "kevin-malik", wrestler: "Kevin Malik" },
+    ],
+    result: {
+      winner: "baliyaan-akki",
+      method: "submission",
+      time: "19:02",
+      winnerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
+    },
+    rating: 4.4,
+    description:
+      "Baliyaan Akki submitted Kevin Malik with surgical precision to inaugurate his reign as National Champion.",
+  },
+  {
+    id: "match-rev-03",
+    eventId: "revolution",
+    eventSlug: "revolution",
+    eventName: "IM: REVOLUTION",
+    date: "2024-11-22",
+    city: "Delhi",
+    type: "singles",
+    competitors: [
+      { wrestlerId: "konosuke-takeshita", wrestler: "Konosuke Takeshita" },
+      { wrestlerId: "phoenix-king", wrestler: "Phoenix King" },
+    ],
+    result: {
+      winner: "konosuke-takeshita",
+      method: "pinfall",
+      time: "23:45",
+      winnerImage: "https://api.ddtpro.jp/files/67bd66b49342b300022f3740/KONOSUKETAKESHITA_thumbnail.png",
+    },
+    rating: 5.0,
+    description:
+      "A 5-star international masterpiece. Takeshita and Phoenix King received a standing ovation from the Delhi crowd.",
+  },
+  {
+    id: "match-rev-04",
+    eventId: "revolution",
+    eventSlug: "revolution",
+    eventName: "IM: REVOLUTION",
+    date: "2024-11-22",
+    city: "Delhi",
+    type: "tag-team",
+    championship: "im-tag-team-championship",
+    competitors: [
+      { wrestlerId: "star-twin", wrestler: "Star Twin" },
+      { wrestlerId: "epico", wrestler: "Epico" },
+    ],
+    result: {
+      winner: "star-twin",
+      method: "pinfall",
+      time: "16:15",
+      winnerImage: "https://www.postwrestling.com/wp-content/uploads/2022/04/maxresdefault-1-1-678x381.jpg",
+    },
+    rating: 4.0,
+    description:
+      "Star Twin captured the inaugural IM Tag Team Championship in a breathless contest against Epico.",
+  },
+
+  // =========================================================
+  // IM: STORM FRONT (2024-09-30) - Inaugural Event
+  // =========================================================
+  {
+    id: "match-sf-01",
+    eventId: "storm-front",
+    eventSlug: "storm-front",
+    eventName: "IM: STORM FRONT",
+    date: "2024-09-30",
+    city: "Chennai",
+    type: "tournament",
+    competitors: [
+      { wrestlerId: "bhupinder-gujjar", wrestler: "Bhupinder Gujjar" },
+      { wrestlerId: "baliyaan-akki", wrestler: "Baliyaan Akki" },
+    ],
+    result: {
+      winner: "bhupinder-gujjar",
+      method: "pinfall",
+      time: "25:30",
+      winnerImage: "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    },
+    rating: 4.9,
+    description:
+      "The tournament classic to determine the #1 contender. Bhupinder Gujjar edged out Baliyaan Akki in a breathless classic.",
+    isMainEvent: true,
+  },
+  {
+    id: "match-sf-02",
+    eventId: "storm-front",
+    eventSlug: "storm-front",
+    eventName: "IM: STORM FRONT",
+    date: "2024-09-30",
+    city: "Chennai",
+    type: "singles",
+    competitors: [
+      { wrestlerId: "ishani-rathore", wrestler: "Ishani Rathore" },
+      { wrestlerId: "aleah-james", wrestler: "Aleah James" },
+    ],
+    result: {
+      winner: "ishani-rathore",
+      method: "pinfall",
+      time: "11:45",
+      winnerImage: "https://user32962.na.imgto.link/public/20260916/image-2.avif",
+    },
+    rating: 4.1,
+    description: "Ishani Rathore became the inaugural IM Women's Champion with a decisive pinfall.",
+    championship: "im-womens-championship",
+  },
+  {
+    id: "match-sf-03",
+    eventId: "storm-front",
+    eventSlug: "storm-front",
+    eventName: "IM: STORM FRONT",
+    date: "2024-09-30",
+    city: "Chennai",
+    type: "singles",
+    competitors: [
+      { wrestlerId: "pranjay", wrestler: "Pranjay" },
+      { wrestlerId: "malkeet-brawler", wrestler: "Malkeet Brawler" },
+    ],
+    result: {
+      winner: "malkeet-brawler",
+      method: "pinfall",
+      time: "14:10",
+      winnerImage: "https://www.wrestlesquare.com/wp-content/uploads/2017/03/malkeet.jpg",
+    },
+    rating: 4.3,
+    description: "Malkeet Brawler claimed a hard-hitting victory over Pranjay with a thunderous powerbomb.",
   },
 ];

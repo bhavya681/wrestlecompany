@@ -26,14 +26,26 @@ export const metadata: Metadata = {
   description:
     "Indus Matworks. India's professional wrestling promotion built for the world. Live events, real athletes, real rivalries, real championships.",
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+    ],
     shortcut: "/logo.png",
-    apple: "/logo.png",
+    apple: [
+      { url: "/logo.png", type: "image/png" },
+    ],
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Indus Matworks",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1320,
+        height: 660,
+        alt: "Indus Matworks — Professional Wrestling",
+      },
+    ],
   },
 };
 
