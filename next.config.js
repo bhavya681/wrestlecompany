@@ -21,13 +21,13 @@ const nextConfig = {
 
       "onlineworldofwrestling.com",
       "www.onlineworldofwrestling.com",
-
+      "tienda.luchalibreaaa.com",
       "pbs.twimg.com",
       "encrypted-tbn0.gstatic.com",
       "hips.hearstapps.com",
-
+"gemini.google.com",
       "www.si.com",
-
+"img.noah.co.jp","api.ddtpro.jp",
       "chatgpt.com",
       "m.media-amazon.com",
       "user32962.na.imgto.link",
