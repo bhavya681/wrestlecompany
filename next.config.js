@@ -1,37 +1,38 @@
 /** @type {import('next').NextConfig} */
+const imageHosts = [
+  "i.pravatar.cc",
+  "picsum.photos",
+  "tnawrestling.com",
+  "www.tnawrestling.com",
+  "wrestlesquare.com",
+  "www.wrestlesquare.com",
+  "onlineworldofwrestling.com",
+  "www.onlineworldofwrestling.com",
+  "tienda.luchalibreaaa.com",
+  "pbs.twimg.com",
+  "encrypted-tbn0.gstatic.com",
+  "hips.hearstapps.com",
+  "gemini.google.com",
+  "www.si.com",
+  "img.noah.co.jp",
+  "api.ddtpro.jp",
+  "postwrestling.com",
+  "www.postwrestling.com",
+  "chatgpt.com",
+  "m.media-amazon.com",
+  "user32962.na.imgto.link",
+  "user43115.na.imgto.link",
+  "static.wixstatic.com",
+  "i.ytimg.com",
+];
+
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.pravatar.cc",
-      },
-      {
-        protocol: "https",
-        hostname: "picsum.photos",
-      },
-    ],
-
-    domains: [
-      "tnawrestling.com",
-      "www.tnawrestling.com",
-
-      "wrestlesquare.com",
-      "www.wrestlesquare.com",
-
-      "onlineworldofwrestling.com",
-      "www.onlineworldofwrestling.com",
-      "tienda.luchalibreaaa.com",
-      "pbs.twimg.com",
-      "encrypted-tbn0.gstatic.com",
-      "hips.hearstapps.com",
-"gemini.google.com",
-      "www.si.com",
-"img.noah.co.jp","api.ddtpro.jp",
-      "chatgpt.com",
-      "m.media-amazon.com",
-      "user32962.na.imgto.link",
-    ],
+    // Next.js caps remotePatterns at 50 entries, so hosts are listed once each.
+    remotePatterns: [...new Set(imageHosts)].map((hostname) => ({
+      protocol: "https",
+      hostname,
+    })),
   },
 };
 

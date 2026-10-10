@@ -35,12 +35,12 @@ export const wrestlers: Wrestler[] = [
     "relatedMedia": []
   },
   {
-    "id": "malkeet-brawler",
-    "name": "Malkeet Brawler",
-    "ringName": "MALKEET BRAWLER",
-    "nickname": "The Indian Brawler",
-    "image": "https://www.wrestlesquare.com/wp-content/uploads/2017/03/malkeet.jpg",
-    "imageFull": "https://www.wrestlesquare.com/wp-content/uploads/2017/03/malkeet.jpg",
+    "id": "jt_baba",
+    "name": "JT Baba",
+    "ringName": "JT BABA",
+    "nickname": "The Mythical Force",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG8-vyRw5UP8QnnaGnsA6iqv2JQdVzpmQ25d_xL027PtD6bJPDtdzhoy_-&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG8-vyRw5UP8QnnaGnsA6iqv2JQdVzpmQ25d_xL027PtD6bJPDtdzhoy_-&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -48,7 +48,7 @@ export const wrestlers: Wrestler[] = [
     "division": "Singles",
     "height": "6'1\"",
     "weight": "235 lbs",
-    "from": "Ludhiana, Punjab, India",
+    "from": "Uttar Pradesh, India",
     "debut": "2016",
     "record": {
       "wins": 22,
@@ -161,8 +161,10 @@ export const wrestlers: Wrestler[] = [
     "style": "Powerhouse",
     "status": "active",
     "finisher": "Malik Driver",
-    "bio": "Renowned as one of North India's most punishing enforcers, Kevin Malik pairs calculated aggression with brutal mat slams. His signature Malik Driver has dismantled numerous top contenders on the national circuit.",
-    "championships": [],
+    "bio": "Renowned as one of North India's most punishing enforcers, Kevin Malik pairs calculated aggression with brutal mat slams. His signature Malik Driver has dismantled numerous top contenders across the promotion.",
+    "championships": [
+      "im-national-championship"
+    ],
     "rivalries": [
       "dev",
       "baliyaan-akki"
@@ -236,12 +238,12 @@ export const wrestlers: Wrestler[] = [
     "relatedMedia": []
   },
   {
-    "id": "pranjay",
-    "name": "Pranjay",
-    "ringName": "PRANJAY",
-    "nickname": "The Hardcore King",
-    "image": "https://www.wrestlesquare.com/wp-content/uploads/2017/03/pranjay.jpg",
-    "imageFull": "https://m.media-amazon.com/images/M/MV5BZTI5MmI2YjEtMDRjNy00MDVhLWJkMDMtNzE4NDIzMDZmYzM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "id": "rohan_raja",
+    "name": "Rohan Raja",
+    "ringName": "ROHAN RAJA",
+    "nickname": "Ravenous",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -249,7 +251,7 @@ export const wrestlers: Wrestler[] = [
     "division": "Singles",
     "height": "6'0\"",
     "weight": "220 lbs",
-    "from": "Lucknow, Uttar Pradesh, India",
+    "from": "West Australia",
     "debut": "2016",
     "record": {
       "wins": 20,
@@ -293,10 +295,8 @@ export const wrestlers: Wrestler[] = [
     "style": "Technical / Aerial Virtuoso",
     "status": "active",
     "finisher": "Namaste Press / Spider Twist",
-    "bio": "Globally recognized for his mastery in Gatoh Move, ChocoPro, and AEW, Baliyan Akki is India's preeminent international wrestling ambassador. His flawless combination of aerial daredevilry and intricate submissions make him the reigning National Champion.",
-    "championships": [
-      "im-national-championship"
-    ],
+    "bio": "Globally recognized for his mastery in Gatoh Move, ChocoPro, and AEW, Baliyan Akki is India's preeminent international wrestling ambassador. His flawless combination of aerial daredevilry and intricate submissions make him one of the promotion's most decorated competitors.",
+    "championships": [],
     "rivalries": [
       "bhupinder-gujjar",
       "dev"
@@ -308,8 +308,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Rahu",
     "ringName": "Rahu",
     "nickname": "The Dark Eclipse",
-    "image": "https://user32962.na.imgto.link/public/20260916/image.avif",
-    "imageFull": "https://user32962.na.imgto.link/public/20260916/image.avif",
+    "image": "https://user32962.na.imgto.link/public/20260926/image.avif",
+    "imageFull": "https://user32962.na.imgto.link/public/20260926/image.avif",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -702,7 +702,7 @@ export const wrestlers: Wrestler[] = [
   {
     "id": "beer-city-bruiser",
     "name": "Beer City Bruiser",
-    "ringName": "The Black Lotus",
+    "ringName": "Beer City Bruiser",
     "nickname": "The Toast of the Town",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_6oo_GP_GGHzLCPUb5QFzXG9d0cbM9ZIvhRkA6KOH_3ZRDSo01hsJrvw&s=10",
     "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_6oo_GP_GGHzLCPUb5QFzXG9d0cbM9ZIvhRkA6KOH_3ZRDSo01hsJrvw&s=10",
@@ -765,10 +765,8 @@ export const wrestlers: Wrestler[] = [
     "style": "Lucha Libre Tag Team",
     "status": "active",
     "finisher": "Twin Superkick / Double Moonsault",
-    "bio": "An electric duo known for their synchronized offense and fearless high-altitude maneuvers. As reigning IM Tag Team Champions, Star Twin dictate an explosive pace in the ring.",
-    "championships": [
-      "im-tag-team-championship"
-    ],
+    "bio": "An electric duo known for their synchronized offense and fearless high-altitude maneuvers. As former IM Tag Team Champions, Star Twin dictate an explosive pace in the ring.",
+    "championships": [],
     "rivalries": [
       "epico",
       "beer-city-bruiser"
@@ -879,7 +877,9 @@ export const wrestlers: Wrestler[] = [
     "status": "active",
     "finisher": "The Khallas",
     "bio": "Led by former WWE World Heavyweight Champion Jinder Mahal (Raj Dhesi), this royal unit commands absolute discipline, immense power, and championship royalty.",
-    "championships": [],
+    "championships": [
+      "im-mens-tag-team-championship"
+    ],
     "rivalries": [
       "epico",
       "star-twin"
@@ -923,17 +923,17 @@ export const wrestlers: Wrestler[] = [
     "relatedMedia": []
   },
   {
-    "id": "hard-up-north",
-    "name": "Hard Up North",
-    "ringName": "Hard Up North",
-    "nickname": "The Northern Grit",
+    "id": "myla-grace-and-harley-hudson",
+    "name": "Myla Grace and Harley Hudson",
+    "ringName": "Myla Grace and Harley Hudson",
+    "nickname": "Myla and Harley",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN3LNbqzSokSj27Tk2ftEauxcZqLxwSX0uKjZ7Dp-E94t-YP_3UjC1PvI&s=10",
     "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN3LNbqzSokSj27Tk2ftEauxcZqLxwSX0uKjZ7Dp-E94t-YP_3UjC1PvI&s=10",
     "role": "tag-team",
     "type": "tag-team",
     "members": [
-      "Rory Coyle",
-      "Gabriel Kidd"
+      "Myla Grace",
+      "Harley Hudson"
     ],
     "weightClass": "Tag Team",
     "gender": "women",
@@ -1024,7 +1024,9 @@ export const wrestlers: Wrestler[] = [
     "status": "active",
     "finisher": "The Idolizer",
     "bio": "Former WWE Women's Tag Team Champions and Impact Knockouts Tag Team Champions, this charismatic Australian duo blends comedy with razor-sharp tag team execution.",
-    "championships": [],
+    "championships": [
+      "im-womens-tag-team-championship"
+    ],
     "rivalries": [
       "the-renegade-twins"
     ],
@@ -1156,7 +1158,9 @@ export const wrestlers: Wrestler[] = [
     "status": "active",
     "finisher": "Mark of the Beast / Gypsy Pistol",
     "bio": "Known globally as Gigi Dolin in WWE NXT and Priscilla Kelly across world independents, she is a multi-time champion with an edgy, unpredictable submission game.",
-    "championships": [],
+    "championships": [
+      "im-womens-world-championship"
+    ],
     "rivalries": [
       "cora-jade",
       "arianna-grace"
@@ -1223,7 +1227,7 @@ export const wrestlers: Wrestler[] = [
     "finisher": "Rathore Clutch / Royal Sunset Flip",
     "bio": "The reigning IM Women's Champion, Ishani Rathore embodies royal composure and lethal ground submissions, holding the division in her firm technical grasp.",
     "championships": [
-      "im-womens-championship"
+      "im-womens-world-championship"
     ],
     "rivalries": [
       "angel-hayze",

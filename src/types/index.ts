@@ -521,6 +521,17 @@ export interface Championship {
   image: string;
 
   /**
+   * Roster division this championship belongs to.
+   *
+   * Example:
+   * "Men's Singles"
+   * "Women's Singles"
+   * "Men's Tag Team"
+   * "Women's Tag Team"
+   */
+  division?: string;
+
+  /**
    * Optional division/weight class.
    */
   weightClass?: string;
@@ -535,6 +546,13 @@ export interface Championship {
     wrestler: string;
     image: string;
     nickname: string;
+    /**
+     * Tag-team partners, when the title is held by a team.
+     *
+     * Example:
+     * ["Raj Dhesi", "Indus Enforcer"]
+     */
+    members?: string[];
   } | null;
 
   /**
