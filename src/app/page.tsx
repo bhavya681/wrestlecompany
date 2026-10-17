@@ -147,27 +147,78 @@ linear - gradient(rgba(212, 175, 55, 0.4) 1px, transparent 1px),
               </p>
             </div>
 
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="shrink-0"
+            <Link
+              href="/championships"
+              className="inline-flex min-h-11 items-center justify-center border border-accent-gold bg-accent-gold/5 px-6 py-2.5 font-display text-xs font-bold uppercase tracking-[0.12em] text-accent-gold transition-all duration-200 hover:bg-accent-gold hover:text-background sm:px-7 sm:text-sm"
             >
-              <Link href="/championships">
-                All Championships
-              </Link>
-            </Button>
+              All Championships
+            </Link>
           </div>
 
-          {/* Championship cards */}
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {championships.map((championship) => (
-              <ChampionshipCard
-                key={championship.id}
-                championship={championship}
-                variant="compact"
-              />
-            ))}
+          {/* Featured World Championship — flagship belt presentation */}
+          <div className="relative isolate overflow-hidden border border-accent-gold/20 bg-[#0b0b0c] rounded-xl p-6 sm:p-8 lg:flex lg:items-center lg:gap-12">
+            <div className="relative flex flex-col items-center justify-center mb-6 sm:mb-0 lg:mb-0 lg:shrink-0 lg:w-[42%]">
+              <div
+                className="relative aspect-[2/1] w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-none overflow-hidden border border-accent-gold/30 bg-black/40"
+              >
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(212,175,55,0.18),transparent_65%)]" />
+                <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(135deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:20px_20px]" />
+                <Image
+                  src="https://user43115.na.imgto.link/public/20261010/b81f5d9bbc7d908a3d9a2a4c-image.avif"
+                  alt="IM World Championship belt"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 480px"
+                  className="object-contain object-center drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] transition-transform duration-700 group-hover:scale-105"
+                  priority
+                />
+              </div>
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 border border-accent-gold/30 bg-black/70 px-4 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-accent-gold backdrop-blur-md">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" aria-hidden="true" />
+                Flagship Title
+              </div>
+            </div>
+
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-accent-red mb-2">
+                The Pinnacle
+              </p>
+              <h3 className="font-display text-3xl font-black uppercase tracking-tight text-foreground sm:text-4xl lg:text-5xl mb-3">
+                IM World Championship
+              </h3>
+              <p className="mt-2 max-w-sm mx-auto sm:mx-0 font-body text-sm leading-7 text-foreground-muted sm:text-base">
+                The undisputed world championship of Indus Matworks — the
+                pinnacle of achievement in Indian professional wrestling.
+              </p>
+
+              <div className="mt-8 flex flex-col items-center sm:items-start gap-3 sm:gap-4">
+                <Link
+                  href="/roster/bhupinder-gujjar"
+                  className="inline-flex min-h-10 items-center justify-center bg-accent-red px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.11em] text-background transition-all duration-200 hover:bg-accent-red-hover sm:px-6 sm:text-sm"
+                >
+                  View Champion
+                </Link>
+                <Link
+                  href="/championships#im-world-championship"
+                  className="inline-flex items-center gap-2 border border-accent-gold/30 px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.11em] text-accent-gold transition-all duration-200 hover:border-accent-gold sm:px-6 sm:text-sm"
+                >
+                  Full History <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Other championships grid */}
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {championships
+              .filter((c) => c.id !== "im-world-championship")
+              .map((championship, index) => (
+                <article key={championship.id}>
+                  <ChampionshipCard
+                    championship={championship}
+                    variant="compact"
+                  />
+                </article>
+              ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,12 @@
 
 import type { Championship, TitleReign } from "@/types";
 
+import worldBeltPng from "@/app/world_championship.png";
+import womensWorldBeltPng from "@/app/diva_world_chamionship.png";
+import maleTagTeamBeltPng from "@/app/male_tag_team.png";
+import divaTagTeamBeltPng from "@/app/diva_tag_team.png";
+import nationalBeltPng from "@/app/national_championship.png";
+
 export const championships: Championship[] = [
   /* ============================================================
      1. IM WORLD CHAMPIONSHIP
@@ -9,7 +15,7 @@ export const championships: Championship[] = [
     id: "im-world-championship",
     name: "IM WORLD CHAMPIONSHIP",
     shortName: "World",
-    image: "/images/belt-world.svg",
+    image: worldBeltPng.src,
     weightClass: "Open Weight",
     division: "Men's Singles",
 
@@ -58,7 +64,7 @@ export const championships: Championship[] = [
     id: "im-universal-championship",
     name: "IM UNIVERSAL CHAMPIONSHIP",
     shortName: "Universal",
-    image: "/images/belt-world.svg",
+    image: worldBeltPng.src,
     weightClass: "Open Weight",
     division: "Men's Singles",
 
@@ -78,7 +84,7 @@ export const championships: Championship[] = [
     id: "im-womens-world-championship",
     name: "IM WOMEN'S WORLD CHAMPIONSHIP",
     shortName: "Women's World",
-    image: "/images/belt-womens.svg",
+    image: womensWorldBeltPng.src,
     weightClass: "Women's",
     division: "Women's Singles",
 
@@ -86,7 +92,7 @@ export const championships: Championship[] = [
       wrestlerId: "priscilla-kelly",
       wrestler: "Prscilla Kelly",
       image:
-        "https://user43115.na.imgto.link/public/20261010/d71df1c4f49abbdbae93f96c-image.avif",
+        "https://user32962.na.imgto.link/public/20261017/4c8eae2e297aa248cf60e7a2-image.avif",
       nickname: "Hell's Favorite Harlot",
     },
 
@@ -127,7 +133,7 @@ export const championships: Championship[] = [
     id: "im-mens-tag-team-championship",
     name: "IM MEN'S TAG TEAM CHAMPIONSHIP",
     shortName: "Men's Tag",
-    image: "/images/belt-tag.svg",
+    image: maleTagTeamBeltPng.src,
     weightClass: "Tag Team",
     division: "Men's Tag Team",
 
@@ -177,7 +183,7 @@ export const championships: Championship[] = [
     id: "im-womens-tag-team-championship",
     name: "IM WOMEN'S TAG TEAM CHAMPIONSHIP",
     shortName: "Women's Tag",
-    image: "/images/belt-tag.svg",
+    image: divaTagTeamBeltPng.src,
     weightClass: "Women's Tag Team",
     division: "Women's Tag Team",
 
@@ -185,7 +191,7 @@ export const championships: Championship[] = [
       wrestlerId: "the-icconics",
       wrestler: "The Icconics",
       image:
-        "https://user43115.na.imgto.link/public/20261010/3f2162e5b7f47bec458c9527-image.avif",
+        "https://user32962.na.imgto.link/public/20261017/39a3d38901be07f2f369ecc4-image.avif",
       nickname: "The Australian Sensation",
       members: ["Cassie Lee", "Jessica McKay"],
     },
@@ -227,7 +233,7 @@ export const championships: Championship[] = [
     id: "im-national-championship",
     name: "IM NATIONAL CHAMPIONSHIP",
     shortName: "National",
-    image: "/images/belt-national.svg",
+    image: nationalBeltPng.src,
     weightClass: "Open Weight",
     division: "Men's Singles",
 
