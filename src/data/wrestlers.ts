@@ -203,106 +203,106 @@ export const wrestlers: Wrestler[] = [
       "pranjay"
     ],
     "relatedMedia": []
-  },
-  {
-    "id": "dev",
-    "name": "Dev",
-    "ringName": "Dev",
-    "nickname": "The Architect",
-    "image": "https://user32962.na.imgto.link/public/20261017/8e53d8a0b140b0bb93504d07-image.avif",
-    "imageFull": "https://user32962.na.imgto.link/public/20261017/8e53d8a0b140b0bb93504d07-image.avif",
-    "role": "wrestler",
-    "type": "singles",
-    "weightClass": "Middleweight",
-    "gender": "men",
-    "division": "Singles",
-    "height": "5'11\"",
-    "weight": "200 lbs",
-    "from": "Sonipat, Haryana, India",
-    "debut": "2018",
-    "record": {
-      "wins": 17,
-      "losses": 8,
-      "draws": 1
-    },
-    "winRate": 65,
-    "style": "Technical / High Flyer",
-    "status": "active",
-    "finisher": "Brainbuster / Devastation",
-    "bio": "Hailing from Haryana's wrestling heartland, Dev is a calculating technician whose strategic game plans consistently neutralize larger opponents. With lightning-quick ring awareness, Dev is considered one of the smartest wrestlers in the promotion.",
-    "championships": [],
-    "rivalries": [
-      "kevin-malik",
-      "bde"
-    ],
-    "relatedMedia": []
-  },
-  {
-    "id": "rohan_raja",
-    "name": "Rohan Raja",
-    "ringName": "ROHAN RAJA",
-    "nickname": "Ravenous",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
-    "role": "wrestler",
-    "type": "singles",
-    "weightClass": "Heavyweight",
-    "gender": "men",
-    "division": "Singles",
-    "height": "6'0\"",
-    "weight": "220 lbs",
-    "from": "West Australia",
-    "debut": "2016",
-    "record": {
-      "wins": 20,
-      "losses": 12,
-      "draws": 0
-    },
-    "winRate": 63,
-    "style": "Brawler / Hardcore",
-    "status": "active",
-    "finisher": "Pranjay Bomb",
-    "bio": "A standout of the Wrestle Square national roster and former Hardcore Champion, Pranjay Pande thrives when matches break down into chaotic brawls. His relentless toughness and high-pain tolerance have earned him respect across the country.",
-    "championships": [],
-    "rivalries": [
-      "malkeet-brawler",
-      "rahu"
-    ],
-    "relatedMedia": []
-  },
-  {
-    "id": "baliyaan-akki",
-    "name": "Baliyaan Akki",
-    "ringName": "Baliyaan Akki",
-    "nickname": "The Technocrat",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
-    "role": "wrestler",
-    "type": "singles",
-    "weightClass": "Cruiserweight",
-    "gender": "men",
-    "division": "Singles",
-    "height": "5'10\"",
-    "weight": "185 lbs",
-    "from": "Gajraula, Uttar Pradesh, India",
-    "debut": "2015",
-    "record": {
-      "wins": 34,
-      "losses": 10,
-      "draws": 1
-    },
-    "winRate": 76,
-    "style": "Technical / Aerial Virtuoso",
-    "status": "active",
-    "finisher": "Namaste Press / Spider Twist",
-    "bio": "Globally recognized for his mastery in Gatoh Move, ChocoPro, and AEW, Baliyan Akki is India's preeminent international wrestling ambassador. His flawless combination of aerial daredevilry and intricate submissions make him one of the promotion's most decorated competitors.",
-    "championships": [],
-    "rivalries": [
-      "bhupinder-gujjar",
-      "dev"
-    ],
-    "relatedMedia": []
-  },
+   },
+  // {
+  //   "id": "dev",
+  //   "name": "Dev",
+  //   "ringName": "Dev",
+  //   "nickname": "The Architect",
+  //   "image": "https://user32962.na.imgto.link/public/20261017/8e53d8a0b140b0bb93504d07-image.avif",
+  //   "imageFull": "https://user32962.na.imgto.link/public/20261017/8e53d8a0b140b0bb93504d07-image.avif",
+  //   "role": "wrestler",
+  //   "type": "singles",
+  //   "weightClass": "Middleweight",
+  //   "gender": "men",
+  //   "division": "Singles",
+  //   "height": "5'11\"",
+  //   "weight": "200 lbs",
+  //   "from": "Sonipat, Haryana, India",
+  //   "debut": "2018",
+  //   "record": {
+  //     "wins": 17,
+  //     "losses": 8,
+  //     "draws": 1
+  //   },
+  //   "winRate": 65,
+  //   "style": "Technical / High Flyer",
+  //   "status": "active",
+  //   "finisher": "Brainbuster / Devastation",
+  //   "bio": "Hailing from Haryana's wrestling heartland, Dev is a calculating technician whose strategic game plans consistently neutralize larger opponents. With lightning-quick ring awareness, Dev is considered one of the smartest wrestlers in the promotion.",
+  //   "championships": [],
+  //   "rivalries": [
+  //     "kevin-malik",
+  //     "bde"
+  //   ],
+  //   "relatedMedia": []
+  // },
+  // {
+  //   "id": "rohan_raja",
+  //   "name": "Rohan Raja",
+  //   "ringName": "ROHAN RAJA",
+  //   "nickname": "Ravenous",
+  //   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
+  //   "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0GrmlZpyWcge3me-5rlTwi_hftYNqdP1uN3RBIj4BA&s=10",
+  //   "role": "wrestler",
+  //   "type": "singles",
+  //   "weightClass": "Heavyweight",
+  //   "gender": "men",
+  //   "division": "Singles",
+  //   "height": "6'0\"",
+  //   "weight": "220 lbs",
+  //   "from": "West Australia",
+  //   "debut": "2016",
+  //   "record": {
+  //     "wins": 20,
+  //     "losses": 12,
+  //     "draws": 0
+  //   },
+  //   "winRate": 63,
+  //   "style": "Brawler / Hardcore",
+  //   "status": "active",
+  //   "finisher": "Pranjay Bomb",
+  //   "bio": "A standout of the Wrestle Square national roster and former Hardcore Champion, Pranjay Pande thrives when matches break down into chaotic brawls. His relentless toughness and high-pain tolerance have earned him respect across the country.",
+  //   "championships": [],
+  //   "rivalries": [
+  //     "malkeet-brawler",
+  //     "rahu"
+  //   ],
+  //   "relatedMedia": []
+  // },
+  // {
+  //   "id": "baliyaan-akki",
+  //   "name": "Baliyaan Akki",
+  //   "ringName": "Baliyaan Akki",
+  //   "nickname": "The Technocrat",
+  //   "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
+  //   "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5qy6h9gUyzO6panivV8QkCmBbKCGdPNQ_iT3AaN4Q6A&s=10",
+  //   "role": "wrestler",
+  //   "type": "singles",
+  //   "weightClass": "Cruiserweight",
+  //   "gender": "men",
+  //   "division": "Singles",
+  //   "height": "5'10\"",
+  //   "weight": "185 lbs",
+  //   "from": "Gajraula, Uttar Pradesh, India",
+  //   "debut": "2015",
+  //   "record": {
+  //     "wins": 34,
+  //     "losses": 10,
+  //     "draws": 1
+  //   },
+  //   "winRate": 76,
+  //   "style": "Technical / Aerial Virtuoso",
+  //   "status": "active",
+  //   "finisher": "Namaste Press / Spider Twist",
+  //   "bio": "Globally recognized for his mastery in Gatoh Move, ChocoPro, and AEW, Baliyan Akki is India's preeminent international wrestling ambassador. His flawless combination of aerial daredevilry and intricate submissions make him one of the promotion's most decorated competitors.",
+  //   "championships": [],
+  //   "rivalries": [
+  //     "bhupinder-gujjar",
+  //     "dev"
+  //   ],
+  //   "relatedMedia": []
+  // },
   {
     "id": "rahu",
     "name": "Rahu",
@@ -741,8 +741,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Star Twin",
     "ringName": "Star Twin",
     "nickname": "The Stellar Tandem",
-    "image": "https://www.postwrestling.com/wp-content/uploads/2022/04/maxresdefault-1-1-678x381.jpg",
-    "imageFull": "https://www.postwrestling.com/wp-content/uploads/2022/04/maxresdefault-1-1-678x381.jpg",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQoSCsKb-PUVH7wLkWhshE2q0Ef2qU7onSaImCAUYgLSnsHLmUl_AdB_s&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQoSCsKb-PUVH7wLkWhshE2q0Ef2qU7onSaImCAUYgLSnsHLmUl_AdB_s&s=10",
     "role": "tag-team",
     "type": "tag-team",
     "members": [
@@ -769,80 +769,6 @@ export const wrestlers: Wrestler[] = [
     "championships": [],
     "rivalries": [
       "epico",
-      "beer-city-bruiser"
-    ],
-    "relatedMedia": []
-  },
-  {
-    "id": "epico",
-    "name": "Epico",
-    "ringName": "Epico",
-    "nickname": "The Dynasty",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtzY-coLEXuYv3JYDQUwYlq5q4_YmNAIuMWpZPrdjxww&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtzY-coLEXuYv3JYDQUwYlq5q4_YmNAIuMWpZPrdjxww&s=10",
-    "role": "tag-team",
-    "type": "tag-team",
-    "members": [
-      "Epico Colón",
-      "Primo Colón"
-    ],
-    "weightClass": "Tag Team",
-    "gender": "men",
-    "division": "Tag Team",
-    "height": "Team",
-    "weight": "430 lbs (Combined)",
-    "from": "San Juan, Puerto Rico",
-    "debut": "2005",
-    "record": {
-      "wins": 32,
-      "losses": 15,
-      "draws": 1
-    },
-    "winRate": 67,
-    "style": "Technical Tag Team",
-    "status": "active",
-    "finisher": "Backstabber / Double DDT",
-    "bio": "Former WWE Tag Team Champions from Puerto Rico's iconic Colón wrestling family, Epico and Primo bring decades of masterclass tag chemistry and cunning championship instinct.",
-    "championships": [],
-    "rivalries": [
-      "star-twin",
-      "the-maharaja"
-    ],
-    "relatedMedia": []
-  },
-  {
-    "id": "blunt-force-trauma",
-    "name": "Blunt Force Trauma",
-    "ringName": "Blunt Force Trauma",
-    "nickname": "The Masked Enforcers",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJSTCqlI1H60Qzrd_3PTFD8mK4h8Q50v7zLFkt6iWiBA&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJSTCqlI1H60Qzrd_3PTFD8mK4h8Q50v7zLFkt6iWiBA&s=10",
-    "role": "tag-team",
-    "type": "tag-team",
-    "members": [
-      "Damage",
-      "Carnage"
-    ],
-    "weightClass": "Tag Team",
-    "gender": "men",
-    "division": "Tag Team",
-    "height": "Team",
-    "weight": "540 lbs (Combined)",
-    "from": "USA",
-    "debut": "2022",
-    "record": {
-      "wins": 23,
-      "losses": 8,
-      "draws": 0
-    },
-    "winRate": 74,
-    "style": "Powerhouse Tag Team",
-    "status": "active",
-    "finisher": "Trauma Drop",
-    "bio": "Former NWA World Tag Team Champions, Damage and Carnage are masked enforcers who demolish any tandem standing between them and tag team supremacy.",
-    "championships": [],
-    "rivalries": [
-      "the-basham-brothers",
       "beer-city-bruiser"
     ],
     "relatedMedia": []
@@ -971,9 +897,9 @@ export const wrestlers: Wrestler[] = [
       "Veer",
       "Tyson"
     ],
-    "weightClass": "Tag Team",
+   "weightClass": "Women's Tag Team",
     "gender": "women",
-    "division": "Tag Team",
+    "division": "Women's Tag Team",
     "height": "Team",
     "weight": "530 lbs (Combined)",
     "from": "Punjab, India",
@@ -1862,38 +1788,175 @@ export const wrestlers: Wrestler[] = [
     "rivalries": [],
     "relatedMedia": []
   },  
-  {
-    "id": "rusev-and-lana",
-    "name": "Rusev and Lana",
-    "ringName": "Rusev & Lana",
-    "nickname": "The Power Couple",
-    "image": "https://user32962.na.imgto.link/public/20261017/7ae51eb1ab721c80bf7a2848-image.avif",
-    "imageFull": "https://user32962.na.imgto.link/public/20261017/7ae51eb1ab721c80bf7a2848-image.avif",
-    "role": "tag-team",
-    "type": "tag-team",
-    "members": [
-      "Rusev",
-      "Lana"
-    ],
-    "weightClass": "Tag Team",
-    "gender": "men",
-    "division": "Tag Team",
-    "height": "Team",
-    "weight": "450 lbs (Combined)",
-    "from": "Bulgaria / Russia",
-    "debut": "2014",
-    "record": {
-      "wins": 0,
-      "losses": 0,
-      "draws": 0
+    {
+      "id": "baliyan-akki-and-mei-suruga",
+      "name": "Baliyan Akki and Mei Suruga",
+      "ringName": "Best Bros",
+      "nickname": "The Best Bros",
+      "image": "https://user32962.na.imgto.link/public/20261017/88048b088a23416fc0448259-image.avif",
+      "imageFull": "https://user32962.na.imgto.link/public/20261017/88048b088a23416fc0448259-image.avif",
+      "role": "tag-team",
+      "type": "tag-team",
+      "members": [
+        "Baliyan Akki",
+        "Mei Suruga"
+      ],
+      "weightClass": "Tag Team",
+      "gender": "men",
+      "division": "Mixed Tag Team",
+      "height": "Team",
+      "weight": "Not officially listed as a combined weight",
+      "from": "India / Japan",
+      "debut": "2019",
+      "record": {
+        "wins": 0,
+        "losses": 0,
+        "draws": 0
+      },
+      "winRate": 0,
+      "style": "High-Flying, Technical and Fast-Paced",
+      "status": "active",
+      "finisher": "Double-Team Combination",
+      "bio": "Baliyan Akki and Mei Suruga, known for their Best Bros partnership, combine explosive athleticism, technical skill, speed, and entertaining teamwork. Their established tag-team chemistry makes them an exciting addition to the Indus Matworks mixed tag team division.",
+      "championships": [],
+      "rivalries": [],
+      "relatedMedia": []
     },
-    "winRate": 0,
-    "style": "Powerhouse Tag Team",
-    "status": "active",
-    "finisher": "The Accolade / Double Team Powerbomb",
-    "bio": "A real-life couple turned tag team powerhouse, Rusev and Lana bring brute strength, commanding presence, and championship ambition to the Indus Matworks tag team division.",
-    "championships": [],
-    "rivalries": [],
-    "relatedMedia": []
-  }
+    {
+      "id": "rusev-and-lana",
+      "name": "Rusev and Lana",
+      "ringName": "Rusev & Lana",
+      "nickname": "The Power Couple",
+      "image": "https://user32962.na.imgto.link/public/20261017/a1b2325451bcad2b65a41875-image.avif",
+      "imageFull": "https://user32962.na.imgto.link/public/20261017/a1b2325451bcad2b65a41875-image.avif",
+      "role": "tag-team",
+      "type": "tag-team",
+      "members": [
+        "Rusev",
+        "Lana"
+      ],
+      "weightClass": "Tag Team",
+      "gender": "men",
+      "division": "Mixed Tag Team",
+      "height": "Rusev: 6'0\"; Lana: 5'7\"",
+      "weight": "Rusev: 304 lbs; Lana: Not officially confirmed",
+      "from": "Bulgaria / Russia",
+      "debut": "2014",
+      "record": {
+        "wins": 0,
+        "losses": 0,
+        "draws": 0
+      },
+      "winRate": 0,
+      "style": "Powerhouse and Manager-Assisted Teamwork",
+      "status": "active",
+      "finisher": "The Accolade / Double-Team Powerbomb",
+      "bio": "The real-life married couple Rusev and Lana made a memorable impact with their commanding presence, intimidating presentation, and powerhouse offense. Their combination of brute strength and ringside strategy makes them a compelling concept for the Indus Matworks mixed tag team division.",
+      "championships": [
+        "im-couple-tag-team-championship"
+      ],
+      "rivalries": [],
+      "relatedMedia": []
+    },
+    {
+      "id": "wxm-dev-and-mila-smidt",
+      "name": "Dev and Mila Smidt",
+      "ringName": "The Zamindar Alliance",
+      "nickname": "Power and Precision",
+      "image": "https://user32962.na.imgto.link/public/20261017/4a12ee4d27c1650b6b124375-image.avif",
+      "imageFull": "https://user32962.na.imgto.link/public/20261017/4a12ee4d27c1650b6b124375-image.avif",
+      "role": "tag-team",
+      "type": "tag-team",
+      "members": [
+        "Dev",
+        "Mila Smidt"
+      ],
+      "weightClass": "Tag Team",
+      "gender": "men",
+      "division": "Mixed Tag Team",
+      "height": "Dev: 6'3\"; Mila Smidt: 5'3\"",
+      "weight": "Dev: 87 kg; Mila Smidt: 60 kg",
+      "from": "India / France",
+      "debut": "2026",
+      "record": {
+        "wins": 0,
+        "losses": 0,
+        "draws": 0
+      },
+      "winRate": 0,
+      "style": "Powerhouse and Technical",
+      "status": "active",
+      "finisher": "Zamindar Strike / Double-Team Takedown",
+      "bio": "WXM's Dev and Mila Smidt bring contrasting strengths to the mixed tag team division. Dev delivers size and power, while Mila contributes speed, technique, and international experience. Their alliance offers a strong foundation for a competitive Indus Matworks tag team storyline.",
+      "championships": [],
+      "rivalries": [],
+      "relatedMedia": []
+    },
+    {
+      "id": "big-damo-and-nikki-cross",
+      "name": "Big Damo and Nikki Cross",
+      "ringName": "Big Damo & Nikki Storm",
+      "nickname": "The Chaos Couple",
+      "image": "https://user32962.na.imgto.link/public/20261017/6afdb46aa180ca7f1aa3bfa3-image.avif",
+      "imageFull": "https://user32962.na.imgto.link/public/20261017/6afdb46aa180ca7f1aa3bfa3-image.avif",
+      "role": "tag-team",
+      "type": "tag-team",
+      "members": [
+        "Big Damo",
+        "Nikki Storm"
+      ],
+      "weightClass": "Tag Team",
+      "gender": "men",
+      "division": "Mixed Tag Team",
+      "height": "Team",
+      "weight": "Not officially listed as a combined weight",
+      "from": "Northern Ireland / Scotland",
+      "debut": "2026",
+      "record": {
+        "wins": 0,
+        "losses": 0,
+        "draws": 0
+      },
+      "winRate": 0,
+      "style": "Powerhouse and Unpredictable Brawling",
+      "status": "active",
+      "finisher": "Double-Team Powerbomb / Diving Crossbody Combination",
+      "bio": "Real-life married wrestlers Big Damo and Nikki Storm, formerly known to WWE audiences as Killian Dain and Nikki Cross, combine heavyweight aggression with wild, unpredictable offense. Their real-life mixed-tag reunion makes them a compelling team for the Indus Matworks division.",
+      "championships": [],
+      "rivalries": [],
+      "relatedMedia": []
+    },{
+      "id": "rohan-raja-and-aurora-teves",
+      "name": "Rohan Raja and Aurora Teves",
+      "ringName": "The Royal Alliance",
+      "nickname": "The Royal Power Couple",
+      "image": "https://user32962.na.imgto.link/public/20261017/a6003dfe3a582eb7935cff5d-image.avif",
+      "imageFull": "https://user32962.na.imgto.link/public/20261017/a6003dfe3a582eb7935cff5d-image.avif",
+      "role": "tag-team",
+      "type": "tag-team",
+      "members": [
+        "Rohan Raja",
+        "Aurora Teves"
+      ],
+      "weightClass": "Tag Team",
+      "gender": "men",
+      "division": "Mixed Tag Team",
+      "height": "Team",
+      "weight": "Not officially confirmed as a combined weight",
+      "from": "United States",
+      "debut": "2026",
+      "record": {
+        "wins": 0,
+        "losses": 0,
+        "draws": 0
+      },
+      "winRate": 0,
+      "style": "Strategic, Aggressive and Power-Based",
+      "status": "active",
+      "finisher": "Royal Decree",
+      "bio": "Real-life couple Rohan Raja and Aurora Teves bring charisma, ambition, and calculated aggression to the Indus Matworks Mixed Tag Team division. Rohan provides an intense in-ring presence, while Aurora adds ringside strategy and personality. Their partnership combines royal presentation with a ruthless competitive edge.",
+      "championships": [],
+      "rivalries": [],
+      "relatedMedia": []
+    }
 ];

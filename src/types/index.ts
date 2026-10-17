@@ -29,6 +29,7 @@ export type Division =
   | "Tag Team"
   | "Women's Singles"
   | "Women's Tag Team"
+  | "Mixed Tag Team"
   | "Manager"
   | "Officials"
   | "Broadcast Team";

@@ -6,6 +6,7 @@ import womensWorldBeltPng from "@/app/diva_world_chamionship.png";
 import maleTagTeamBeltPng from "@/app/male_tag_team.png";
 import divaTagTeamBeltPng from "@/app/diva_tag_team.png";
 import nationalBeltPng from "@/app/national_championship.png";
+import coupleTagTeamBeltPng from "@/app/Couple_Tag_Team_Championship.png";
 
 export const championships: Championship[] = [
   /* ============================================================
@@ -56,30 +57,6 @@ export const championships: Championship[] = [
       },
     ],
   },
-
-  /* ============================================================
-     2. IM UNIVERSAL CHAMPIONSHIP
-     ============================================================ */
-  {
-    id: "im-universal-championship",
-    name: "IM UNIVERSAL CHAMPIONSHIP",
-    shortName: "Universal",
-    image: worldBeltPng.src,
-    weightClass: "Open Weight",
-    division: "Men's Singles",
-
-    currentChampion: null,
-
-    reign: 0,
-    daysHeld: 0,
-    defenses: 0,
-    lastDefense: null,
-    history: [],
-  },
-
-  /* ============================================================
-     3. IM WOMEN'S WORLD CHAMPIONSHIP
-     ============================================================ */
   {
     id: "im-womens-world-championship",
     name: "IM WOMEN'S WORLD CHAMPIONSHIP",
@@ -124,11 +101,97 @@ export const championships: Championship[] = [
         defenses: 4,
       },
     ],
-  },
+  }, {
+    id: "im-national-championship",
+    name: "IM NATIONAL CHAMPIONSHIP",
+    shortName: "National",
+    image: nationalBeltPng.src,
+    weightClass: "Open Weight",
+    division: "Men's Singles",
 
-  /* ============================================================
-     4. IM MEN'S TAG TEAM CHAMPIONSHIP
-     ============================================================ */
+    currentChampion: {
+      wrestlerId: "kevin-malik",
+      wrestler: "Kevin Malik",
+      image:
+        "https://user43115.na.imgto.link/public/20261010/06810ca63ede16a2e65607d7-image.avif",
+      nickname: "The Delhi Destroyer",
+    },
+
+    reign: 1,
+    daysHeld: 74,
+    defenses: 3,
+
+    lastDefense: {
+      event: "IM: RISING",
+      date: "2024-12-14",
+      opponent: "Dev",
+    },
+
+    history: [
+      {
+        champion: "Kevin Malik",
+        reign: 1,
+        from: "2024-11-01",
+        to: null,
+        days: 74,
+        defenses: 3,
+      },
+      {
+        champion: "Baliyaan Akki",
+        reign: 1,
+        from: "2024-08-15",
+        to: "2024-11-01",
+        days: 78,
+        defenses: 2,
+      },
+    ],
+  },
+  {
+    id: "im-couple-tag-team-championship",
+    name: "IM COUPLE TAG TEAM CHAMPIONSHIP",
+    shortName: "Couple Tag",
+    image: coupleTagTeamBeltPng.src,
+    weightClass: "Mixed Tag Team",
+    division: "Mixed Tag Team",
+
+    currentChampion: {
+      wrestlerId: "rusev-and-lana",
+      wrestler: "Rusev & Lana",
+      image:
+        "https://user32962.na.imgto.link/public/20261017/a1b2325451bcad2b65a41875-image.avif",
+      nickname: "The Power Couple",
+      members: ["Rusev", "Lana"],
+    },
+
+    reign: 1,
+    daysHeld: 88,
+    defenses: 4,
+
+    lastDefense: {
+      event: "IM: RISING",
+      date: "2024-12-14",
+      opponent: "The Icconics",
+    },
+
+    history: [
+      {
+        champion: "Rusev & Lana",
+        reign: 1,
+        from: "2024-10-05",
+        to: null,
+        days: 88,
+        defenses: 4,
+      },
+      {
+        champion: "The Maharaja",
+        reign: 1,
+        from: "2024-06-15",
+        to: "2024-10-05",
+        days: 112,
+        defenses: 6,
+      },
+    ],
+  },
   {
     id: "im-mens-tag-team-championship",
     name: "IM MEN'S TAG TEAM CHAMPIONSHIP",
@@ -175,10 +238,6 @@ export const championships: Championship[] = [
       },
     ],
   },
-
-  /* ============================================================
-     5. IM WOMEN'S TAG TEAM CHAMPIONSHIP
-     ============================================================ */
   {
     id: "im-womens-tag-team-championship",
     name: "IM WOMEN'S TAG TEAM CHAMPIONSHIP",
@@ -222,55 +281,6 @@ export const championships: Championship[] = [
         to: "2024-10-05",
         days: 112,
         defenses: 6,
-      },
-    ],
-  },
-
-  /* ============================================================
-     6. IM NATIONAL CHAMPIONSHIP
-     ============================================================ */
-  {
-    id: "im-national-championship",
-    name: "IM NATIONAL CHAMPIONSHIP",
-    shortName: "National",
-    image: nationalBeltPng.src,
-    weightClass: "Open Weight",
-    division: "Men's Singles",
-
-    currentChampion: {
-      wrestlerId: "kevin-malik",
-      wrestler: "Kevin Malik",
-      image:
-        "https://user43115.na.imgto.link/public/20261010/06810ca63ede16a2e65607d7-image.avif",
-      nickname: "The Delhi Destroyer",
-    },
-
-    reign: 1,
-    daysHeld: 74,
-    defenses: 3,
-
-    lastDefense: {
-      event: "IM: RISING",
-      date: "2024-12-14",
-      opponent: "Dev",
-    },
-
-    history: [
-      {
-        champion: "Kevin Malik",
-        reign: 1,
-        from: "2024-11-01",
-        to: null,
-        days: 74,
-        defenses: 3,
-      },
-      {
-        champion: "Baliyaan Akki",
-        reign: 1,
-        from: "2024-08-15",
-        to: "2024-11-01",
-        days: 78,
-        defenses: 2,
       },
     ],
   },

@@ -8,8 +8,11 @@ import type { Wrestler } from "@/types";
 
 export type RosterGenderFilter = "all" | "men" | "women";
 
+export type RosterTagTeamFilter = "all" | "mens" | "womens" | "mixed";
+
 export type RosterPrimaryFilter =
   | RosterGenderFilter
+  | RosterTagTeamFilter
   | "tag"
   | "champions";
 
@@ -289,6 +292,28 @@ export function matchesGender(
   if (gender === "all") return true;
 
   return normalizeField(wrestler.gender) === gender;
+}
+
+export function matchesTagTeamDivision(
+  wrestler: Wrestler,
+  filter: RosterTagTeamFilter
+): boolean {
+  if (filter === "all") return true;
+
+  if (!isTagTeam(wrestler)) return false;
+
+  const division = normalizeField(wrestler.division);
+
+  switch (filter) {
+    case "mens":
+      return division === "tag team";
+    case "womens":
+      return division === "women's tag team";
+    case "mixed":
+      return division === "mixed tag team";
+    default:
+      return true;
+  }
 }
 
 export function matchesCategory(

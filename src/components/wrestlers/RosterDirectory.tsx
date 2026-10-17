@@ -19,6 +19,7 @@ import {
   isTagTeam,
   matchesCategory,
   matchesGender,
+  matchesTagTeamDivision,
   type RosterCategoryFilter,
   type RosterPrimaryFilter,
 } from "@/lib/roster";
@@ -29,7 +30,10 @@ const PRIMARY_LABELS: { key: RosterPrimaryFilter; label: string }[] = [
   { key: "all", label: "All" },
   { key: "men", label: "Men" },
   { key: "women", label: "Women" },
-  { key: "tag", label: "Tag Teams" },
+  { key: "mens", label: "Men's Tag Teams" },
+  { key: "womens", label: "Women's Tag Teams" },
+  { key: "mixed", label: "Couple Tag Teams" },
+  { key: "tag", label: "All Tag Teams" },
   { key: "champions", label: "Champions" },
 ];
 
@@ -49,6 +53,10 @@ function matchesPrimary(
   if (filter === "champions") return isChampion(wrestler);
 
   if (filter === "tag") return isTagTeam(wrestler);
+
+  if (filter === "mens") return matchesTagTeamDivision(wrestler, "mens");
+  if (filter === "womens") return matchesTagTeamDivision(wrestler, "womens");
+  if (filter === "mixed") return matchesTagTeamDivision(wrestler, "mixed");
 
   return matchesGender(wrestler, filter);
 }
