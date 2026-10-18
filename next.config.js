@@ -23,7 +23,15 @@ const imageHosts = [
   "user32962.na.imgto.link",
   "user43115.na.imgto.link",
   "user46002.na.imgto.link",
+  "preview.redd.it",
+  "s.yimg.com",
+  "www.wrestling-world.com",
   "static.wixstatic.com",
+  "i.pinimg.com",
+  "outsports-wp.b-cdn.net",
+  "static.wikia.nocookie.net",
+  "thumb.wikimedia.org",
+  "wrestlepurists.com",
   "i.ytimg.com",
 ];
 
