@@ -25,13 +25,8 @@ interface WrestlerCardProps {
   wrestler: Wrestler;
   variant?: "default" | "compact" | "profile";
   showDetails?: boolean;
-  /** Poster index rendered in the corner of the default variant. */
   index?: number;
 }
-
-/* =========================================================
-   PROFILE LINK
-   ========================================================= */
 
 function ProfileLink({
   href,
@@ -63,14 +58,10 @@ function ProfileLink({
   );
 }
 
-/* =========================================================
-   STATUS DOT
-   ========================================================= */
-
 function StatusDot({ status }: { status: Wrestler["status"] }) {
   const statusStyles: Record<string, string> = {
-    active: "bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.75)]",
-    inactive: "bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.65)]",
+    active: "bg-green-400 shadow-[0_0_12px_rgba(74,222,128,0.8)]",
+    inactive: "bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.7)]",
     retired: "bg-gray-500",
   };
 
@@ -78,21 +69,17 @@ function StatusDot({ status }: { status: Wrestler["status"] }) {
     <span className="inline-flex min-w-0 items-center gap-1.5">
       <span
         className={cn(
-          "h-1.5 w-1.5 shrink-0 rounded-full",
+          "h-2 w-2 shrink-0 rounded-full",
           statusStyles[status] ?? "bg-gray-500"
         )}
         aria-hidden="true"
       />
-      <span className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-white/65">
+      <span className="truncate font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-white/70">
         {status}
       </span>
     </span>
   );
 }
-
-/* =========================================================
-   BADGE VARIANT
-   ========================================================= */
 
 function getBadgeVariant(wrestler: Wrestler): "red" | "gold" {
   const role = String(wrestler.role || "").toLowerCase();
@@ -112,19 +99,15 @@ function getBadgeVariant(wrestler: Wrestler): "red" | "gold" {
     : "red";
 }
 
-/* =========================================================
-   TEAM MEMBERS
-   ========================================================= */
-
 function TeamMembers({ wrestler }: { wrestler: Wrestler }) {
   if (!wrestler.members?.length) return null;
 
   return (
-    <div className="mt-2 flex min-w-0 flex-wrap items-center gap-1">
+    <div className="mt-2.5 flex min-w-0 flex-wrap items-center gap-1.5">
       {wrestler.members.map((member) => (
         <span
           key={member}
-          className="max-w-full truncate border border-accent-gold/20 bg-accent-gold/5 px-1.5 py-0.5 font-mono text-[7px] font-semibold uppercase tracking-[0.1em] text-accent-gold"
+          className="max-w-full truncate border border-accent-gold/20 bg-accent-gold/5 px-2 py-0.5 font-mono text-[8px] font-semibold uppercase tracking-[0.1em] text-accent-gold"
         >
           {member}
         </span>
@@ -133,50 +116,35 @@ function TeamMembers({ wrestler }: { wrestler: Wrestler }) {
   );
 }
 
-/* =========================================================
-   LOCATION META
-   ========================================================= */
-
-function LocationMeta({
-  wrestler,
-  dark = false,
-}: {
-  wrestler: Wrestler;
-  dark?: boolean;
-}) {
+function LocationMeta({ wrestler, dark }: { wrestler: Wrestler; dark?: boolean }) {
   const location = getLocation(wrestler);
   const country = getCountry(wrestler);
   const flag = getFlagEmoji(wrestler);
 
   if (!location) return null;
 
+  const className = cn(
+    "flex min-w-0 items-center gap-2",
+    dark ? "text-white/50" : "text-foreground-muted"
+  );
+
   return (
-    <div
-      className={cn(
-        "flex min-w-0 items-center gap-1.5",
-        dark ? "text-white/45" : "text-foreground-muted"
-      )}
-      title={location}
-    >
+    <div className={className} title={location}>
       {flag && (
         <span
           aria-hidden="true"
-          className="shrink-0 drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]"
+          className="shrink-0 drop-shadow-[0_0_8px_rgba(0,0,0,0.9)]"
         >
           {flag}
         </span>
       )}
 
-      <span className="min-w-0 truncate font-mono text-[8px] uppercase tracking-[0.12em]">
+      <span className="min-w-0 truncate font-mono text-[8px] uppercase tracking-[0.14em]">
         {country || location}
       </span>
     </div>
   );
 }
-
-/* =========================================================
-   RECORD STATS
-   ========================================================= */
 
 function RecordStats({ wrestler }: { wrestler: Wrestler }) {
   const { wins, losses, draws, total } = getRecord(wrestler);
@@ -186,11 +154,11 @@ function RecordStats({ wrestler }: { wrestler: Wrestler }) {
     <div className="min-w-0">
       <div className="flex min-w-0 items-end justify-between gap-4">
         <div className="min-w-0">
-          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-foreground-muted">
+          <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-foreground-muted">
             Career Record
           </p>
 
-          <div className="mt-1.5 flex items-center gap-1.5 font-mono">
+          <div className="mt-1.5 flex items-center gap-2 font-mono">
             <span className="text-sm font-bold text-foreground">
               {wins}W
             </span>
@@ -206,7 +174,7 @@ function RecordStats({ wrestler }: { wrestler: Wrestler }) {
         </div>
 
         <div className="shrink-0 text-right">
-          <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-foreground-muted">
+          <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-foreground-muted">
             Win Rate
           </p>
 
@@ -225,12 +193,12 @@ function RecordStats({ wrestler }: { wrestler: Wrestler }) {
             />
           </div>
 
-          <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.16em] text-foreground-muted-dark">
+          <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.18em] text-foreground-muted-dark">
             {total} {total === 1 ? "Match" : "Matches"}
           </p>
         </>
       ) : (
-        <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-foreground-muted-dark">
+        <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-foreground-muted-dark">
           No recorded matches
         </p>
       )}
@@ -238,32 +206,24 @@ function RecordStats({ wrestler }: { wrestler: Wrestler }) {
   );
 }
 
-/* =========================================================
-   CARD TOP META
-   ========================================================= */
-
 function CardTopMeta({ wrestler }: { wrestler: Wrestler }) {
   const badgeVariant = getBadgeVariant(wrestler);
   const roleLabel = getRoleLabel(wrestler);
 
   return (
-    <div className="absolute left-3 right-3 top-3 z-30 flex min-w-0 items-start justify-between gap-2 sm:left-4 sm:right-4 sm:top-4">
-      <div className="min-w-0 max-w-[65%]">
+    <div className="absolute left-4 right-4 top-4 z-30 flex min-w-0 items-start justify-between gap-2 sm:left-5 sm:right-5 sm:top-5">
+      <div className="min-w-0 max-w-[70%]">
         <Badge variant={badgeVariant} size="sm">
           {roleLabel}
         </Badge>
       </div>
 
-      <div className="min-w-0 max-w-[38%] rounded-full border border-white/10 bg-black/50 px-2 py-1.5 backdrop-blur-md">
+      <div className="min-w-0 max-w-[30%] rounded-full border border-white/10 bg-black/60 px-2.5 py-1.5 backdrop-blur-md">
         <StatusDot status={wrestler.status} />
       </div>
     </div>
   );
 }
-
-/* =========================================================
-   HOVER STATS
-   ========================================================= */
 
 function HoverStats({ wrestler }: { wrestler: Wrestler }) {
   const { wins, losses, draws, total } = getRecord(wrestler);
@@ -272,16 +232,16 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
   return (
     <div
       className={cn(
-        "pointer-events-none absolute inset-x-2 bottom-2 z-25",
-        "translate-y-3 opacity-0",
-        "transition-all duration-300 ease-out",
+        "pointer-events-none absolute inset-x-4 bottom-4 z-25",
+        "translate-y-4 opacity-0",
+        "transition-all duration-400 cubic-bezier(0.4, 0, 0.2, 1)",
         "group-hover:translate-y-0 group-hover:opacity-100",
         "group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
       )}
     >
-      <div className="overflow-hidden rounded-md border border-white/10 bg-black/85 shadow-2xl backdrop-blur-xl">
-        <div className="flex items-center justify-between gap-3 border-b border-white/10 px-3 py-2.5">
-          <span className="font-mono text-[7px] font-bold uppercase tracking-[0.2em] text-accent-red">
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-black/90 shadow-2xl backdrop-blur-2xl">
+        <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
+          <span className="font-mono text-[7px] font-bold uppercase tracking-[0.22em] text-accent-red">
             Career Statistics
           </span>
 
@@ -291,8 +251,8 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
         </div>
 
         <div className="grid grid-cols-3 divide-x divide-white/10">
-          <div className="min-w-0 px-2 py-3 text-center">
-            <p className="font-display text-xl font-bold leading-none text-white sm:text-2xl">
+          <div className="min-w-0 px-3 py-4 text-center">
+            <p className="font-display text-2xl font-bold leading-none text-white sm:text-3xl">
               {wins}
             </p>
             <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.14em] text-green-400">
@@ -300,8 +260,8 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
             </p>
           </div>
 
-          <div className="min-w-0 px-2 py-3 text-center">
-            <p className="font-display text-xl font-bold leading-none text-white sm:text-2xl">
+          <div className="min-w-0 px-3 py-4 text-center">
+            <p className="font-display text-2xl font-bold leading-none text-white sm:text-3xl">
               {losses}
             </p>
             <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.14em] text-red-400">
@@ -309,8 +269,8 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
             </p>
           </div>
 
-          <div className="min-w-0 px-2 py-3 text-center">
-            <p className="font-display text-xl font-bold leading-none text-white sm:text-2xl">
+          <div className="min-w-0 px-3 py-4 text-center">
+            <p className="font-display text-2xl font-bold leading-none text-white sm:text-3xl">
               {draws}
             </p>
             <p className="mt-1 font-mono text-[7px] uppercase tracking-[0.14em] text-yellow-400">
@@ -319,7 +279,7 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
           </div>
         </div>
 
-        <div className="border-t border-white/10 px-3 py-2.5">
+        <div className="border-t border-white/10 px-4 py-3">
           <div className="flex items-center justify-between gap-3">
             <span className="font-mono text-[7px] uppercase tracking-[0.15em] text-white/40">
               Win Rate
@@ -340,7 +300,7 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
           )}
         </div>
 
-        <div className="border-t border-white/10 px-3 py-2">
+        <div className="border-t border-white/10 px-4 py-2.5">
           <div className="flex items-center justify-between gap-3">
             <span className="truncate font-mono text-[7px] uppercase tracking-[0.12em] text-white/35">
               View full profile
@@ -356,10 +316,6 @@ function HoverStats({ wrestler }: { wrestler: Wrestler }) {
   );
 }
 
-/* =========================================================
-   MAIN WRESTLER CARD
-   ========================================================= */
-
 export function WrestlerCard({
   wrestler,
   variant = "default",
@@ -370,10 +326,6 @@ export function WrestlerCard({
   const divisionLabel = getDivisionLabel(wrestler);
   const recordLabel = getRecordLabel(wrestler);
   const winRateLabel = getWinRateLabel(wrestler);
-
-  /* ---------------------------------------------------------
-     COMPACT VARIANT
-     --------------------------------------------------------- */
 
   if (variant === "compact") {
     return (
@@ -400,7 +352,7 @@ export function WrestlerCard({
 
         <CardTopMeta wrestler={wrestler} />
 
-        <div className="absolute inset-x-0 bottom-0 z-10 min-w-0 p-4">
+        <div className="absolute inset-x-0 bottom-0 z-10 min-w-0 p-5">
           <p className="mb-1 truncate font-mono text-[8px] uppercase tracking-[0.25em] text-accent-red">
             {roleLabel}
           </p>
@@ -415,7 +367,7 @@ export function WrestlerCard({
             </p>
           )}
 
-          <div className="mt-2">
+          <div className="mt-2.5">
             <LocationMeta wrestler={wrestler} dark />
           </div>
 
@@ -450,16 +402,12 @@ export function WrestlerCard({
 
         <div className="pointer-events-none absolute inset-0 z-30 border border-transparent transition-colors duration-300 group-hover:border-accent-red/60" />
 
-        <span className="pointer-events-none absolute bottom-4 right-4 z-30 translate-y-2 font-mono text-[8px] font-bold tracking-[0.18em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <span className="pointer-events-none absolute bottom-5 right-5 z-30 translate-y-2 font-mono text-[8px] font-bold tracking-[0.18em] text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
           VIEW →
         </span>
       </ProfileLink>
     );
   }
-
-  /* ---------------------------------------------------------
-     PROFILE VARIANT
-     --------------------------------------------------------- */
 
   if (variant === "profile") {
     return (
@@ -488,7 +436,7 @@ export function WrestlerCard({
 
           <CardTopMeta wrestler={wrestler} />
 
-          <div className="absolute inset-x-0 bottom-0 z-10 min-w-0 p-5">
+          <div className="absolute inset-x-0 bottom-0 z-10 min-w-0 p-6">
             <p className="mb-1 truncate font-mono text-[8px] uppercase tracking-[0.25em] text-accent-red">
               {roleLabel}
             </p>
@@ -503,14 +451,14 @@ export function WrestlerCard({
               </p>
             )}
 
-            <div className="mt-2">
+            <div className="mt-2.5">
               <LocationMeta wrestler={wrestler} dark />
             </div>
 
             <TeamMembers wrestler={wrestler} />
           </div>
 
-          <div className="absolute bottom-5 right-5 z-20 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute bottom-5 right-5 z-20 translate-y-2 opacity-0 transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1) group-hover:translate-y-0 group-hover:opacity-100">
             <span className="flex h-10 w-10 items-center justify-center rounded-full border border-accent-red bg-black/70 font-mono text-xs text-white backdrop-blur-md">
               →
             </span>
@@ -519,16 +467,12 @@ export function WrestlerCard({
           <div className="pointer-events-none absolute inset-0 border border-transparent transition-colors duration-300 group-hover:border-accent-red/60" />
         </div>
 
-        <div className="border-x border-b border-border bg-background-secondary p-4">
+        <div className="border-x border-b border-border bg-background-secondary p-5">
           <RecordStats wrestler={wrestler} />
         </div>
       </ProfileLink>
     );
   }
-
-  /* ---------------------------------------------------------
-     DEFAULT VARIANT — /roster POSTER CARD
-     --------------------------------------------------------- */
 
   const champion = isChampion(wrestler);
   const hasTeam = Boolean(wrestler.members?.length);
@@ -540,39 +484,42 @@ export function WrestlerCard({
       style={
         typeof index === "number"
           ? ({
-              "--im-stagger": `${Math.min(Math.max(index, 0), 11) * 45}ms`,
+              "--im-stagger": `${Math.min(Math.max(index, 0), 11) * 50}ms`,
             } as CSSProperties)
           : undefined
       }
       className={cn(
         "im-stagger bg-background-secondary",
-        "shadow-[0_28px_60px_-40px_rgba(0,0,0,0.9)]",
-        "transition-[transform,box-shadow] duration-500 ease-out",
-        "hover:-translate-y-1 hover:shadow-[0_40px_80px_-40px_rgba(0,0,0,1)]"
+        "shadow-[0_30px_70px_-50px_rgba(0,0,0,0.95)]",
+        "transition-[transform,box-shadow,border-color] duration-500 cubic-bezier(0.4, 0, 0.2, 1)",
+        "hover:-translate-y-2 hover:shadow-[0_45px_90px_-50px_rgba(0,0,0,1)]",
+        champion
+          ? "group-hover:border-accent-gold/50 group-focus-visible:border-accent-gold/70"
+          : "group-hover:border-accent-red/50 group-focus-visible:border-accent-red/70"
       )}
     >
       <div
         className={cn(
-          "relative overflow-hidden border border-white/[0.08] bg-background",
+          "relative overflow-hidden border border-white/[0.06] bg-background",
           "transition-colors duration-500",
           champion
-            ? "group-hover:border-accent-gold/45 group-focus-visible:border-accent-gold/60"
-            : "group-hover:border-accent-red/45 group-focus-visible:border-accent-red/60"
+            ? "group-hover:border-accent-gold/60 group-focus-visible:border-accent-gold/80"
+            : "group-hover:border-accent-red/60 group-focus-visible:border-accent-red/80"
         )}
       >
-        <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[3/4]">
-          <div className="absolute inset-0 bg-[radial-gradient(115%_85%_at_50%_18%,rgba(255,255,255,0.07),rgba(8,8,8,0)_68%)]" />
+        <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[3/4] lg:aspect-[5/6]">
+          <div className="absolute inset-0 bg-[radial-gradient(115%_85%_at_50%_18%,rgba(255,255,255,0.06),rgba(8,8,8,0)_68%)]" />
 
           <WrestlerPortrait
             wrestler={wrestler}
             mask="poster"
             halo
-            sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1280px) 25vw, 21vw"
+            sizes="(max-width: 640px) 44vw, (max-width: 768px) 29vw, (max-width: 1024px) 23vw, (max-width: 1280px) 21vw, 19vw"
             className={cn(
-              "h-full w-full object-cover object-[50%_22%]",
-              "scale-[1.02] grayscale-[0.5] contrast-[1.05]",
-              "transition-[transform,filter] duration-[900ms] ease-out",
-              "group-hover:scale-[1.07] group-hover:grayscale-0",
+              "h-full w-full object-cover object-[50%_20%]",
+              "scale-[1.02] grayscale-[0.45] contrast-[1.06]",
+              "transition-[transform,filter] duration-[1000ms] cubic-bezier(0.4, 0, 0.2, 1)",
+              "group-hover:scale-[1.08] group-hover:grayscale-0",
               "group-focus-visible:grayscale-0"
             )}
           />
@@ -580,32 +527,32 @@ export function WrestlerCard({
           <div
             aria-hidden="true"
             className={cn(
-              "absolute inset-0 transition-opacity duration-700",
+              "absolute inset-0 transition-opacity duration-800",
               champion
-                ? "bg-[radial-gradient(85%_60%_at_50%_105%,rgba(212,175,55,0.28),transparent_70%)] opacity-40 group-hover:opacity-100"
-                : "bg-[radial-gradient(85%_60%_at_50%_105%,rgba(193,39,45,0.32),transparent_70%)] opacity-40 group-hover:opacity-100"
+                ? "bg-[radial-gradient(85%_60%_at_50%_105%,rgba(212,175,55,0.3),transparent_72%)] opacity-50 group-hover:opacity-100"
+                : "bg-[radial-gradient(85%_60%_at_50%_105%,rgba(193,39,45,0.35),transparent_72%)] opacity-50 group-hover:opacity-100"
             )}
           />
 
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_35%,transparent_45%,rgba(0,0,0,0.55)_100%)]"
+            className="absolute inset-0 bg-[radial-gradient(130%_100%_at_50%_40%,transparent_40%,rgba(0,0,0,0.6)_100%)]"
           />
 
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-background via-background/85 to-transparent"
+            className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-background via-background/80 to-transparent"
           />
 
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent"
+            className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent"
           />
 
-          <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3 sm:p-4">
+          <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3 sm:p-5 lg:p-6">
             <span
               aria-hidden="true"
-              className="font-mono text-[9px] font-bold tracking-[0.2em] text-white/60 transition-colors duration-500 group-hover:text-white/75"
+              className="font-mono text-[9px] font-bold tracking-[0.22em] text-white/55 transition-colors duration-500 group-hover:text-white/80"
             >
               {typeof index === "number"
                 ? String(index + 1).padStart(2, "0")
@@ -613,33 +560,33 @@ export function WrestlerCard({
             </span>
 
             {champion ? (
-              <span className="inline-flex items-center gap-1.5 border border-accent-gold/40 bg-black/55 px-2 py-1 font-mono text-[7px] font-bold uppercase tracking-[0.16em] text-accent-gold backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 border border-accent-gold/50 bg-black/60 px-2.5 py-1.5 font-mono text-[8px] font-bold uppercase tracking-[0.18em] text-accent-gold backdrop-blur-md shadow-[0_0_15px_rgba(212,175,55,0.4)]">
                 <span
-                  className="h-1.5 w-1.5 rounded-full bg-accent-gold"
+                  className="h-2 w-2 rounded-full bg-accent-gold animate-pulse"
                   aria-hidden="true"
                 />
                 Champion
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1.5 border border-white/10 bg-black/55 px-2 py-1 backdrop-blur-md">
+              <span className="inline-flex items-center gap-2 border border-white/10 bg-black/60 px-2.5 py-1.5 backdrop-blur-md">
                 <StatusDot status={wrestler.status} />
               </span>
             )}
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+          <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5 lg:p-6">
             <div className="flex items-center gap-2">
               <span
                 aria-hidden="true"
                 className={cn(
-                  "h-px w-6 shrink-0 transition-all duration-500 group-hover:w-10",
+                  "h-px w-6 shrink-0 transition-all duration-500 group-hover:w-12",
                   champion ? "bg-accent-gold" : "bg-accent-red"
                 )}
               />
 
               <span
                 className={cn(
-                  "truncate font-mono text-[8px] font-bold uppercase tracking-[0.22em] transition-colors duration-500",
+                  "truncate font-mono text-[8px] font-bold uppercase tracking-[0.24em] transition-colors duration-500",
                   champion ? "text-accent-gold" : "text-accent-red"
                 )}
               >
@@ -649,9 +596,9 @@ export function WrestlerCard({
 
             <h3
               className={cn(
-                "mt-2 break-words font-display font-bold uppercase leading-[0.95] tracking-[-0.02em] text-white",
-                "text-[clamp(1rem,1.35vw+0.55rem,1.7rem)]",
-                "transition-transform duration-500 ease-out",
+                "mt-2 break-words font-display font-bold uppercase leading-[0.9] tracking-[-0.03em] text-white",
+                "text-[clamp(1.1rem,1.5vw+0.6rem,2rem)]",
+                "transition-transform duration-500 cubic-bezier(0.4, 0, 0.2, 1)",
                 "group-hover:translate-x-1"
               )}
             >
@@ -661,8 +608,8 @@ export function WrestlerCard({
             {wrestler.nickname && !hasTeam && (
               <p
                 className={cn(
-                  "mt-1.5 line-clamp-1 font-body text-[11px] text-white/55",
-                  "transition-colors duration-500 group-hover:text-white/75"
+                  "mt-1.5 line-clamp-1 font-body text-[11px] text-white/50",
+                  "transition-colors duration-500 group-hover:text-white/70"
                 )}
               >
                 {wrestler.nickname}
@@ -671,24 +618,24 @@ export function WrestlerCard({
 
             <TeamMembers wrestler={wrestler} />
 
-            <div className="mt-2.5 border-t border-white/10 pt-2.5">
+            <div className="mt-3 border-t border-white/10 pt-3">
               <div className="flex min-w-0 items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="truncate font-mono text-[7px] uppercase tracking-[0.14em] text-white/60 sm:text-[8px]">
+                  <p className="truncate font-mono text-[7px] uppercase tracking-[0.16em] text-white/55 sm:text-[8px]">
                     {divisionLabel}
                   </p>
 
-                  <p className="mt-1 truncate font-mono text-[9px] text-white/75">
+                  <p className="mt-1 truncate font-mono text-[9px] text-white/70">
                     {recordLabel}
                   </p>
                 </div>
 
                 <div className="shrink-0 text-right">
-                  <p className="font-mono text-[7px] uppercase tracking-[0.14em] text-white/60 sm:text-[8px]">
+                  <p className="font-mono text-[7px] uppercase tracking-[0.16em] text-white/55 sm:text-[8px]">
                     Win rate
                   </p>
 
-                  <p className="mt-1 font-mono text-[9px] font-bold text-accent-gold">
+                  <p className="mt-1 font-mono text-[10px] font-bold text-accent-gold">
                     {winRateLabel}
                   </p>
                 </div>
@@ -699,7 +646,7 @@ export function WrestlerCard({
           <div
             aria-hidden="true"
             className={cn(
-              "absolute bottom-0 left-0 z-40 h-[2px] w-0 transition-all duration-500 group-hover:w-full group-focus-visible:w-full",
+              "absolute bottom-0 left-0 z-40 h-[2px] w-0 transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1) group-hover:w-full group-focus-visible:w-full",
               champion ? "bg-accent-gold" : "bg-accent-red"
             )}
           />
@@ -712,8 +659,8 @@ export function WrestlerCard({
           className={cn(
             "pointer-events-none absolute inset-0 z-40 border border-transparent transition-colors duration-300",
             champion
-              ? "group-hover:border-accent-gold/50"
-              : "group-hover:border-accent-red/50"
+              ? "group-hover:border-accent-gold/60"
+              : "group-hover:border-accent-red/60"
           )}
         />
       </div>

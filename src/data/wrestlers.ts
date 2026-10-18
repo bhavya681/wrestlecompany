@@ -141,8 +141,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Kevin Malik",
     "ringName": "Kevin Malik",
     "nickname": "The Delhi Destroyer",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_mxpZkJ4pKKJoMkITeampjMqroqwthHn5qQujPYiRg&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_mxpZkJ4pKKJoMkITeampjMqroqwthHn5qQujPYiRg&s=10",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKCpqn7FbKgIav5I-PX239QvmFNB5pgYDxgDEBPu9yVxkU8lcCQJvx7S4&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKCpqn7FbKgIav5I-PX239QvmFNB5pgYDxgDEBPu9yVxkU8lcCQJvx7S4&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -176,8 +176,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Neel",
     "ringName": "Neel",
     "nickname": "The Mumbai Maverick",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR40uQ6FlgJQ8D4BPz31TNGY5csVFNlTshcHlzPMqkfJg&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR40uQ6FlgJQ8D4BPz31TNGY5csVFNlTshcHlzPMqkfJg&s=10",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJmy5qSzZcikQJFZFIAjIKVoCK506V2C0spkaH4ASRQ&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJmy5qSzZcikQJFZFIAjIKVoCK506V2C0spkaH4ASRQ&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Cruiserweight",
@@ -341,8 +341,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Gurvinder Singh Malhotra",
     "ringName": "Gurvinder Singh Malhotra",
     "nickname": "The 7-Foot Colossus",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqCbbe3Gj5QNnH_X0Xqa3X4jYBS-BVuYAbFbwXCORSyQ&s",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqCbbe3Gj5QNnH_X0Xqa3X4jYBS-BVuYAbFbwXCORSyQ&s",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5XAphxEkq2lvC668kAG-XVQs3v4mQi1e8k4auWeAYqA&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5XAphxEkq2lvC668kAG-XVQs3v4mQi1e8k4auWeAYqA&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Super Heavyweight",
@@ -889,8 +889,8 @@ export const wrestlers: Wrestler[] = [
     "name": "The Wicked Desis",
     "ringName": "The Wicked Desis",
     "nickname": "Subcontinent Chaos",
-    "image": "https://user32962.na.imgto.link/public/20260916/image-3.avif",
-    "imageFull": "https://user32962.na.imgto.link/public/20260916/image-3.avif",
+    "image": "https://user46002.na.imgto.link/public/20261017/be185f50eb748b88dc79a39e-69534.avif",
+    "imageFull": "https://user46002.na.imgto.link/public/20261017/be185f50eb748b88dc79a39e-69534.avif",
     "role": "tag-team",
     "type": "tag-team",
     "members": [
@@ -957,8 +957,7 @@ export const wrestlers: Wrestler[] = [
       "the-renegade-twins"
     ],
     "relatedMedia": []
-  },
-  {
+  },{
     "id": "robbie-x-taiji-ishimori",
     "name": "Robbie X & Taiji Ishimori",
     "ringName": "Robbie X & Taiji Ishimori",
@@ -968,8 +967,8 @@ export const wrestlers: Wrestler[] = [
     "role": "tag-team",
     "type": "tag-team",
     "members": [
-    "Robbie X",
-    "Taiji Ishimori"
+      "Robbie X",
+      "Taiji Ishimori"
     ],
     "weightClass": "Tag Team",
     "gender": "men",
@@ -979,11 +978,11 @@ export const wrestlers: Wrestler[] = [
     "from": "United Kingdom & Japan",
     "debut": "2026",
     "record": {
-    "wins": 0,
-    "losses": 0,
-    "draws": 0
+      "wins": 8,
+      "losses": 2,
+      "draws": 0
     },
-    "winRate": 0,
+    "winRate": 80,
     "style": "High-Flying / Technical",
     "status": "active",
     "finisher": "X-Cutter / Double Team Strike",
@@ -991,14 +990,14 @@ export const wrestlers: Wrestler[] = [
     "championships": [],
     "rivalries": [],
     "relatedMedia": []
-    },    
+  },
   {
     "id": "kiara",
     "name": "Kiara",
     "ringName": "Kiara",
     "nickname": "The Delhi Dynamo",
-    "image": "https://user32962.na.imgto.link/public/20260916/image-4.avif",
-    "imageFull": "https://user32962.na.imgto.link/public/20260916/image-4.avif",
+    "image": "https://user46002.na.imgto.link/public/20261017/301c05631d01ebefcc0c9df4-69538.avif?__imgto_raw=1",
+    "imageFull": "https://user46002.na.imgto.link/public/20261017/301c05631d01ebefcc0c9df4-69538.avif?__imgto_raw=1",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Women's Singles",
@@ -1025,36 +1024,37 @@ export const wrestlers: Wrestler[] = [
     ],
     "relatedMedia": []
   },
+  
   {
-    "id": "yuzuki",
-    "name": "YUZUKI",
-    "ringName": "YUZUKI",
-    "nickname": "The Joshi Comet",
-    "image": "https://api.ddtpro.jp/files/6a0e9e08f6d5db00029db6f7/YUZU_20260502.png",
-    "imageFull": "https://api.ddtpro.jp/files/6a0e9e08f6d5db00029db6f7/YUZU_20260502.png",
+    "id": "taniya",
+    "name": "Taniya",
+    "ringName": "TANIYA",
+    "nickname": "The Furius Local",
+    "image": "https://user46002.na.imgto.link/public/20261017/4a4be6f53b1ae378a02c6b58-69535.avif?__imgto_raw=1",
+    "imageFull": "https://user46002.na.imgto.link/public/20261017/4a4be6f53b1ae378a02c6b58-69535.avif?__imgto_raw=1",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Women's Singles",
     "gender": "women",
     "division": "Women's Singles",
-    "height": "5'3\"",
-    "weight": "120 lbs",
-    "from": "Tokyo, Japan",
-    "debut": "2023",
+    "height": "5'5\"",
+    "weight": "110 lbs",
+    "from": "Mumbai, India",
+    "debut": "2024",
     "record": {
-      "wins": 16,
-      "losses": 7,
+      "wins": 14,
+      "losses": 6,
       "draws": 0
     },
     "winRate": 70,
-    "style": "Joshi Puroresu / High Flyer",
+    "style": "All-Rounder",
     "status": "active",
-    "finisher": "Rolling Arrow / Diving Foot Stomp",
-    "bio": "A fast-rising sensation in Japanese joshi promotion Marigold, Yuzuki dazzles audiences with lighting-fast dropkicks, fearless top-rope dives, and technical precision.",
+    "finisher": "Kiara Cutter",
+    "bio": "A trailblazing athlete in Indian women's wrestling, Kiara combines speed, technical transitions, and heart to establish a new era for female athletes in India.",
     "championships": [],
     "rivalries": [
-      "angel-hayze",
-      "aleah-james"
+      "ishani-rathore",
+      "samara"
     ],
     "relatedMedia": []
   },
@@ -1353,39 +1353,6 @@ export const wrestlers: Wrestler[] = [
     "rivalries": [
       "priscilla-kelly",
       "alisha-edwards"
-    ],
-    "relatedMedia": []
-  },
-  {
-    "id": "flammer",
-    "name": "Flammer",
-    "ringName": "Flammer",
-    "nickname": "La Loba del Ring",
-    "image": "https://tienda.luchalibreaaa.com/cdn/shop/files/Flammer_07252026_eg_0074.jpg?v=1789192350&width=400",
-    "imageFull": "https://tienda.luchalibreaaa.com/cdn/shop/files/Flammer_07252026_eg_0074.jpg?v=1789192350&width=400",
-    "role": "wrestler",
-    "type": "singles",
-    "weightClass": "Women's Singles",
-    "gender": "women",
-    "division": "Women's Singles",
-    "height": "5'5\"",
-    "weight": "155 lbs",
-    "from": "Monterrey, Nuevo León, Mexico",
-    "debut": "2015",
-    "record": {
-      "wins": 36,
-      "losses": 9,
-      "draws": 0
-    },
-    "winRate": 80,
-    "style": "Powerhouse Luchadora",
-    "status": "active",
-    "finisher": "Flammer Driver / Sitout Powerbomb",
-    "bio": "The reigning AAA Reina de Reinas Champion and Las Tóxicas leader, Lady Flammer is widely considered one of the most dominant and hard-hitting luchadoras in modern wrestling.",
-    "championships": [],
-    "rivalries": [
-      "kanji",
-      "ishani-rathore"
     ],
     "relatedMedia": []
   },
@@ -1752,8 +1719,7 @@ export const wrestlers: Wrestler[] = [
     "championships": [],
     "rivalries": [],
     "relatedMedia": []
-  },
-  {
+  },{
     "id": "elegance-divas",
     "name": "The Elegance Brand",
     "ringName": "ELEGANCE",
@@ -1775,19 +1741,19 @@ export const wrestlers: Wrestler[] = [
     "from": "Unknown",
     "debut": "2026",
     "record": {
-      "wins": 0,
-      "losses": 0,
-      "draws": 0
+      "wins": 12,
+      "losses": 3,
+      "draws": 1
     },
-    "winRate": 0,
-    "style": "Glamorous Women's Tag Team",
+    "winRate": 75,
+    "style": "Glamorous, Tactical and Aggressive Women's Faction",
     "status": "active",
     "finisher": "Triple Elegance",
-    "bio": "The Elegance Brand is a glamorous three-woman wrestling faction led by Ash by Elegance, alongside Heather by Elegance and M by Elegance. Known for their luxurious presentation, coordinated ring attire, confident personalities, and ruthless teamwork, the trio combines beauty, sophistication, and aggressive tag-team offense to dominate the women's division.",
+    "bio": "The Elegance Brand is a glamorous three-woman wrestling faction led by Ash by Elegance, alongside Heather by Elegance and M by Elegance. Known for their luxurious presentation, coordinated ring attire, confident personalities, and ruthless teamwork, the trio combines sophistication with aggressive offense. They use tactical distractions, coordinated double-team maneuvers, and their devastating Triple Elegance finisher to dominate the Indus Matworks women's division.",
     "championships": [],
     "rivalries": [],
     "relatedMedia": []
-  },  
+  },
     {
       "id": "baliyan-akki-and-mei-suruga",
       "name": "Baliyan Akki and Mei Suruga",
@@ -1809,15 +1775,15 @@ export const wrestlers: Wrestler[] = [
       "from": "India / Japan",
       "debut": "2019",
       "record": {
-        "wins": 0,
-        "losses": 0,
-        "draws": 0
+        "wins": 12,
+        "losses": 4,
+        "draws": 1
       },
-      "winRate": 0,
+      "winRate": 70.59,
       "style": "High-Flying, Technical and Fast-Paced",
       "status": "active",
-      "finisher": "Double-Team Combination",
-      "bio": "Baliyan Akki and Mei Suruga, known for their Best Bros partnership, combine explosive athleticism, technical skill, speed, and entertaining teamwork. Their established tag-team chemistry makes them an exciting addition to the Indus Matworks mixed tag team division.",
+      "finisher": "Best Bros Combination",
+      "bio": "Baliyan Akki and Mei Suruga, known for their Best Bros partnership, combine explosive athleticism, technical skill, speed, and entertaining teamwork. Their established chemistry makes them a dangerous force in the Indus Matworks Mixed Tag Team division. They rely on rapid combinations, creative counters, and precise double-team offense to overwhelm opponents.",
       "championships": [],
       "rivalries": [],
       "relatedMedia": []
@@ -1843,15 +1809,15 @@ export const wrestlers: Wrestler[] = [
       "from": "Bulgaria / Russia",
       "debut": "2014",
       "record": {
-        "wins": 0,
-        "losses": 0,
+        "wins": 15,
+        "losses": 5,
         "draws": 0
       },
-      "winRate": 0,
+      "winRate": 75,
       "style": "Powerhouse and Manager-Assisted Teamwork",
       "status": "active",
       "finisher": "The Accolade / Double-Team Powerbomb",
-      "bio": "The real-life married couple Rusev and Lana made a memorable impact with their commanding presence, intimidating presentation, and powerhouse offense. Their combination of brute strength and ringside strategy makes them a compelling concept for the Indus Matworks mixed tag team division.",
+      "bio": "Rusev and Lana bring a commanding presence, intimidating presentation, and powerhouse offense to Indus Matworks. Rusev's physical dominance combines with Lana's ringside strategy and psychological warfare to make them a formidable mixed-tag pairing. As former champions in the IM storyline, they intend to reclaim their position at the top of the division.",
       "championships": [
         "im-couple-tag-team-championship"
       ],
@@ -1879,15 +1845,15 @@ export const wrestlers: Wrestler[] = [
       "from": "India / France",
       "debut": "2026",
       "record": {
-        "wins": 0,
-        "losses": 0,
+        "wins": 9,
+        "losses": 3,
         "draws": 0
       },
-      "winRate": 0,
+      "winRate": 75,
       "style": "Powerhouse and Technical",
       "status": "active",
       "finisher": "Zamindar Strike / Double-Team Takedown",
-      "bio": "WXM's Dev and Mila Smidt bring contrasting strengths to the mixed tag team division. Dev delivers size and power, while Mila contributes speed, technique, and international experience. Their alliance offers a strong foundation for a competitive Indus Matworks tag team storyline.",
+      "bio": "Dev and Mila Smidt combine physical dominance with technical precision. Dev brings size, strength, and explosive power, while Mila contributes agility, ring awareness, and calculated offense. The Zamindar Alliance is a rising mixed-tag team determined to turn its growing success into championship gold at Indus Matworks.",
       "championships": [],
       "rivalries": [],
       "relatedMedia": []
@@ -1913,19 +1879,20 @@ export const wrestlers: Wrestler[] = [
       "from": "Northern Ireland / Scotland",
       "debut": "2026",
       "record": {
-        "wins": 0,
-        "losses": 0,
-        "draws": 0
+        "wins": 10,
+        "losses": 4,
+        "draws": 1
       },
-      "winRate": 0,
+      "winRate": 66.67,
       "style": "Powerhouse and Unpredictable Brawling",
       "status": "active",
       "finisher": "Double-Team Powerbomb / Diving Crossbody Combination",
-      "bio": "Real-life married wrestlers Big Damo and Nikki Storm, formerly known to WWE audiences as Killian Dain and Nikki Cross, combine heavyweight aggression with wild, unpredictable offense. Their real-life mixed-tag reunion makes them a compelling team for the Indus Matworks division.",
+      "bio": "Big Damo and Nikki Storm combine heavyweight aggression with unpredictable, high-energy offense. Damo's brute strength and punishing brawling create opportunities for Nikki's fearless attacks and opportunistic counters. The Chaos Couple thrive in physical contests and are willing to disrupt the division to earn another championship opportunity.",
       "championships": [],
       "rivalries": [],
       "relatedMedia": []
-    },{
+    },
+    {
       "id": "rohan-raja-and-aurora-teves",
       "name": "Rohan Raja and Aurora Teves",
       "ringName": "The Royal Alliance",
@@ -1946,17 +1913,18 @@ export const wrestlers: Wrestler[] = [
       "from": "United States",
       "debut": "2026",
       "record": {
-        "wins": 0,
-        "losses": 0,
+        "wins": 11,
+        "losses": 3,
         "draws": 0
       },
-      "winRate": 0,
+      "winRate": 78.57,
       "style": "Strategic, Aggressive and Power-Based",
       "status": "active",
       "finisher": "Royal Decree",
-      "bio": "Real-life couple Rohan Raja and Aurora Teves bring charisma, ambition, and calculated aggression to the Indus Matworks Mixed Tag Team division. Rohan provides an intense in-ring presence, while Aurora adds ringside strategy and personality. Their partnership combines royal presentation with a ruthless competitive edge.",
+      "bio": "Rohan Raja and Aurora Teves bring charisma, ambition, and calculated aggression to the Indus Matworks Mixed Tag Team division. Rohan delivers an intense in-ring presence, while Aurora contributes tactical awareness and a confident competitive edge. The Royal Alliance believe the division should belong to them and use coordinated offense and strategic teamwork to prove it.",
       "championships": [],
       "rivalries": [],
       "relatedMedia": []
     }
+  
 ];

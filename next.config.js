@@ -22,6 +22,7 @@ const imageHosts = [
   "m.media-amazon.com",
   "user32962.na.imgto.link",
   "user43115.na.imgto.link",
+  "user46002.na.imgto.link",
   "static.wixstatic.com",
   "i.ytimg.com",
 ];
