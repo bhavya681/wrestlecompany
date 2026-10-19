@@ -1,5 +1,8 @@
 
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
@@ -34,18 +37,21 @@ function ProfileLink({
   className,
   ariaLabel,
   style,
+  onClick,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
   ariaLabel?: string;
   style?: CSSProperties;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) {
   return (
     <Link
       href={href}
       aria-label={ariaLabel}
       style={style}
+      onClick={onClick}
       className={cn(
         "group relative block min-w-0 overflow-hidden outline-none",
         "focus-visible:ring-2 focus-visible:ring-accent-red",
@@ -474,13 +480,33 @@ export function WrestlerCard({
     );
   }
 
-  const champion = isChampion(wrestler);
-  const hasTeam = Boolean(wrestler.members?.length);
+  const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const hasTeam = (wrestler.members?.length ?? 0) > 0;
+  const champion = isChampion(wrestler);
   return (
-    <ProfileLink
+    <>
+      <ProfileLink
       href={`/roster/${wrestler.id}`}
       ariaLabel={`View ${wrestler.ringName} profile`}
+      onClick={(e) => {
+        e.preventDefault();
+        setOpen(true);
+      }}
       style={
         typeof index === "number"
           ? ({
@@ -671,5 +697,73 @@ export function WrestlerCard({
         {divisionLabel ? ` — ${divisionLabel}` : ""}
       </span>
     </ProfileLink>
+    {open && (
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+        onClick={() => setOpen(false)}
+        role="dialog"
+        aria-modal="true"
+        aria-label={wrestler.ringName}
+      >
+        <div
+          className="relative max-h-[90vh] w-full max-w-2xl overflow-auto bg-background-secondary border border-white/10"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Close"
+            className="absolute right-3 top-3 z-10 border border-white/20 bg-black/70 px-3 py-1 font-mono text-xs text-white"
+          >
+            ✕
+          </button>
+          <div className="relative aspect-[3/4] w-full overflow-hidden">
+            <WrestlerPortrait
+              wrestler={wrestler}
+              mask="poster"
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+          <div className="p-6">
+            <p className="font-mono text-[9px] uppercase tracking-[0.24em] text-accent-red">
+              {roleLabel}
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-bold uppercase text-white">
+              {wrestler.ringName}
+            </h2>
+            {wrestler.nickname && (
+              <p className="mt-1 text-white/60">{wrestler.nickname}</p>
+            )}
+            <p className="mt-3 text-sm text-white/70">{wrestler.division}</p>
+            <div className="mt-4 grid grid-cols-2 gap-2 text-sm text-white/80">
+              <div>Height: {wrestler.height}</div>
+              <div>Weight: {wrestler.weight}</div>
+              <div>From: {wrestler.from}</div>
+              <div>Debut: {wrestler.debut}</div>
+              <div>Style: {wrestler.style}</div>
+              <div>Finisher: {wrestler.finisher}</div>
+            </div>
+            {wrestler.bio && <p className="mt-4 text-sm text-white/70">{wrestler.bio}</p>}
+            {wrestler.championships?.length ? (
+              <p className="mt-4 text-sm text-accent-gold">
+                {wrestler.championships.join(", ")}
+              </p>
+            ) : null}
+            {wrestler.members?.length ? (
+              <p className="mt-4 text-sm text-white/70">
+                Members: {wrestler.members.join(", ")}
+              </p>
+            ) : null}
+            <Link
+              href={`/roster/${wrestler.id}`}
+              className="mt-6 inline-block border border-accent-red px-5 py-2.5 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-accent-red hover:bg-accent-red hover:text-background"
+            >
+              View full profile
+            </Link>
+          </div>
+        </div>
+      </div>
+    )}
+  </>
   );
 }

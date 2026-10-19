@@ -40,7 +40,7 @@ export function ChampionshipSpotlight() {
   return (
     <section
       aria-labelledby="championship-spotlight-heading"
-      className="relative isolate overflow-hidden border-y border-border bg-[#080808] py-10 sm:py-12 lg:py-14"
+      className="relative isolate overflow-hidden border-b border-border bg-[#080808] py-10 sm:py-12 lg:py-14"
     >
       {/* Atmospheric background */}
       <div
@@ -54,7 +54,7 @@ export function ChampionshipSpotlight() {
 
       <div className="container-wide relative">
         {/* Section heading */}
-        <header className="mb-6 flex flex-col gap-4 sm:mb-7 sm:flex-row sm:items-end sm:justify-between">
+        <header className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <div className="mb-3 flex items-center gap-3">
               <span
@@ -68,18 +68,11 @@ export function ChampionshipSpotlight() {
 
             <h2
               id="championship-spotlight-heading"
-              className="font-display text-3xl font-black uppercase leading-none tracking-tight text-foreground sm:text-4xl lg:text-5xl"
+              className="font-display text-4xl font-black uppercase leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl"
             >
-              Champions{" "}
-              <span className="text-accent-gold">
-                of the Throne.
-              </span>
+              Meet Our{" "}
+              <span className="text-accent-gold">Champions.</span>
             </h2>
-
-            <p className="mt-3 max-w-xl text-sm leading-6 text-foreground-muted">
-              The title holders of Indus Matworks. Every reign has a
-              legacy to defend.
-            </p>
           </div>
 
           <Link
@@ -101,14 +94,14 @@ export function ChampionshipSpotlight() {
           </Link>
         </header>
 
-        {/* Horizontal championship carousel */}
+        {/* Horizontal champion cards */}
         <div>
           <div
             aria-label="Current championship holders"
             className={cn(
-              "flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-4",
+              "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-6",
               "scroll-smooth [scrollbar-color:rgba(212,175,55,0.45)_transparent] [scrollbar-width:thin]",
-              "sm:gap-5"
+              "sm:gap-6"
             )}
           >
             {featured.map((championship, index) => (
@@ -128,7 +121,7 @@ export function ChampionshipSpotlight() {
         </div>
 
         {/* Brand footer */}
-        <div className="mt-4 flex items-center gap-4">
+        <div className="mt-6 flex items-center gap-4">
           <span
             aria-hidden="true"
             className="h-px flex-1 bg-gradient-to-r from-accent-gold/30 to-transparent"
@@ -166,82 +159,30 @@ function ChampionCard({
     wrestlerImage: champion.image,
   });
 
-  const beltImage = getBeltImage(championship);
-
   return (
-    <article className="w-[270px] shrink-0 snap-start sm:w-[300px] lg:w-[320px]">
+    <article className="w-[250px] shrink-0 snap-start">
       <Link
         href={`/roster/${champion.wrestlerId}`}
         aria-label={`View ${champion.wrestler}, reigning ${championship.name} champion`}
-        className={cn(
-          "group relative block h-full overflow-hidden border border-white/10 bg-[#0b0b0c]",
-          "transition-colors duration-300 hover:border-accent-gold/60",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808]"
-        )}
+        className="group block"
       >
-        <div className="h-[3px] bg-gradient-to-r from-accent-gold/20 via-accent-gold to-accent-gold/20" />
-
-        {/* Transparent championship belt showcase */}
-        <div className="relative isolate flex h-[170px] items-center justify-center overflow-hidden border-b border-white/[0.08] bg-[#101011] px-4 sm:h-[185px]">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_45%,rgba(212,175,55,0.20),transparent_65%)]"
-          />
-
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(135deg,white_1px,transparent_1px)] [background-size:14px_14px]"
-          />
-
-          <span
-            aria-hidden="true"
-            className="absolute left-3 top-3 z-10 font-mono text-[8px] tracking-[0.18em] text-white/35"
-          >
-            IM / TITLE {String(index + 1).padStart(2, "0")}
-          </span>
-
-          <div className="relative h-[135px] w-full transition-transform duration-500 ease-out group-hover:scale-[1.06] sm:h-[150px]">
-            <Image
-              src={beltImage}
-              alt={`${championship.name} championship belt`}
-              fill
-              sizes="(max-width: 639px) 270px, (max-width: 1023px) 300px, 320px"
-              className="object-contain drop-shadow-[0_8px_14px_rgba(0,0,0,0.75)]"
-              priority={index === 0}
-            />
-          </div>
-
-          <span className="absolute bottom-2 left-1/2 z-10 max-w-[90%] -translate-x-1/2 truncate border border-accent-gold/25 bg-black/70 px-3 py-1 font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-accent-gold backdrop-blur-sm">
-            {championship.shortName}
-          </span>
-        </div>
-
         {/* Champion portrait */}
-        <div className="relative isolate h-[215px] overflow-hidden sm:h-[235px]">
+        <div className="relative aspect-[1] overflow-hidden bg-background-secondary mb-3">
           <div
             aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_20%,rgba(255,255,255,0.06),transparent_65%),linear-gradient(180deg,#151515,#0b0b0c)]"
+            className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_30%,rgba(255,255,255,0.05),transparent_70%)]"
           />
 
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-1 top-2 font-display text-[90px] font-black leading-none text-white/[0.035]"
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
-
-          <div className="absolute inset-x-0 bottom-0 top-0">
-            <WrestlerPortrait
-              wrestler={wrestler}
-              mask="none"
-              sizes="(max-width: 639px) 270px, (max-width: 1023px) 300px, 320px"
-              className="h-full w-full object-contain object-bottom grayscale-[20%] transition-all duration-500 group-hover:scale-[1.035] group-hover:grayscale-0"
-            />
-          </div>
-
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0b0b0c]"
+          <WrestlerPortrait
+            wrestler={wrestler}
+            mask="none"
+            fit="contain"
+            sizes="(max-width: 639px) 250px, (max-width: 1023px) 280px, 300px"
+            className={cn(
+              "h-full w-full object-contain object-center",
+              "grayscale-[0.25] transition-[transform,filter] duration-500 ease-out",
+              "group-hover:scale-[1.06] group-hover:grayscale-0"
+            )}
           />
 
           <div className="absolute left-3 top-3 flex items-center gap-2 border border-accent-gold/25 bg-black/65 px-2.5 py-1.5 backdrop-blur-sm">
@@ -253,68 +194,26 @@ function ChampionCard({
               Champion
             </span>
           </div>
-
-          <div className="absolute inset-x-4 bottom-4 z-10">
-            <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-accent-gold">
-              Reign #{championship.reign}
-            </p>
-
-            <h3 className="mt-1 break-words font-display text-2xl font-black uppercase leading-[0.95] tracking-tight text-white">
-              {champion.wrestler}
-            </h3>
-
-            {champion.nickname && (
-              <p className="mt-2 line-clamp-1 text-xs italic text-white/65">
-                {champion.nickname}
-              </p>
-            )}
-          </div>
         </div>
 
-        {/* Championship information */}
-        <div className="border-t border-white/[0.08] px-4 py-3">
-          <p className="truncate font-display text-xs font-bold uppercase tracking-wide text-foreground sm:text-sm">
-            {championship.name}
+        <h3
+          className={cn(
+            "block truncate font-display text-xl font-bold uppercase leading-none tracking-tight text-white",
+            "transition-colors duration-300 group-hover:text-accent-gold"
+          )}
+        >
+          {champion.wrestler}
+        </h3>
+
+        <p className="mt-1 font-mono text-xs uppercase tracking-[0.16em] text-foreground-muted">
+          {championship.shortName}
+        </p>
+
+        {champion.nickname && (
+          <p className="mt-1 line-clamp-1 text-xs italic text-white/50">
+            {champion.nickname}
           </p>
-
-          <div className="mt-3 flex items-center justify-between gap-3 border-t border-white/[0.07] pt-3">
-            <div>
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-foreground-muted">
-                Days held
-              </p>
-              <p className="mt-1 font-display text-base font-bold tabular-nums text-foreground">
-                {championship.daysHeld.toLocaleString()}
-              </p>
-            </div>
-
-            <div className="text-right">
-              <p className="font-mono text-[8px] uppercase tracking-[0.1em] text-foreground-muted">
-                Defenses
-              </p>
-              <p className="mt-1 font-display text-base font-bold tabular-nums text-accent-gold">
-                {championship.defenses.toLocaleString()}
-              </p>
-            </div>
-
-            <span
-              aria-hidden="true"
-              className="grid h-8 w-8 shrink-0 place-items-center border border-white/10 text-accent-gold transition-colors group-hover:border-accent-gold group-hover:bg-accent-gold group-hover:text-black"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.7}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-4 w-4"
-              >
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-            </span>
-          </div>
-        </div>
+        )}
       </Link>
     </article>
   );

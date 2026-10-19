@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useMemo, useState } from "react";
 
 import { cn } from "@/lib/utils";
-import { WrestlerCard } from "@/components/wrestlers/WrestlerCard";
+import { RosterCard } from "@/components/wrestlers/RosterCard";
 import {
   RosterFilters,
   type RosterFilterOption,
@@ -142,16 +143,39 @@ export function RosterDirectory() {
   };
 
   return (
-    <section className="relative py-10 md:py-14 lg:py-16">
+    <section className="relative py-12 sm:py-16 lg:py-20">
       {/* Faint texture behind the roster wall */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 im-hairline-grid opacity-60"
       />
 
-      <div className="container-wide relative">
-        {/* ── FILTERS ── */}
+      <div className="relative mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8">
+        {/* ── CATEGORY LABELS ── */}
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <CategoryTab
+              key="roster"
+              label="Roster"
+              active={roleFilter === "all"}
+              onClick={() => {
+                setPrimaryFilter("all");
+                setRoleFilter("all");
+              }}
+            />
+            <CategoryTab
+              key="referees"
+              label="Referees"
+              active={roleFilter === "referees"}
+              onClick={() => {
+                setPrimaryFilter("all");
+                setRoleFilter("referees");
+              }}
+            />
+          </div>
+        </div>
 
+        {/* ── FILTERS ── */}
         <RosterFilters
           primary={primaryOptions}
           roles={roleOptions}
@@ -167,7 +191,6 @@ export function RosterDirectory() {
         />
 
         {/* ── GRID / EMPTY STATE ── */}
-
         {filteredWrestlers.length === 0 ? (
           <div className="relative mt-10 flex flex-col items-center justify-center border border-dashed border-border bg-background-secondary/30 px-6 py-24 text-center">
             <span
@@ -201,19 +224,46 @@ export function RosterDirectory() {
         ) : (
           <div
             id="roster-grid"
-            className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-5"
+            className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8"
           >
             {filteredWrestlers.map((wrestler, index) => (
-              <WrestlerCard
-                key={wrestler.id}
-                wrestler={wrestler}
-                variant="default"
-                index={index}
-              />
+              <RosterCard key={wrestler.id} wrestler={wrestler} />
             ))}
           </div>
         )}
       </div>
     </section>
+  );
+}
+
+function CategoryTab({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      onClick={onClick}
+      className={cn(
+        "inline-flex items-center justify-center whitespace-nowrap rounded-none border px-5 py-2.5",
+        "font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-200",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+        active
+          ? "border-accent-red bg-accent-red text-background shadow-[0_0_20px_rgba(193,39,45,0.35)]"
+          : "border-border/50 bg-background text-foreground-muted hover:border-foreground-muted/50 hover:text-foreground",
+        "focus-visible:ring-accent-red",
+        active
+          ? "focus-visible:ring-offset-background"
+          : "focus-visible:ring-offset-background-secondary"
+      )}
+    >
+      {label}
+    </button>
   );
 }
