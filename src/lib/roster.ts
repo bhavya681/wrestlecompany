@@ -306,9 +306,9 @@ export function matchesTagTeamDivision(
 
   switch (filter) {
     case "mens":
-      return division === "tag team" || division === "mixed tag team";
+      return division === "tag team";
     case "womens":
-      return division === "women's tag team" || division === "mixed tag team";
+      return division === "women's tag team";
     case "mixed":
       return division === "mixed tag team";
     default:
