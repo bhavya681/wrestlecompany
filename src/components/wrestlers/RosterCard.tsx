@@ -24,21 +24,21 @@ export function RosterCard({ wrestler }: RosterCardProps) {
       aria-label={`View ${wrestler.ringName} profile`}
       className="group block"
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-background-secondary">
+      <div className="relative h-[320px] sm:h-[360px] lg:h-[400px] xl:h-[440px] overflow-hidden bg-background-secondary">
         <WrestlerPortrait
           wrestler={wrestler}
-          mask="poster"
+          mask="none"
           sizes="(max-width: 640px) 44vw, (max-width: 768px) 29vw, (max-width: 1024px) 23vw, (max-width: 1280px) 21vw, 18vw"
           className={cn(
-            "h-full w-full object-cover object-center",
-            "scale-[1.02] grayscale-[0.35] contrast-[1.05]",
+            "h-full w-full object-cover object-top",
+            "scale-[1.02] grayscale-[0.25] contrast-[1.05]",
             "transition-[transform,filter] duration-500 ease-out",
-            "group-hover:scale-[1.07] group-hover:grayscale-0"
+            "group-hover:scale-[1.06] group-hover:grayscale-0"
           )}
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-[35%] bg-gradient-to-t from-background via-transparent to-transparent"
+          className="absolute inset-x-0 bottom-0 h-[25%] bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none"
         />
       </div>
 

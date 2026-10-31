@@ -335,6 +335,70 @@ export const wrestlers: Wrestler[] = [
       "kevin-malik"
     ],
     "relatedMedia": []
+  },{
+    "id": "mrityunjay",
+    "name": "Mrityunjay",
+    "ringName": "MRITYUNJAY",
+    "nickname": "The Deathless One",
+    "image": "https://user32962.na.imgto.link/public/20261031/4ac6c25e544b2fbcc08170b4-image.avif",
+    "imageFull": "https://user32962.na.imgto.link/public/20261031/4ac6c25e544b2fbcc08170b4-image.avif",
+    "role": "wrestler",
+    "type": "singles",
+    "weightClass": "Heavyweight",
+    "gender": "men",
+    "division": "Singles",
+    "height": "6'2\"",
+    "weight": "245 lbs",
+    "from": "Varanasi, Uttar Pradesh, India",
+    "debut": "2020",
+    "record": {
+      "wins": 18,
+      "losses": 4,
+      "draws": 1
+    },
+    "winRate": 78,
+    "style": "Technical / Submission / Martial Arts",
+    "status": "active",
+    "finisher": "Moksha Lock",
+    "bio": "A mysterious and ruthless ascetic warrior who combines extraordinary flexibility, ancient yogic discipline and brutal submission wrestling. Mrityunjay moves with hypnotic calmness, bending and twisting his body into impossible angles before trapping opponents in devastating submissions. His presence is unsettling, his mind unreadable, and his opponents discover that escaping his grip is almost impossible.",
+    "championships": [],
+    "rivalries": [
+      "rahu",
+      "pranjay"
+    ],
+    "relatedMedia": []
+  },{
+    "id": "veerbhadra",
+    "name": "Veerbhadra",
+    "ringName": "VEERBHADRA",
+    "nickname": "The Wrath of the Gods",
+    "image": "https://user32962.na.imgto.link/public/20261031/6bfda14b05a0e8b40cffe188-image.avif",
+    "imageFull": "https://user32962.na.imgto.link/public/20261031/6bfda14b05a0e8b40cffe188-image.avif",
+    "role": "wrestler",
+    "type": "singles",
+    "weightClass": "Heavyweight",
+    "gender": "men",
+    "division": "Singles",
+    "height": "6'4\"",
+    "weight": "258 lbs",
+    "from": "Ujjain, Madhya Pradesh, India",
+    "debut": "2018",
+    "record": {
+      "wins": 22,
+      "losses": 5,
+      "draws": 0
+    },
+    "winRate": 81,
+    "style": "Powerhouse / Striker",
+    "status": "active",
+    "finisher": "Rudra Tandav",
+    "bio": "An intimidating warrior who carries the presence of an ancient forgotten king. Veerbhadra combines immense physical strength with ruthless striking ability and relentless aggression. His long, wild hair, dark ceremonial attire and antique gold ornaments create an unmistakable presence. Calm and merciless, he rarely wastes words or movements. When the bell rings, his opponents face an unstoppable force of destruction.",
+    "championships": [],
+    "rivalries": [
+      "rahu",
+      "mrityunjay"
+    ],
+    "relatedMedia": []
   },
   {
     "id": "gurvinder-singh-malhotra",
@@ -407,8 +471,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Shane Haste",
     "ringName": "Shane Haste",
     "nickname": "The Punk Rock Prodigy",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu3TQ9SEeFF5JaRe0UauYpLWBBcDzQ4d0xkANt6dSi_A&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu3TQ9SEeFF5JaRe0UauYpLWBBcDzQ4d0xkANt6dSi_A&s=10",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5nhcvi3lW0uBJPVTDtJUMoJe5xQBTPbX2cQC8rKSAsdioxPcEUd1tIFA&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5nhcvi3lW0uBJPVTDtJUMoJe5xQBTPbX2cQC8rKSAsdioxPcEUd1tIFA&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -506,8 +570,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Jora Johl",
     "ringName": "Jora Johl",
     "nickname": "The Punjabi Prince",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwnD-6J2X_12S-yJMTKAYsWtDZ-K5_kouu2yN01UY37A&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwnD-6J2X_12S-yJMTKAYsWtDZ-K5_kouu2yN01UY37A&s=10",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROuijKs_XcKQZplAeaxplKPJxFCjxImbfcq5E1ej6swucwrno5LYsLHTsh&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROuijKs_XcKQZplAeaxplKPJxFCjxImbfcq5E1ej6swucwrno5LYsLHTsh&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -567,6 +631,39 @@ export const wrestlers: Wrestler[] = [
     ],
     "relatedMedia": []
   },
+    {
+      "id": "arjun-singh",
+      "name": "Arjun Singh",
+      "ringName": "The Gabru",
+      "nickname": "The Lion of India",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47LazBQdgKhpUXSDMzy-0mxiwB8DfIFshUMmEzIlvDLW_XMI728UBgeU&s=10",
+      "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47LazBQdgKhpUXSDMzy-0mxiwB8DfIFshUMmEzIlvDLW_XMI728UBgeU&s=10",
+      "role": "wrestler",
+      "type": "singles",
+      "weightClass": "Heavyweight",
+      "gender": "men",
+      "division": "Singles",
+      "height": "6'2\"",
+      "weight": "245 lbs",
+      "from": "Firozpur, Punjab, India",
+      "debut": "2011",
+      "record": {
+        "wins": 37,
+        "losses": 15,
+        "draws": 1
+      },
+      "winRate": 70,
+      "style": "Powerhouse",
+      "status": "active",
+      "finisher": "Sky High / Lion's Roar",
+      "bio": "A cornerstone pioneer of Indian pro wrestling, former Ring Ka King World Champion, and a long-time powerhouse in TNA Wrestling, Mahabali Shera commands immense fan admiration and powerhouse supremacy.",
+      "championships": [],
+      "rivalries": [
+        "bhupinder-gujjar",
+        "malkeet-brawler"
+      ],
+      "relatedMedia": []
+    },
   {
     "id": "giant-zanjeer",
     "name": "Giant Zanjeer",
@@ -638,8 +735,8 @@ export const wrestlers: Wrestler[] = [
     "name": "Sunny Dhinsha",
     "ringName": "Sunny Dhinsha",
     "nickname": "The Punisher",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3I8CM9OxtRgu4ngNPcCb1HWc4u50xUHiIJ1d_aEb3GhDOiTiDzNqzDJU&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3I8CM9OxtRgu4ngNPcCb1HWc4u50xUHiIJ1d_aEb3GhDOiTiDzNqzDJU&s=10",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSue7RW3AsKQiiSPSobIKmd8yQFZrPbZFSW6JkyQdvsYQ&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSue7RW3AsKQiiSPSobIKmd8yQFZrPbZFSW6JkyQdvsYQ&s=10",
     "role": "wrestler",
     "type": "singles",
     "weightClass": "Heavyweight",
@@ -700,39 +797,40 @@ export const wrestlers: Wrestler[] = [
     "relatedMedia": []
   },
   {
-    "id": "beer-city-bruiser",
-    "name": "Beer City Bruiser",
-    "ringName": "Beer City Bruiser",
-    "nickname": "The Toast of the Town",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_6oo_GP_GGHzLCPUb5QFzXG9d0cbM9ZIvhRkA6KOH_3ZRDSo01hsJrvw&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_6oo_GP_GGHzLCPUb5QFzXG9d0cbM9ZIvhRkA6KOH_3ZRDSo01hsJrvw&s=10",
+    "id": "the-butcher-and-the-blade",
+    "name": "The Butcher and The Blade",
+    "ringName": "The Butcher and The Blade",
+    "nickname": "The Brass City Brawlers",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0GxSBLwQ4O-w6BSPNCsRS0ybPwgNiU6QK_VbfwLskQwqCVrlRChSj4VR&s=10",
+    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU0GxSBLwQ4O-w6BSPNCsRS0ybPwgNiU6QK_VbfwLskQwqCVrlRChSj4VR&s=10",
     "role": "tag-team",
     "type": "tag-team",
     "members": [
-      "Brian Milonas",
-      "Beer City Bruiser"
+      "Andy Williams",
+      "Pepper Parks"
     ],
     "weightClass": "Tag Team",
     "gender": "men",
     "division": "Tag Team",
     "height": "Team",
-    "weight": "600 lbs (Combined)",
-    "from": "Milwaukee, Wisconsin, USA",
-    "debut": "2015",
+    "weight": "490 lbs (Combined)",
+    "from": "Buffalo, New York, USA",
+    "debut": "2017",
     "record": {
-      "wins": 24,
-      "losses": 11,
+      "wins": 68,
+      "losses": 42,
       "draws": 0
     },
-    "winRate": 69,
-    "style": "Tag Team Brawlers",
+    "winRate": 62,
+    "style": "Heavyweight Brawlers",
     "status": "active",
-    "finisher": "Beer City Splash",
-    "bio": "A battle-hardened tag team combination bringing heavy-hitting bar-room brawl tactics and crushing tandem splashes to the tag team division.",
+    "finisher": "Drag the Lake",
+    "bio": "A heavy-hitting, leather-apron-wearing duo known for brutal parking-lot brawls, relentless double-team pressure, and a ruthless street-fighter mentality.",
     "championships": [],
     "rivalries": [
-      "star-twin",
-      "epico"
+      "the-young-bucks",
+      "lucha-bros",
+      "best-friends"
     ],
     "relatedMedia": []
   },
@@ -1293,34 +1391,44 @@ export const wrestlers: Wrestler[] = [
       "kiara"
     ],
     "relatedMedia": []
-  },{
-    "id": "alba-fyre",
-    "name": "Klara Hämäläinen",
-    "ringName": "ALBA FYRE",
-    "nickname": "The Unholy Fire",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIdh9aujlwKXbOxplf2yT6VdhxMyv1xWflZ1cSsPMq65mwIA3H7miEZ9g&s=10",
-    "imageFull": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIdh9aujlwKXbOxplf2yT6VdhxMyv1xWflZ1cSsPMq65mwIA3H7miEZ9g&s=10",
+  },
+  {
+    "id": "valentynna-reis",
+    "name": "Valentynna Reis",
+    "ringName": "Valentynna Reis",
+    "nickname": "The Brazilian Warrior",
+    "image": "https://pbs.twimg.com/profile_images/1795143017487073280/bNy5fXLQ_400x400.jpg",
+    "imageFull": "https://pbs.twimg.com/profile_images/1795143017487073280/bNy5fXLQ_400x400.jpg",
     "role": "wrestler",
     "type": "singles",
-    "weightClass": "Women's Singles",
+    "members": [
+      "Rita Reis"
+    ],
+    "weightClass": "Featherweight",
     "gender": "women",
     "division": "Women's Singles",
-    "height": "5'7\"",
-    "weight": "125 lbs",
-    "from": "Glasgow, Scotland",
-    "debut": "2014",
+    "height": "5 ft 1 in",
+    "weight": "115 lbs",
+    "from": "Minas Gerais, Brazil",
+    "debut": "2019",
     "record": {
-      "wins": 0,
-      "losses": 0,
+      "wins": 35,
+      "losses": 40,
       "draws": 0
     },
-    "winRate": 0,
-    "style": "Hard-Hitting / Striker",
+    "winRate": 47,
+    "style": "Martial Artist / High-Flyer",
     "status": "active",
-    "finisher": "Gory Bomb / Swanton Bomb",
-    "bio": "Alba Fyre is a fierce Scottish professional wrestler known for her fiery attitude, aggressive in-ring style, and high-impact offense. Formerly known as Kay Lee Ray, she is a former NXT UK Women's Champion who brings intensity, resilience, and explosive aerial attacks to the women's division.",
-    "championships": [],
-    "rivalries": [],
+    "finisher": "Middle Rope Meteora",
+    "bio": "A decorated Jiu-Jitsu world champion and former Judoka who transitioned into professional wrestling, known for her high-energy striking, capoeira-infused maneuvers, and martial arts submission techniques.",
+    "championships": [
+      "KAOZ Women's Championship"
+    ],
+    "rivalries": [
+      "zoey-stark",
+      "xia-li",
+      "mercedes-martinez"
+    ],
     "relatedMedia": []
   },
   {
