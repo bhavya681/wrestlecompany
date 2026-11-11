@@ -6,44 +6,25 @@ interface TicketButtonProps extends ComponentProps<"a"> {
   soldOut?: boolean;
 }
 
-export function TicketButton({
-  date,
-  soldOut = false,
-  className,
-  children = soldOut ? "SOLD OUT" : "GET TICKETS",
-  ...props
-}: TicketButtonProps) {
+export function TicketButton({ date, soldOut = false, className, children = "Get Tickets", href = "#", ...props }: TicketButtonProps) {
   if (soldOut) {
     return (
-      <a
-        className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-none border border-foreground/30 bg-foreground-muted/5 px-6 py-2.5 font-body text-sm font-medium tracking-widest uppercase text-foreground-muted",
-          className
-        )}
-        {...props}
-      >
-        <span className="text-xs">SOLD</span>
-        {children}
-      </a>
+      <span className={cn("inline-flex min-h-11 items-center justify-center border border-[var(--im-border)] bg-[var(--im-surface)] px-5 font-display text-xs font-bold uppercase tracking-[0.1em] text-[var(--im-muted)]", className)}>
+        Sold Out
+      </span>
     );
   }
-
+  const external = href.startsWith("http");
   return (
     <a
-      className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden border border-accent-red bg-accent-red px-6 py-2.5 font-body text-sm font-bold tracking-widest uppercase text-background shadow-lg shadow-accent-red/30 transition-all duration-200 hover:bg-accent-red-hover hover:shadow-xl hover:shadow-accent-red/40 active:scale-[0.98]",
-        className
-      )}
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={cn("im-link inline-flex min-h-11 items-center justify-center gap-3 border border-[#C1272D] bg-[#C1272D] px-5 font-display text-xs font-bold uppercase tracking-[0.1em] text-white hover:bg-[#991B1B] hover:border-[#991B1B]", className)}
       {...props}
     >
-      <span className="absolute inset-0 -translate-x-full transition-transform duration-300 group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <span className="flex items-center gap-2">
-        <span className="text-xs">TICKETS</span>
-        {children}
-      </span>
-      {date && (
-        <span className="ml-1 text-xs opacity-80">{date}</span>
-      )}
+      <span>{children}</span>
+      {date && <span className="font-mono text-[9px] tracking-[0.12em] text-white/80">{date}</span>}
     </a>
   );
 }

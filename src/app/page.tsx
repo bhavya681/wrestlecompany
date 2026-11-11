@@ -1,620 +1,633 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import type { CSSProperties, ReactNode } from "react";
 import { Hero } from "@/components/hero/Hero";
-import { NextEventSection } from "@/components/events/NextEventSection";
-import { WrestlerCard } from "@/components/wrestlers/WrestlerCard";
-import { ChampionshipCard } from "@/components/championships/ChampionshipCard";
-import { StoryCard } from "@/components/stories/StoryCard";
-import { NewsCard } from "@/components/news/NewsCard";
-import { ResultCard } from "@/components/results/ResultCard";
-import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Button } from "@/components/ui/Button";
+import { FeaturedSuperstars } from "@/components/wrestlers/FeaturedSuperstars";
+import { ChampionshipSpotlight } from "@/components/wrestlers/ChampionshipSpotlight";
+import { championships, wrestlers, events, articles, matches, mediaItems, stories } from "@/data";
+import { isChampion, isSinglesWrestler, isTagTeam } from "@/lib/roster";
 
-import {
-  matches,
-  wrestlers,
-  championships,
-  articles,
-  stories,
-} from "@/data";
-
-/* ─────────────────────────────────────────────
-   HOME PAGE DATA
-───────────────────────────────────────────── */
-
-const rosterPreview = wrestlers
-  .filter((wrestler) => wrestler.status === "active")
-  .slice(0, 4);
-
-const activeStories = stories
-  .filter((story) => story.status === "active")
-  .slice(0, 3);
-
-const featuredArticle = articles.find((article) => article.featured);
-
-const secondaryArticles = articles
-  .filter((article) => !article.featured)
-  .slice(0, 2);
-
-const recentResults = matches.filter(
-  (match) =>
-    match.result.winner !== "" &&
-    match.rating !== undefined &&
-    match.rating > 0
-);
-
-const resultsToShow = recentResults.slice(0, 3);
-
-/* ─────────────────────────────────────────────
-   HOME PAGE
-───────────────────────────────────────────── */
+function SectionHead({
+  overline,
+  title,
+  href,
+  linkLabel,
+  invert = false,
+}: {
+  overline: string;
+  title: ReactNode;
+  href: string;
+  linkLabel: string;
+  invert?: boolean;
+}) {
+  return (
+    <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+      <div>
+        <p className="im-eyebrow">{overline}</p>
+        <h2
+          className={[
+            "mt-2 font-display text-[clamp(2.1rem,5vw,3.4rem)] font-black uppercase leading-[0.92] tracking-[-0.02em]",
+            invert ? "text-white" : "text-[var(--im-ink)]",
+          ].join(" ")}
+        >
+          {title}
+        </h2>
+      </div>
+      <Link
+        href={href}
+        className={[
+          "im-underline-link shrink-0 font-mono text-[10px] font-bold uppercase tracking-[0.16em]",
+          invert ? "text-white/55 hover:text-white" : "text-[var(--im-muted)] hover:text-[var(--im-ink)]",
+        ].join(" ")}
+      >
+        {linkLabel}
+        <span aria-hidden>→</span>
+      </Link>
+    </div>
+  );
+}
 
 export default function Home() {
+  const upcoming = events.find((event) => event.status === "upcoming");
+  const champions = championships.filter((championship) => championship.currentChampion);
+  const featuredWrestlers = wrestlers
+    .filter((wrestler) => isSinglesWrestler(wrestler) && wrestler.status === "active")
+    .sort((a, b) => (isChampion(b) ? 1 : 0) - (isChampion(a) ? 1 : 0))
+    .slice(0, 6);
+  const featuredTeams = wrestlers
+    .filter((wrestler) => isTagTeam(wrestler) && wrestler.status === "active")
+    .slice(0, 6);
+  const featuredArticle = articles.find((article) => article.featured) || articles[0];
+  const latestNews = articles.filter((article) => article.id !== featuredArticle?.id).slice(0, 3);
+  const recentResults = matches.filter((match) => match.result?.winner).slice(0, 4);
+  const highlights = mediaItems.slice(0, 4);
+  const activeStories = stories.filter((story) => story.status === "active").slice(0, 2);
+
   return (
     <>
-      {/* ═══════════════════════════════════════
-          SECTION 01 — HERO
-      ═══════════════════════════════════════ */}
-
       <Hero />
 
-      {/* ═══════════════════════════════════════
-          SECTION 02 — NEXT EVENT
-          
-          The upcoming event contains the main
-          event matchup and wrestler photography.
-          
-          We intentionally DO NOT render another
-          Featured Match section afterward.
-      ═══════════════════════════════════════ */}
-
-      <NextEventSection />
-
-      {/* ═══════════════════════════════════════
-          SECTION 03 — CHAMPIONSHIPS
-      ═══════════════════════════════════════ */}
-
-      <section className="relative overflow-hidden border-y border-border py-20 md:py-32">
-        {/* Cinematic background layers */}
-        <div className="pointer-events-none absolute inset-0">
-          <Image
-            src="/images/championship_bg.jpg"
-            alt=""
-            fill
-            className="object-cover opacity-15 saturate-50 mix-blend-luminosity"
-          />
-
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-background/85 backdrop-blur-[2px]" />
-
-          {/* Top / bottom fade */}
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
-
-          {/* Gold atmospheric glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,_var(--tw-gradient-stops))] from-accent-gold/8 via-transparent to-transparent" />
-
-          {/* Grid pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.025]"
-            style={{
-              backgroundImage: `
-linear - gradient(rgba(212, 175, 55, 0.4) 1px, transparent 1px),
-  linear - gradient(90deg, rgba(212, 175, 55, 0.4) 1px, transparent 1px)
-    `,
-              backgroundSize: "64px 64px",
-            }}
-          />
-        </div>
-
-        {/* Large background number */}
-        <div
-          className="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 select-none font-display text-[20rem] font-black leading-none text-foreground/[0.015] sm:text-[28rem]"
-          aria-hidden="true"
+      {upcoming ? (
+        <section
+          className="relative isolate overflow-hidden border-b border-[var(--im-border)] bg-[#080808] text-white py-14 md:py-20 lg:py-28"
         >
-          03
-        </div>
-
-        <div className="container-wide relative z-10">
-          {/* Header */}
-          <div className="mb-14 flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="im-section-number">
-                  03
-                </span>
-
-                <span className="h-px w-8 bg-accent-gold/40" />
-
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-accent-gold">
-                  Championships
-                </span>
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_10%,rgba(193,39,45,0.25),transparent_55%)] im-grid-lines opacity-40"
+          />
+          <div
+            aria-hidden
+            className="absolute left-0 top-0 h-full w-[3px] bg-[#C1272D]"
+          />
+          <div className="container-wide relative">
+            <div className="grid gap-9 lg:grid-cols-[minmax(0,.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-16">
+              <div className="relative mx-auto w-full max-w-md lg:mx-0" data-reveal>
+                <div
+                  aria-hidden
+                  className="absolute -left-3 -top-3 hidden h-24 w-24 border-l-2 border-t-2 border-[#C1272D] sm:block"
+                />
+                <div className="im-poster-frame relative aspect-[2/3] shadow-[0_35px_80px_rgba(8,8,8,0.45)]">
+                  <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#C1272D] to-[#991B1B] blur opacity-30" aria-hidden />
+                  <Image
+                    src={upcoming.posterImage}
+                    alt={`${upcoming.name} official poster`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 36vw"
+                  />
+                </div>
+                <div
+                  aria-hidden
+                  className="absolute -right-2 -bottom-2 hidden h-24 w-24 border-b-2 border-r-2 border-[#C1272D] sm:block"
+                />
               </div>
 
-              <h2 className="mt-4 font-display text-4xl font-black uppercase tracking-tight text-foreground md:text-5xl lg:text-6xl">
-                The
-                <br className="hidden sm:block" />
-                <span className="im-gold-gradient-text">
-                  {" "}
-                  Titles
-                </span>
-              </h2>
+              <div data-reveal style={{ "--reveal-delay": "100ms" } as CSSProperties}>
+                <p className="im-eyebrow im-kicker-light">Featured Event</p>
+                <h2 className="mt-3 font-display text-[clamp(2.8rem,8vw,6rem)] font-black uppercase leading-[0.84] tracking-[-0.03em] text-white">
+                  {upcoming.name}
+                </h2>
+                {upcoming.tagline ? (
+                  <p className="mt-4 font-display text-xl font-semibold uppercase tracking-[0.05em] text-[#DC2626] sm:text-2xl">
+                    {upcoming.tagline}
+                  </p>
+                ) : null}
+                <p className="mt-6 max-w-xl font-body text-sm leading-7 text-white/70 sm:text-base">
+                  Championship stakes. Unfinished business. The next chapter of Indus Matworks unfolds
+                  live in {upcoming.city}.
+                </p>
 
-              <div className="mt-3 h-px w-16 bg-gradient-to-r from-accent-gold to-transparent" />
+                <dl className="mt-8 grid grid-cols-2 gap-px border border-[#27272A] bg-[#080808] sm:grid-cols-4">
+                  {[
+                    {
+                      label: "Date",
+                      value: new Date(upcoming.date).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                      }),
+                      sub: new Date(upcoming.date).getFullYear().toString(),
+                    },
+                    { label: "City", value: upcoming.city, sub: "India" },
+                    { label: "Venue", value: upcoming.venue || "TBA", sub: "Live Arena" },
+                    { label: "Status", value: "On Sale", sub: "Tickets" },
+                  ].map((item) => (
+                    <div key={item.label} className="bg-[#0A0A0A] px-4 py-4.5 sm:px-5">
+                      <dt className="font-mono text-[8px] font-bold uppercase tracking-[0.18em] text-[#DC262D]">
+                        {item.label}
+                      </dt>
+                      <dd className="mt-1.5 font-display text-lg font-bold uppercase leading-tight text-white">
+                        {item.value}
+                      </dd>
+                      <dd className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-white/50">
+                        {item.sub}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
 
-              <p className="mt-4 max-w-md font-body text-sm text-foreground-muted md:text-base">
-                Four championships. Four stories. One legacy.
-              </p>
+                <div className="mt-8 flex flex-wrap gap-2.5">
+                  <Link href={`/events/${upcoming.slug}`} className="im-btn im-btn-red">
+                    Event Details
+                  </Link>
+                  <Link href="/events" className="im-btn im-btn-dark">
+                    All Events
+                  </Link>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+      ) : null}
 
-            <Link
-              href="/championships"
-              className="inline-flex min-h-11 items-center justify-center border border-accent-gold bg-accent-gold/5 px-6 py-2.5 font-display text-xs font-bold uppercase tracking-[0.12em] text-accent-gold transition-all duration-200 hover:bg-accent-gold hover:text-background sm:px-7 sm:text-sm"
-            >
-              All Championships
+      <section className="border-b border-[var(--im-border)] bg-[var(--im-page)] py-14 pt-0 md:py-20 lg:py-26">
+        <div className="container-wide">
+          <ChampionshipSpotlight />
+
+          <div className="mt-10 grid gap-px border border-[var(--im-border)] bg-[var(--im-border)] sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+            {champions.map((championship, index) => (
+              <Link
+                key={championship.id}
+                href={`/roster/${championship.currentChampion!.wrestlerId}`}
+                className="group relative bg-[var(--im-page)]"
+                data-reveal
+                style={{ "--reveal-delay": `${(index % 3) * 70}ms` } as CSSProperties}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden bg-[var(--im-surface)]">
+                  <Image
+                    src={championship.currentChampion!.image}
+                    alt={championship.currentChampion!.wrestler}
+                    fill
+                    className="object-cover object-top grayscale-[0.12] transition-[filter,transform] duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/15 to-transparent"
+                    aria-hidden
+                  />
+                  <div className="absolute right-4 top-2 max-w-[24%]">
+                    <Image
+                      src={championship.image}
+                      alt=""
+                      width={168}
+                      height={74}
+                      className="h-auto w-full object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.45)]"
+                    />
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                    <p className="font-mono text-[8px] font-bold uppercase tracking-[0.18em] text-[#DC2626]">
+                      {championship.shortName} Champion
+                    </p>
+                    <h3 className="mt-1.5 font-display text-2xl font-bold uppercase leading-none text-white sm:text-3xl">
+                      {championship.currentChampion!.wrestler}
+                    </h3>
+                    <p className="mt-1.5 font-body text-[11px] text-white/50">
+                      {championship.currentChampion!.nickname || championship.division}
+                    </p>
+                  </div>
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-[0.25] bg-[#C1272D] transition-transform duration-300 group-hover:scale-x-100"
+                    aria-hidden
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-3 border-t border-[var(--im-border)] px-4 py-3">
+                  <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--im-muted)]">
+                    {championship.daysHeld} days · {championship.defenses} defenses
+                  </span>
+                  <span
+                    aria-hidden
+                    className="font-mono text-[10px] text-[var(--im-muted)] transition-transform duration-200 group-hover:translate-x-1 group-hover:text-[#C1272D]"
+                  >
+                    →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--im-border)] bg-[var(--im-page)] py-14 md:py-20 lg:py-26">
+        <div className="container-wide">
+          <SectionHead
+            overline="Featured Superstars"
+            title={
+              <>
+                The Faces
+                <br />
+                Of The Mat
+              </>
+            }
+            href="/roster"
+            linkLabel="View Full Roster"
+          />
+
+          <FeaturedSuperstars wrestlers={featuredWrestlers} />
+        </div>
+      </section>
+
+      {featuredTeams.length > 0 ? (
+        <section
+          className="relative isolate overflow-hidden border-b border-[var(--im-border)] bg-[#080808] text-white py-14 md:py-20 lg:py-28"
+        >
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(193,39,45,0.2),transparent_55%)] im-grid-lines opacity-30"
+          />
+          <div className="container-wide relative">
+            <SectionHead
+              overline="Tag Teams &amp; Factions"
+              title={
+                <>
+                  United They
+                  <br />
+                  Dominate
+                </>
+              }
+              href="/tag-teams"
+              linkLabel="All Tag Teams"
+              invert
+            />
+
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3" data-reveal>
+              {featuredTeams.map((team, index) => (
+                <Link
+                  key={team.id}
+                  href={`/roster/${team.id}`}
+                  className="group relative overflow-hidden aspect-video border border-white/10 bg-white/5"
+                  data-reveal
+                  style={{ "--reveal-delay": `${index * 80}ms` } as CSSProperties}
+                >
+                  <div className="absolute inset-0">
+                    <Image
+                      src={team.image || team.imageFull || "/logo.png"}
+                      alt={team.ringName}
+                      fill
+                      className="object-cover object-top grayscale-[0.3] transition-[filter,transform] duration-600 group-hover:scale-[1.05] group-hover:grayscale-0"
+                    />
+                  </div>
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-[#080808]/25 to-transparent"
+                    aria-hidden
+                  />
+                  <div className="absolute left-4 top-4">
+                    <span className="inline-flex items-center gap-1.5 border border-white/20 bg-black/60 px-2.5 py-1 font-mono text-[8px] font-bold uppercase tracking-[0.14em] text-white/90 backdrop-blur-md">
+                      <span aria-hidden className="h-1.5 w-1.5 bg-white" />
+                      Tag Team
+                    </span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                    <h3 className="font-display text-2xl font-bold uppercase leading-none text-white sm:text-3xl group-hover:text-[#DC262D] transition-colors">
+                      {team.ringName}
+                    </h3>
+                    {team.members?.length ? (
+                      <p className="mt-1.5 line-clamp-2 font-body text-[11px] text-white/60 sm:text-[12px]">
+                        {team.members.join(" · ")}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-[0.2] bg-[#C1272D] transition-transform duration-300 group-hover:scale-x-100"
+                    aria-hidden
+                  />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {highlights.length > 0 ? (
+        <section className="border-b border-[var(--im-border)] bg-[var(--im-surface)] py-14 md:py-20 lg:py-26">
+          <div className="container-wide">
+            <SectionHead
+              overline="Media Hub"
+              title={
+                <>
+                  Watch The
+                  <br />
+                  Action
+                </>
+              }
+              href="/media"
+              linkLabel="All Videos"
+            />
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {highlights.map((item, index) => (
+                <a
+                  key={item.id}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative overflow-hidden border border-[var(--im-border)] bg-[var(--im-page)] transition-colors hover:border-[#C1272D]/60"
+                  data-reveal
+                  style={{ "--reveal-delay": `${(index % 4) * 60}ms` } as CSSProperties}
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={item.thumbnail}
+                      alt={item.title}
+                      fill
+                      className="object-cover grayscale-[0.15] transition-transform duration-500 group-hover:scale-[1.04] group-hover:grayscale-0"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" aria-hidden />
+                    <span className="absolute inset-0 flex items-center justify-center">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-sm transition-colors group-hover:border-[#C1272D] group-hover:bg-[#C1272D]">
+                        <svg width="12" height="14" viewBox="0 0 12 14" fill="currentColor" aria-hidden>
+                          <path d="M12 7 0 14V0z" />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div className="p-4">
+                    <p className="font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-[#DC2626]">
+                      {item.category.replace(/-/g, " ")}
+                    </p>
+                    <h3 className="mt-2 line-clamp-2 font-display text-lg font-bold uppercase leading-tight text-[var(--im-ink)] transition-colors group-hover:text-[#C1272D]">
+                      {item.title}
+                    </h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {featuredArticle ? (
+        <section className="border-b border-[var(--im-border)] bg-[var(--im-page)] py-14 md:py-20 lg:py-26">
+          <div className="container-wide">
+            <SectionHead
+              overline="Newsroom"
+              title={
+                <>
+                  News &amp;
+                  <br />
+                  Developments
+                </>
+              }
+              href="/news"
+              linkLabel="All News"
+            />
+
+            <div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr] lg:gap-10">
+              <Link
+                href={`/news/${featuredArticle.slug}`}
+                className="group block"
+                data-reveal
+              >
+                <div className="relative aspect-[16/10] overflow-hidden border border-[var(--im-border)]">
+                  <Image
+                    src={featuredArticle.image}
+                    alt={featuredArticle.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                    sizes="(max-width: 1024px) 100vw, 60vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/65 to-transparent" aria-hidden />
+                  <span className="absolute left-4 top-4 bg-[#C1272D] px-2.5 py-1 font-mono text-[8px] font-bold uppercase tracking-[0.16em] text-white">
+                    {featuredArticle.category.replace(/-/g, " ")}
+                  </span>
+                </div>
+                <div className="border-x border-b border-[var(--im-border)] p-5 sm:p-6">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--im-muted)]">
+                    {featuredArticle.author} ·{" "}
+                    {new Date(featuredArticle.date).toLocaleDateString("en-IN", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </p>
+                  <h3 className="mt-3 max-w-3xl font-display text-[clamp(1.8rem,4vw,3rem)] font-bold uppercase leading-[0.94] text-[var(--im-ink)] transition-colors group-hover:text-[#C1272D]">
+                    {featuredArticle.title}
+                  </h3>
+                  <p className="mt-3 max-w-2xl font-body text-sm leading-6 text-[var(--im-muted)]">
+                    {featuredArticle.excerpt}
+                  </p>
+                </div>
+              </Link>
+
+              <div className="divide-y divide-[var(--im-border)] border-y border-[var(--im-border)]" data-reveal>
+                {latestNews.map((article) => (
+                  <Link key={article.id} href={`/news/${article.slug}`} className="group flex gap-4 py-4 first:pt-0 last:pb-0">
+                    <div className="relative h-[74px] w-[104px] shrink-0 overflow-hidden border border-[var(--im-border)]">
+                      <Image
+                        src={article.image}
+                        alt=""
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        sizes="104px"
+                      />
+                    </div>
+                    <div className="min-w-0 py-0.5">
+                      <p className="font-mono text-[8px] uppercase tracking-[0.14em] text-[#C1272D]">
+                        {article.category.replace(/-/g, " ")}
+                      </p>
+                      <h3 className="mt-1.5 line-clamp-2 font-display text-base font-bold uppercase leading-tight text-[var(--im-ink)] transition-colors group-hover:text-[#C1272D]">
+                        {article.title}
+                      </h3>
+                      <p className="mt-1 font-mono text-[8px] uppercase tracking-[0.12em] text-[var(--im-muted)]">
+                        {new Date(article.date).toLocaleDateString("en-IN", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="border-b border-[var(--im-border)] bg-[var(--im-surface)] py-14 md:py-20 lg:py-26">
+        <div className="container-wide grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div data-reveal>
+            <p className="im-eyebrow">Results Desk</p>
+            <h2 className="mt-2 font-display text-[clamp(2.1rem,5vw,3.4rem)] font-black uppercase leading-[0.92] text-[var(--im-ink)]">
+              Recent
+              <br />
+              Outcomes
+            </h2>
+            <p className="mt-4 max-w-md font-body text-sm leading-7 text-[var(--im-muted)]">
+              Every fall, submission and decision recorded. Follow the results shaping the road to
+              the next championship night.
+            </p>
+            <Link href="/results" className="im-btn im-btn-dark mt-7">
+              Full Results Archive
             </Link>
           </div>
 
-          {/* Featured World Championship — flagship belt presentation */}
-          <div className="relative isolate overflow-hidden border border-accent-gold/20 bg-[#0b0b0c] rounded-xl p-6 sm:p-8 lg:flex lg:items-center lg:gap-12">
-            <div className="relative flex flex-col items-center justify-center mb-6 sm:mb-0 lg:mb-0 lg:shrink-0 lg:w-[42%]">
-              <div
-                className="relative aspect-[2/1] w-full max-w-xs sm:max-w-sm md:max-w-lg lg:max-w-none overflow-hidden border border-accent-gold/30 bg-black/40"
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(212,175,55,0.18),transparent_65%)]" />
-                <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(135deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:20px_20px]" />
-                <Image
-                  src="https://user43115.na.imgto.link/public/20261010/b81f5d9bbc7d908a3d9a2a4c-image.avif"
-                  alt="IM World Championship belt"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 480px"
-                  className="object-contain object-center drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] transition-transform duration-700 group-hover:scale-105"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 border border-accent-gold/30 bg-black/70 px-4 py-2 font-mono text-[9px] font-bold uppercase tracking-[0.18em] text-accent-gold backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-gold" aria-hidden="true" />
-                Flagship Title
-              </div>
-            </div>
-
-            <div className="flex-1 text-center sm:text-left">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-accent-red mb-2">
-                The Pinnacle
-              </p>
-              <h3 className="font-display text-3xl font-black uppercase tracking-tight text-foreground sm:text-4xl lg:text-5xl mb-3">
-                IM World Championship
-              </h3>
-              <p className="mt-2 max-w-sm mx-auto sm:mx-0 font-body text-sm leading-7 text-foreground-muted sm:text-base">
-                The undisputed world championship of Indus Matworks — the
-                pinnacle of achievement in Indian professional wrestling.
-              </p>
-
-              <div className="mt-8 flex flex-col items-center sm:items-start gap-3 sm:gap-4">
-                <Link
-                  href="/roster/bhupinder-gujjar"
-                  className="inline-flex min-h-10 items-center justify-center bg-accent-red px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.11em] text-background transition-all duration-200 hover:bg-accent-red-hover sm:px-6 sm:text-sm"
-                >
-                  View Champion
-                </Link>
-                <Link
-                  href="/championships#im-world-championship"
-                  className="inline-flex items-center gap-2 border border-accent-gold/30 px-5 py-2 font-display text-xs font-bold uppercase tracking-[0.11em] text-accent-gold transition-all duration-200 hover:border-accent-gold sm:px-6 sm:text-sm"
-                >
-                  Full History <span aria-hidden="true">→</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Other championships grid */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {championships
-              .filter((c) => c.id !== "im-world-championship")
-              .map((championship, index) => (
-                <article key={championship.id}>
-                  <ChampionshipCard
-                    championship={championship}
-                    variant="compact"
-                  />
-                </article>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          SECTION 04 — ROSTER
-      ═══════════════════════════════════════ */}
-
-      <section className="relative overflow-hidden border-y border-border bg-background-secondary py-16 md:py-28">
-        {/* Cinematic roster background */}
-        <div className="pointer-events-none absolute inset-0">
-          <Image
-            src="/images/hero-wrestler.png"
-            alt=""
-            fill
-            className="object-cover opacity-10 saturate-50 mix-blend-screen"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-background-secondary via-background-secondary/90 to-background-secondary/50" />
-
-          <div className="absolute inset-0 bg-gradient-to-r from-background-secondary/60 via-transparent to-background-secondary/60" />
-        </div>
-
-        <div className="container-wide relative z-10">
-          {/* Header */}
-          <div className="mb-12 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeader
-              variant="editorial"
-              number="04"
-              overline="The Roster"
-              title={
-                <>
-                  Meet The
-                  <br className="hidden sm:block" />
-                  {" "}
-                  Athletes
-                </>
-              }
-              subtitle="Real competitors. Real rivalries."
-              className="mb-0"
-            />
-
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="shrink-0"
-            >
-              <Link href="/roster">
-                Full Roster
-              </Link>
-            </Button>
-          </div>
-
-          {/* Roster grid */}
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-5 lg:grid-cols-4">
-            {rosterPreview.map((wrestler) => (
-              <WrestlerCard
-                key={wrestler.id}
-                wrestler={wrestler}
-                variant="compact"
-              />
+          <div className="divide-y divide-[var(--im-border)] border-y border-[var(--im-border)]" data-reveal style={{ "--reveal-delay": "80ms" } as CSSProperties}>
+            {recentResults.map((match) => (
+              <article key={match.id} className="group py-4 first:pt-0 last:pb-0">
+                <p className="font-mono text-[8px] font-bold uppercase tracking-[0.14em] text-[var(--im-muted)]">
+                  {match.eventName} ·{" "}
+                  {new Date(match.date).toLocaleDateString("en-IN", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </p>
+                <h3 className="mt-2 font-display text-xl font-bold uppercase leading-tight text-[var(--im-ink)] sm:text-2xl">
+                  {match.competitors[0]?.wrestler}{" "}
+                  <span className="text-[#C1272D]">vs</span> {match.competitors[1]?.wrestler}
+                </h3>
+                <p className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.12em] text-[var(--im-muted)]">
+                  {match.result?.winner ? `Winner: ${match.result.winner}` : "Result pending"}
+                  {match.result?.method ? ` · ${match.result.method.replace(/-/g, " ")}` : ""}
+                </p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
-          SECTION 05 — STORIES
-      ═══════════════════════════════════════ */}
-
-      {activeStories.length > 0 && (
-        <section className="py-16 md:py-24">
+      {activeStories.length > 0 ? (
+        <section className="im-cinematic border-b border-white/10 py-14 md:py-20 lg:py-26">
           <div className="container-wide">
-            {/* Header */}
-            <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                variant="editorial"
-                number="05"
-                overline="Rivalries"
-                title={
-                  <>
-                    The
-                    <br className="hidden sm:block" />
-                    {" "}
-                    Stories
-                  </>
-                }
-                subtitle="Every rivalry has a beginning."
-                className="mb-0"
-              />
-
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="shrink-0"
-              >
-                <Link href="/stories">
-                  All Stories
-                </Link>
-              </Button>
-            </div>
-
-            {/* Stories */}
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {activeStories.map((story) => (
-                <StoryCard
+            <SectionHead
+              overline="Storylines"
+              title={
+                <>
+                  The Narratives
+                  <br />
+                  Behind The Ring
+                </>
+              }
+              href="/stories"
+              linkLabel="All Stories"
+              invert
+            />
+            <div className="grid gap-px border border-white/12 bg-white/10 sm:grid-cols-2">
+              {activeStories.map((story, index) => (
+                <Link
                   key={story.id}
-                  story={story}
-                  variant="default"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ═══════════════════════════════════════
-          SECTION 06 — LATEST NEWS
-      ═══════════════════════════════════════ */}
-
-      <section className="border-y border-border bg-background-secondary py-16 md:py-24">
-        <div className="container-wide">
-          {/* Header */}
-          <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeader
-              variant="editorial"
-              number="06"
-              overline="News"
-              title={
-                <>
-                  Latest
-                  <br className="hidden sm:block" />
-                  {" "}
-                  News
-                </>
-              }
-              subtitle="Editorial coverage from across the IM universe."
-              className="mb-0"
-            />
-
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className="shrink-0"
-            >
-              <Link href="/news">
-                All News
-              </Link>
-            </Button>
-          </div>
-
-          {/* News grid */}
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {featuredArticle && (
-              <div className="md:col-span-2 lg:col-span-1">
-                <NewsCard
-                  article={featuredArticle}
-                  variant="featured"
-                />
-              </div>
-            )}
-
-            {secondaryArticles.map((article) => (
-              <NewsCard
-                key={article.id}
-                article={article}
-                variant="default"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════
-          SECTION 07 — RESULTS
-      ═══════════════════════════════════════ */}
-
-      {resultsToShow.length > 0 && (
-        <section className="py-16 md:py-24">
-          <div className="container-wide">
-            {/* Header */}
-            <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                variant="editorial"
-                number="07"
-                overline="Results"
-                title={
-                  <>
-                    Recent
-                    <br className="hidden sm:block" />
-                    {" "}
-                    Results
-                  </>
-                }
-                subtitle="The latest outcomes from across India."
-                className="mb-0"
-              />
-
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="shrink-0"
-              >
-                <Link href="/results">
-                  All Results
+                  href={`/stories/${story.slug}`}
+                  className="group bg-[#080808]"
+                  data-reveal
+                  style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={story.image}
+                      alt={story.title}
+                      fill
+                      className="object-cover opacity-85 transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" aria-hidden />
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-[0.25] bg-[#C1272D] transition-transform duration-300 group-hover:scale-x-100"
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="p-5 sm:p-6">
+                    <p className="font-mono text-[9px] font-bold uppercase tracking-[0.16em] text-[#DC2626]">
+                      {story.subtitle}
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-none text-white transition-colors group-hover:text-white/70 sm:text-3xl">
+                      {story.title}
+                    </h3>
+                  </div>
                 </Link>
-              </Button>
-            </div>
-
-            {/* Results */}
-            <div className="space-y-3">
-              {resultsToShow.map((match) => (
-                <ResultCard
-                  key={match.id}
-                  match={match}
-                  wrestlers={wrestlers}
-                  expanded={true}
-                />
               ))}
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
-      {/* ═══════════════════════════════════════
-          SECTION 08 — ABOUT
-      ═══════════════════════════════════════ */}
-
-      <section className="relative overflow-hidden border-t border-border bg-background-secondary py-20 md:py-28">
-        {/* Decorative grid */}
+      <section className="relative isolate overflow-hidden bg-[#C1272D] py-16 text-white md:py-24">
         <div
-          className="absolute inset-0 opacity-[0.04]"
-          aria-hidden="true"
-          style={{
-            backgroundImage: `
-linear - gradient(rgba(193, 39, 45, 0.4) 1px, transparent 1px),
-  linear - gradient(90deg, rgba(193, 39, 45, 0.4) 1px, transparent 1px)
-    `,
-            backgroundSize: "64px 64px",
-          }}
-        />
-
-        {/* Red atmospheric glow */}
-        <div
-          className="pointer-events-none absolute left-0 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-red/5 blur-[120px]"
-          aria-hidden="true"
-        />
-
-        <div className="container-wide relative z-10">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-            {/* About copy */}
-            <div>
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-accent-red">
-                08 — About
-              </p>
-
-              <h2 className="mt-3 font-display text-3xl font-black uppercase tracking-tight text-foreground sm:text-4xl md:text-5xl">
-                Wrestling From India.
-                <br />
-                <span className="text-foreground-muted">
-                  Built For The World.
-                </span>
-              </h2>
-
-              <div
-                className="mt-6 h-0.5 w-12 bg-accent-red"
-                aria-hidden="true"
-              />
-
-              <p className="mt-6 max-w-md font-body text-sm leading-relaxed text-foreground-muted md:text-base">
-                Indus Matworks is India's premier international
-                professional wrestling promotion — forged in the
-                tradition of the{" "}
-                <em className="not-italic text-foreground">
-                  akhara
-                </em>
-                , built for the arena, and destined for the world
-                stage.
-              </p>
-
-              <p className="mt-4 max-w-md font-body text-sm leading-relaxed text-foreground-muted md:text-base">
-                We represent the next generation of Indian athletes —
-                competitors who carry the weight of a nation and the
-                ambition of champions.
-              </p>
-
-              {/* CTA buttons */}
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button
-                  variant="primary"
-                  size="md"
-                  asChild
-                >
-                  <Link href="/roster">
-                    Meet The Roster
-                  </Link>
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="md"
-                  asChild
-                >
-                  <Link href="/championships">
-                    The Championships
-                  </Link>
-                </Button>
-              </div>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-3 self-center">
-              {[
-                {
-                  number: "4",
-                  label: "Championships",
-                },
-                {
-                  number: "5+",
-                  label: "Live Events",
-                },
-                {
-                  number: "20+",
-                  label: "Athletes",
-                },
-                {
-                  number: "2026",
-                  label: "Founded",
-                },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="border border-border bg-background p-6 transition-colors duration-300 hover:border-accent-red/40"
-                >
-                  <p className="font-display text-4xl font-black text-foreground sm:text-5xl">
-                    {stat.number}
-                  </p>
-
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground-muted">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          aria-hidden
+          className="pointer-events-none absolute -right-10 -top-10 select-none font-display text-[clamp(12rem,28vw,28rem)] font-black leading-none text-transparent opacity-10 [-webkit-text-stroke:2px_#fff]"
+        >
+          IM
         </div>
-      </section>
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.2),transparent_62%)]"
+        />
+        <div aria-hidden className="im-noise absolute inset-0 opacity-20" />
 
-      {/* ═══════════════════════════════════════
-          SECTION 09 — NEWSLETTER
-      ═══════════════════════════════════════ */}
+        <div className="container-wide relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+          <div data-reveal>
+            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.24em] text-white/70 sm:text-[10px]">
+              The Next Chapter
+            </p>
+            <h2 className="mt-3 font-display text-[clamp(2.7rem,7vw,5.6rem)] font-black uppercase leading-[0.86] tracking-[-0.03em]">
+              This Is
+              <br />
+              Indus Matworks.
+            </h2>
+            <p className="mt-4 font-display text-xl font-bold uppercase leading-tight tracking-[0.02em] text-white sm:text-2xl">
+              The Future Of Wrestling Starts Here.
+            </p>
+            <p className="mt-4 max-w-2xl font-body text-sm leading-7 text-white/75 sm:text-base">
+              Professional wrestling built around championship competition, fearless athletes, and
+              an Indian identity made for the global stage.
+            </p>
+          </div>
 
-      <section className="border-t border-border py-16">
-        <div className="container-wide">
-          <div className="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
-            {/* Copy */}
-            <div className="flex-1">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-accent-red">
-                Join The Universe
-              </p>
+          <div
+            className="border border-white/25 bg-black/10 p-5 backdrop-blur-sm"
+            data-reveal
+            style={{ "--reveal-delay": "100ms" } as CSSProperties}
+          >
+            <p className="font-mono text-[8px] font-bold uppercase tracking-[0.2em] text-white/60">
+              The Roster Awaits
+            </p>
 
-              <h2 className="mt-2 font-display text-2xl font-black uppercase tracking-tight text-foreground sm:text-3xl">
-                Stay In The Fight.
-              </h2>
-
-              <p className="mt-2 text-sm text-foreground-muted">
-                Early ticket access, exclusive content, and never
-                miss a match.
-              </p>
-            </div>
-
-            {/* Newsletter form */}
-            <form
-              className="flex w-full max-w-sm flex-col gap-2 sm:flex-row md:max-w-md"
-              action="#"
-              aria-label="Newsletter signup"
+            <Link
+              href="/roster"
+              className="group mt-7 flex items-end justify-between gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              <input
-                type="email"
-                placeholder="Your email address"
-                required
-                aria-label="Email address"
-                className="flex-1 border border-border bg-background px-4 py-3 font-body text-sm text-foreground placeholder-foreground-muted/40 focus:border-accent-red focus:outline-none"
-              />
+              <span className="font-display text-2xl font-black uppercase leading-[0.92] sm:text-3xl">
+                Discover
+                <br />
+                The Roster
+              </span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/50 font-mono text-sm transition-colors group-hover:border-white group-hover:bg-white group-hover:text-[#C1272D]">
+                <span aria-hidden>→</span>
+              </span>
+            </Link>
 
-              <button
-                type="submit"
-                className="bg-accent-red px-5 py-3 font-display text-xs font-bold uppercase tracking-[0.15em] text-background transition-colors hover:bg-accent-red-hover"
+            <div className="mt-6 grid grid-cols-2 gap-2 border-t border-white/25 pt-5">
+              <Link
+                href="/about"
+                className="font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white"
               >
-                Subscribe
-              </button>
-            </form>
+                Our Story
+              </Link>
+              <Link
+                href="/events"
+                className="text-right font-mono text-[9px] font-bold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white"
+              >
+                Upcoming Events
+              </Link>
+            </div>
           </div>
         </div>
       </section>

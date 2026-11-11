@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="IM: RISING event artwork">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0" stop-color="#080808"/>
+      <stop offset="1" stop-color="#161011"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="76%" cy="40%" r="52%">
+      <stop offset="0" stop-color="#DC2626" stop-opacity="0.65"/>
+      <stop offset="0.6" stop-color="#DC2626" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#DC2626" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <path d="M 1920 0 L 1920 1080 L 998.4000000000001 1080 Z" fill="#DC2626" opacity="0.16"/>
+  <path d="M 1497.6000000000001 0 L 1920 0 L 1920 453.59999999999997 Z" fill="#DC2626" opacity="0.45"/>
+  
+    <g opacity="0.35" stroke="#DC2626" fill="none">
+      <path d="M -40 830 C 480 750, 1344 910, 1960 820" stroke-width="3"/>
+      <path d="M -40 890 C 480 810, 1344 970, 1960 880" stroke-width="3"/>
+      <path d="M -40 950 C 480 870, 1344 1030, 1960 940" stroke-width="3"/>
+      <path d="M 230.39999999999998 1080 L 384 780" stroke-width="2"/>
+      <path d="M 1689.6 1080 L 1536 780" stroke-width="2"/>
+    </g>
+  <text x="96" y="170" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="26" letter-spacing="9" fill="#ffffff">INDUS MATWORKS</text>
+  <line x1="96" y1="206" x2="384" y2="206" stroke="#DC2626" stroke-width="4"/>
+  <text x="96" y="352" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" letter-spacing="7" fill="#DC2626">NEW STARS. OLD GRUDGES.</text>
+  <text x="92" y="500" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="162" letter-spacing="-5" fill="#ffffff">RIS</text>
+<text x="92" y="668" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="162" letter-spacing="-5" fill="#DC2626">ING</text>
+  <text x="100" y="846" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="30" letter-spacing="3" fill="#d4d4d8">NEW STARS. OLD GRUDGES.</text>
+  <text x="100" y="962" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="22" letter-spacing="5" fill="#a1a1aa">14 DECEMBER 2024 · BENGALURU</text>
+  <text x="1824" y="962" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" letter-spacing="4" fill="#71717a">WRESTLING FROM INDIA. BUILT FOR THE WORLD.</text>
+  <text x="1850" y="777.6" text-anchor="end" font-family="'Arial Black', Impact, sans-serif" font-weight="900" font-size="520" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="3">RISE</text>
+</svg>

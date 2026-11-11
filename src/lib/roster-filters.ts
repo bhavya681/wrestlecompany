@@ -29,8 +29,12 @@ const VALID_PRIMARY: readonly RosterPrimaryFilter[] = [
   "all",
   "men",
   "women",
+  "mens",
+  "womens",
+  "mixed",
   "tag",
   "champions",
+  "officials",
 ];
 
 const VALID_ROLE: readonly RosterCategoryFilter[] = [

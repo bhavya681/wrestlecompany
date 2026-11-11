@@ -14,7 +14,8 @@ export type RosterPrimaryFilter =
   | RosterGenderFilter
   | RosterTagTeamFilter
   | "tag"
-  | "champions";
+  | "champions"
+  | "officials";
 
 export type RosterCategoryFilter =
   | "all"

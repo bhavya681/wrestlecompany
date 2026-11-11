@@ -1,96 +1,60 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { calculateCountdown } from "@/lib/utils";
-import type { ComponentProps } from "react";
 import { cn } from "@/lib/utils";
 
-interface CountdownProps extends ComponentProps<"div"> {
+interface CountdownProps {
   targetDate: string;
   label?: string;
+  className?: string;
+  dark?: boolean;
 }
 
-export function Countdown({
-  targetDate,
-  label = "NEXT EVENT IN",
-  className,
-  ...props
-}: CountdownProps) {
-  const [time, setTime] = useState(calculateCountdown(targetDate));
-  const [reduced, setReduced] = useState(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
+function parts(target: string) {
+  const diff = new Date(target).getTime() - Date.now();
+  if (diff <= 0) return null;
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  return [
+    { v: d, l: "Days" },
+    { v: h, l: "Hours" },
+    { v: m, l: "Mins" },
+    { v: s, l: "Secs" },
+  ];
+}
+
+export function Countdown({ targetDate, label = "Event Starts In", className, dark = false }: CountdownProps) {
+  const [time, setTime] = useState(() => parts(targetDate));
+  const [reduced, setReduced] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handler = (e: MediaQueryListEvent) => setReduced(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+    setReduced(mq.matches);
+    if (mq.matches) return;
+    const id = setInterval(() => setTime(parts(targetDate)), 1000);
+    return () => clearInterval(id);
+  }, [targetDate]);
 
-  useEffect(() => {
-    if (reduced) return;
-    const timer = setInterval(() => {
-      setTime(calculateCountdown(targetDate));
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [targetDate, reduced]);
-
-  const { days, hours, minutes, seconds, expired } = time;
-
-  if (expired) {
-    return (
-      <div
-        className={cn(
-          "font-mono text-sm tracking-wider text-foreground-muted",
-          className
-        )}
-        {...props}
-      >
-        EVENT UNDERWAY
-      </div>
-    );
+  if (!time) {
+    return <div className={cn("border p-4", dark ? "border-[var(--im-border)] bg-[var(--im-surface)]" : "border-[var(--im-border)] bg-[var(--im-surface)]", className)}><p className={cn("font-mono text-[10px] font-bold uppercase tracking-[0.18em]", dark ? "text-[#C1272D]" : "text-[var(--im-ink)]")}>Live / In Progress</p></div>;
   }
 
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-1 font-mono text-center",
-        className
-      )}
-      {...props}
-    >
-      <span className="text-xs font-medium tracking-wider uppercase text-foreground-muted">
-        {label}
-      </span>
-      <div className="flex items-center justify-center gap-3 text-2xl font-bold text-foreground sm:text-3xl">
-        <TimeUnit value={days} label="DAYS" />
-        <span className="text-accent-red">:</span>
-        <TimeUnit value={hours} label="HOURS" />
-        <span className="text-accent-red">:</span>
-        <TimeUnit value={minutes} label="MINUTES" />
-        <span className="text-accent-red">:</span>
-        <TimeUnit value={seconds} label="SECONDS" />
+    <div className={cn("border p-4 sm:p-5", dark ? "border-[var(--im-border)] bg-[var(--im-surface)]" : "border-[var(--im-border)] bg-[var(--im-surface)]", className)}>
+      <p className={cn("font-mono text-[10px] font-bold uppercase tracking-[0.18em]", dark ? "text-[var(--im-muted)]" : "text-[var(--im-muted)]")}>{label}</p>
+      <div className="mt-3 grid grid-cols-4 gap-2">
+        {time.map((u) => (
+          <div key={u.l} className={cn("border px-2 py-3 text-center", dark ? "border-[var(--im-border)] bg-[var(--im-page)]" : "border-[var(--im-border)] bg-[var(--im-page)]")}>
+            <p className={cn("font-display text-2xl font-bold tabular-nums leading-none sm:text-3xl", dark ? "text-[var(--im-ink)]" : "text-[var(--im-ink)]")}>
+              {String(u.v).padStart(2, "0")}
+            </p>
+            <p className={cn("mt-1 font-mono text-[8px] uppercase tracking-[0.16em]", dark ? "text-[var(--im-muted)]" : "text-[var(--im-muted)]")}>{u.l}</p>
+          </div>
+        ))}
       </div>
-    </div>
-  );
-}
-
-function TimeUnit({
-  value,
-  label,
-}: {
-  value: number;
-  label: string;
-}) {
-  return (
-    <div className="flex flex-col items-center">
-      <span className="tabular-nums">{value.toString().padStart(2, "0")}</span>
-      <span className="text-[10px] font-medium tracking-widest text-foreground-muted">
-        {label}
-      </span>
+      {reduced && <p className={cn("mt-2 font-mono text-[9px] uppercase tracking-[0.14em]", dark ? "text-[var(--im-muted)]" : "text-[var(--im-muted)]")}>Countdown reduced for accessibility.</p>}
     </div>
   );
 }

@@ -34,7 +34,7 @@ The Steel Cage was chosen by Singh himself, ensuring no outside interference and
     author: "Imran Siddiqui",
     date: "2026-09-10",
     readTime: 4,
-    image: "https://picsum.photos/seed/news-01/1200/600",
+    image: "/images/news/news-01.svg",
     featured: true,
   },
   {
@@ -54,7 +54,7 @@ IM officials confirmed today that the Women's Championship will be defended when
     author: "Priya Mehta",
     date: "2026-09-08",
     readTime: 3,
-    image: "https://picsum.photos/seed/news-02/1200/600",
+    image: "/images/news/news-02.svg",
     featured: false,
   },
   {
@@ -72,7 +72,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Imran Siddiqui",
     date: "2026-08-28",
     readTime: 3,
-    image: "https://picsum.photos/seed/news-03/1200/600",
+    image: "/images/news/news-03.svg",
     featured: false,
   },
   {
@@ -86,7 +86,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Arjun Kapoor",
     date: "2026-09-05",
     readTime: 2,
-    image: "https://picsum.photos/seed/news-04/1200/600",
+    image: "/images/news/news-04.svg",
     featured: false,
   },
   {
@@ -100,7 +100,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Priya Mehta",
     date: "2024-11-23",
     readTime: 8,
-    image: "https://picsum.photos/seed/news-05/1200/600",
+    image: "/images/news/news-05.svg",
     featured: true,
   },
   {
@@ -114,7 +114,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Imran Siddiqui",
     date: "2024-11-18",
     readTime: 3,
-    image: "https://picsum.photos/seed/news-06/1200/600",
+    image: "/images/news/news-06.svg",
     featured: false,
   },
   {
@@ -128,7 +128,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Arjun Kapoor",
     date: "2024-09-30",
     readTime: 5,
-    image: "https://picsum.photos/seed/news-07/1200/600",
+    image: "/images/news/news-07.svg",
     featured: false,
   },
   {
@@ -142,7 +142,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Press Release",
     date: "2024-10-15",
     readTime: 5,
-    image: "https://picsum.photos/seed/news-08/1200/600",
+    image: "/images/news/news-08.svg",
     featured: false,
   },
   {
@@ -156,7 +156,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Imran Siddiqui",
     date: "2024-11-25",
     readTime: 4,
-    image: "https://picsum.photos/seed/news-09/1200/600",
+    image: "/images/news/news-09.svg",
     featured: false,
   },
   {
@@ -170,7 +170,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Priya Mehta",
     date: "2025-01-10",
     readTime: 6,
-    image: "https://picsum.photos/seed/news-10/1200/600",
+    image: "/images/news/news-10.svg",
     featured: false,
   },
   {
@@ -184,7 +184,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Arjun Kapoor",
     date: "2025-02-16",
     readTime: 6,
-    image: "https://picsum.photos/seed/news-11/1200/600",
+    image: "/images/news/news-11.svg",
     featured: false,
   },
   {
@@ -198,7 +198,7 @@ The tag team division heats up as the Mavericks and Dynasty settle old scores.
     author: "Press Release",
     date: "2025-01-20",
     readTime: 3,
-    image: "https://picsum.photos/seed/news-12/1200/600",
+    image: "/images/news/news-12.svg",
     featured: false,
   },
 ];

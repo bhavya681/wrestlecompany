@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="IM EVENT HOODIE">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f7f5"/><stop offset="1" stop-color="#e9e9e5"/></linearGradient>
+<radialGradient id="g" cx="50%" cy="36%" r="55%"><stop offset="0" stop-color="#C1272D" stop-opacity="0.15"/><stop offset="1" stop-color="#C1272D" stop-opacity="0"/></radialGradient>
+<pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0L0 0 0 50" fill="none" stroke="#080808" stroke-opacity="0.06"/></pattern>
+</defs>
+<rect width="800" height="1000" fill="url(#bg)"/><rect width="800" height="1000" fill="url(#g)"/><rect width="800" height="1000" fill="url(#grid)"/>
+<text x="52" y="82" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="30" fill="#080808">INDUS MATWORKS</text>
+<text x="52" y="112" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" letter-spacing="5" fill="#C1272D">OFFICIAL MERCHANDISE</text>
+<g transform="translate(220 260)"><path d="M90 0 L250 0 L370 74 L340 164 L270 126 L270 400 L70 400 L70 126 L0 164 L-30 74 Z" fill="#191919" stroke="#080808" stroke-width="3"/><path d="M126 0 Q170 74 214 0" fill="none" stroke="#2a2a2a" stroke-width="16"/><path d="M118 92 Q170 132 222 92" fill="none" stroke="#333" stroke-width="2"/><text x="170" y="260" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="54" font-weight="900" fill="#fff">IM</text><text x="170" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="3" fill="#C1272D">INDUS MATWORKS</text></g>
+<text x="52" y="880" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="54" fill="#080808">IM EVENT HOODIE</text>
+<text x="52" y="922" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="18" letter-spacing="3" fill="#71717a">APPAREL</text>
+<rect x="52" y="946" width="696" height="2" fill="#C1272D"/>
+<text x="748" y="82" text-anchor="end" font-family="Arial Black, Impact, sans-serif" font-weight="900" font-size="110" fill="none" stroke="#080808" stroke-opacity="0.1" stroke-width="2">IM</text>
+</svg>

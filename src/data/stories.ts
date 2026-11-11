@@ -25,7 +25,7 @@ This Sunday in Mumbai, inside a brutal 15-foot Steel Cage at IM: Aftermath, ther
 `,
     status: "active",
     participants: ["bhupinder-gujjar", "baliyaan-akki"],
-    image: "https://picsum.photos/seed/story-01/1200/800",
+    image: "/images/stories/story-01.svg",
   },
   {
     id: "story-02",
@@ -51,7 +51,7 @@ At Aftermath in Mumbai, Rathore must defend against Hayze's relentless strike co
 `,
     status: "active",
     participants: ["ishani-rathore", "angel-hayze"],
-    image: "https://picsum.photos/seed/story-02/1200/800",
+    image: "/images/stories/story-02.svg",
   },
   {
     id: "story-03",
@@ -73,6 +73,6 @@ At IM: Aftermath, BDE looks to prove that speed and agility can overcome raw bru
 `,
     status: "active",
     participants: ["bde", "malkeet-brawler"],
-    image: "https://picsum.photos/seed/story-03/1200/800",
+    image: "/images/stories/story-03.svg",
   },
 ];

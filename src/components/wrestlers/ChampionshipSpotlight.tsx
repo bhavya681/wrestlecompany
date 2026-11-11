@@ -13,6 +13,7 @@ import divaWorldChampionship from "@/app/diva_world_chamionship.png";
 import maleTagTeam from "@/app/male_tag_team.png";
 import divaTagTeam from "@/app/diva_tag_team.png";
 import nationalChampionship from "@/app/national_championship.png";
+import coupleTagTeam from "@/app/Couple_Tag_Team_Championship.png";
 
 const BELT_IMAGES = {
   "im world championship": worldChampionship,
@@ -20,6 +21,7 @@ const BELT_IMAGES = {
   "im men's tag team championship": maleTagTeam,
   "im women's tag team championship": divaTagTeam,
   "im national championship": nationalChampionship,
+  "im couple tag team championship": coupleTagTeam,
 };
 
 function getBeltImage(championship: Championship) {
@@ -40,9 +42,8 @@ export function ChampionshipSpotlight() {
   return (
     <section
       aria-labelledby="championship-spotlight-heading"
-      className="relative isolate overflow-hidden border-b border-border bg-[#080808] py-10 sm:py-12 lg:py-14"
+      className="relative isolate overflow-hidden border-b border-border bg-[var(--im-page)] py-10 sm:py-12 lg:py-14"
     >
-      {/* Atmospheric background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
@@ -51,102 +52,26 @@ export function ChampionshipSpotlight() {
         <div className="absolute -left-40 top-1/3 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(193,39,45,0.09),transparent_70%)] blur-3xl" />
         <div className="absolute -right-40 bottom-0 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.07),transparent_70%)] blur-3xl" />
       </div>
-
-      <div className="container-wide relative">
-        {/* Section heading */}
-        <header className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-2xl">
-            <div className="mb-3 flex items-center gap-3">
-              <span
-                aria-hidden="true"
-                className="h-px w-8 bg-accent-gold"
-              />
-              <p className="font-mono text-[9px] font-bold uppercase tracking-[0.25em] text-accent-gold sm:text-[10px]">
-                The Ones Who Reign
-              </p>
-            </div>
-
+      <header className="mb-8 sm:mb-12">
+          <div className="mb-3 flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-8 bg-accent-gold" />
             <h2
               id="championship-spotlight-heading"
-              className="font-display text-4xl font-black uppercase leading-none tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+              className="font-display text-3xl font-black uppercase leading-none tracking-tight text-[var(--im-ink)] sm:text-4xl"
             >
-              Meet Our{" "}
-              <span className="text-accent-gold">Champions.</span>
+              Champions
             </h2>
           </div>
-
-          <Link
-            href="/championships"
-            className={cn(
-              "group inline-flex min-h-10 w-fit shrink-0 items-center gap-3 border border-border px-4 py-2.5",
-              "font-mono text-[9px] font-bold uppercase tracking-[0.15em] text-foreground-muted",
-              "transition-colors hover:border-accent-gold/60 hover:text-accent-gold",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold"
-            )}
-          >
-            All Championships
-            <span
-              aria-hidden="true"
-              className="text-accent-gold transition-transform group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </Link>
         </header>
-
-        {/* Horizontal champion cards */}
-        <div>
-          <div
-            aria-label="Current championship holders"
-            className={cn(
-              "flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-6",
-              "scroll-smooth [scrollbar-color:rgba(212,175,55,0.45)_transparent] [scrollbar-width:thin]",
-              "sm:gap-6"
-            )}
-          >
-            {featured.map((championship, index) => (
-              <ChampionCard
-                key={championship.id}
-                championship={championship}
-                index={index}
-              />
-            ))}
-          </div>
-
-          <p className="mt-1 text-right font-mono text-[8px] uppercase tracking-[0.16em] text-foreground-muted sm:text-[9px]">
-            <span aria-hidden="true">← </span>
-            Swipe or scroll to explore
-            <span aria-hidden="true"> →</span>
-          </p>
-        </div>
-
-        {/* Brand footer */}
-        <div className="mt-6 flex items-center gap-4">
-          <span
-            aria-hidden="true"
-            className="h-px flex-1 bg-gradient-to-r from-accent-gold/30 to-transparent"
-          />
-
-          <p className="shrink-0 text-center font-mono text-[8px] uppercase tracking-[0.12em] text-foreground-muted sm:text-[9px] sm:tracking-[0.2em]">
-            Wrestling From India. Built For The World.
-          </p>
-
-          <span
-            aria-hidden="true"
-            className="h-px flex-1 bg-gradient-to-l from-accent-gold/30 to-transparent"
-          />
-        </div>
-      </div>
+   
     </section>
   );
 }
 
 function ChampionCard({
   championship,
-  index,
 }: {
   championship: Championship;
-  index: number;
 }) {
   const champion = championship.currentChampion;
 
@@ -159,14 +84,26 @@ function ChampionCard({
     wrestlerImage: champion.image,
   });
 
+  const beltImage = getBeltImage(championship);
+
   return (
     <article className="w-[250px] shrink-0 snap-start">
       <Link
         href={`/roster/${champion.wrestlerId}`}
         aria-label={`View ${champion.wrestler}, reigning ${championship.name} champion`}
-        className="group block"
+        className="group relative block"
       >
-        {/* Champion portrait */}
+        {beltImage && (
+          <Image
+            src={beltImage}
+            alt=""
+            width={110}
+            height={44}
+            className="absolute right-[-16px] top-[36%] translate-y-[-50%] z-10 hidden sm:block opacity-85 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+            sizes="110px"
+          />
+        )}
+
         <div className="relative aspect-[1] overflow-hidden bg-background-secondary mb-3">
           <div
             aria-hidden="true"
@@ -185,7 +122,7 @@ function ChampionCard({
             )}
           />
 
-          <div className="absolute left-3 top-3 flex items-center gap-2 border border-accent-gold/25 bg-black/65 px-2.5 py-1.5 backdrop-blur-sm">
+          <div className="absolute left-3 top-3 flex items-center gap-2 border border-accent-gold/25 bg-[var(--im-overlay)] px-2.5 py-1.5 backdrop-blur-sm">
             <span
               aria-hidden="true"
               className="h-1.5 w-1.5 rounded-full bg-accent-gold"
@@ -198,7 +135,7 @@ function ChampionCard({
 
         <h3
           className={cn(
-            "block truncate font-display text-xl font-bold uppercase leading-none tracking-tight text-white",
+            "block truncate font-display text-xl font-bold uppercase leading-none tracking-tight text-[var(--im-ink)]",
             "transition-colors duration-300 group-hover:text-accent-gold"
           )}
         >
@@ -210,7 +147,7 @@ function ChampionCard({
         </p>
 
         {champion.nickname && (
-          <p className="mt-1 line-clamp-1 text-xs italic text-white/50">
+          <p className="mt-1 line-clamp-1 text-xs italic text-[var(--im-ink)]/50">
             {champion.nickname}
           </p>
         )}

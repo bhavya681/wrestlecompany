@@ -33,10 +33,14 @@ const imageHosts = [
   "thumb.wikimedia.org",
   "wrestlepurists.com",
   "i.ytimg.com",
+  "tamatonga.com",
 ];
 
 const nextConfig = {
   images: {
+    // Local, project-owned SVG artwork is served through the image optimiser.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     // Next.js caps remotePatterns at 50 entries, so hosts are listed once each.
     remotePatterns: [...new Set(imageHosts)].map((hostname) => ({
       protocol: "https",

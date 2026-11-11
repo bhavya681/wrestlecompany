@@ -1,113 +1,120 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { VideoCard } from "@/components/media/VideoCard";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { mediaItems } from "@/data";
 import type { MediaCategory } from "@/types";
+import { cn } from "@/lib/utils";
 
-type MediaFilter = "all" | MediaCategory;
-
-const filterLabels: Record<Exclude<MediaFilter, "all">, string> = {
-  "latest-video": "LATEST VIDEO",
-  highlights: "HIGHLIGHTS",
-  matches: "MATCHES",
-  backstage: "BACKSTAGE",
-  interviews: "INTERVIEWS",
-  "photo-gallery": "PHOTO GALLERY",
-};
+type Filter = "all" | MediaCategory;
+const labels: [Filter, string][] = [
+  ["all", "All"],
+  ["latest-video", "Latest"],
+  ["highlights", "Highlights"],
+  ["matches", "Matches"],
+  ["backstage", "Backstage"],
+  ["interviews", "Interviews"],
+  ["photo-gallery", "Gallery"],
+];
 
 export default function MediaPage() {
-  const [filter, setFilter] = useState<MediaFilter>("all");
-
-  const filtered = mediaItems.filter((m) => {
-    if (filter === "all") return true;
-    return m.category === filter;
-  });
-
-  const featured = filtered.find((m) => m.category === "latest-video") || filtered[0];
-  const others = filtered.filter((m) => m !== featured);
+  const [filter, setFilter] = useState<Filter>("all");
+  const filtered = useMemo(
+    () => mediaItems.filter((item) => filter === "all" || item.category === filter),
+    [filter]
+  );
+  const featured = filtered[0];
+  const rest = filtered.slice(1);
 
   return (
     <>
       <PageHeader
-        title="MEDIA"
-        subtitle="Watch, relive, and discover every moment of Indus Matworks."
-        overline="MEDIA HUB"
-        backgroundImage="https://picsum.photos/seed/media-hero/1920/1080"
+        overline="Media Hub"
+        title={
+          <>
+            Videos, Highlights
+            <br />
+            &amp; Features
+          </>
+        }
+        subtitle="Match highlights, interviews, backstage content, and featured media from Indus Matworks."
+        dark
       />
 
-      <section className="py-12">
+      <section className="border-b border-[var(--im-border)] bg-[var(--im-page)] py-10 md:py-16">
         <div className="container-wide">
-          <div className="mb-8 flex flex-wrap gap-2">
-            <FilterButton
-              label="ALL"
-              active={filter === "all"}
-              onClick={() => setFilter("all")}
-            />
-            {Object.entries(filterLabels).map(([key, label]) => (
-              <FilterButton
-                key={key}
-                label={label}
-                active={filter === key}
-                onClick={() => setFilter(key as Exclude<MediaFilter, "all">)}
-              />
+          <div className="mb-7 flex flex-col gap-4 border-b border-[var(--im-border)] pb-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="im-scroll-x">
+              {labels.map(([key, label]) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setFilter(key)}
+                  aria-pressed={filter === key}
+                  className="im-chip shrink-0"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            <p className="shrink-0 font-mono text-[9px] uppercase tracking-[0.14em] text-[var(--im-muted)]" aria-live="polite">
+              {filtered.length} item{filtered.length === 1 ? "" : "s"}
+            </p>
+          </div>
+
+          {featured ? (
+            <div data-reveal>
+              <VideoCard item={featured} variant="featured" />
+            </div>
+          ) : null}
+
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {rest.map((item, index) => (
+              <div key={item.id} data-reveal style={{ "--reveal-delay": `${(index % 3) * 60}ms` } as CSSProperties}>
+                <VideoCard item={item} />
+              </div>
             ))}
           </div>
 
-          {filtered.length === 0 ? (
-            <p className="font-body text-center text-foreground-muted">
-              No media found in this category.
+          {!filtered.length ? (
+            <p className="border border-[var(--im-border)] bg-[var(--im-surface)] p-6 font-body text-sm text-[var(--im-muted)]">
+              No media found for this category.
             </p>
-          ) : (
-            <div className="space-y-12">
-              {featured && (
-                <div>
-                  <VideoCard item={featured} variant="featured" />
-                </div>
-              )}
+          ) : null}
+        </div>
+      </section>
 
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {others.map((item) => (
-                  <VideoCard key={item.id} item={item} variant="default" />
-                ))}
-              </div>
-
-              {others.length > 6 && (
-                <div className="mt-8 text-center">
-                  <button className="font-body text-sm text-foreground-muted hover:text-accent-red">
-                    Load More
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
+      <section className="bg-[#C1272D] py-12 text-white md:py-16">
+        <div className="container-wide flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/65">
+              Never Miss A Moment
+            </p>
+            <h2 className="mt-2 font-display text-3xl font-black uppercase leading-none sm:text-4xl">
+              Follow every fall and every feud.
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href={mediaItems[0]?.url || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn("im-btn im-btn-light", !mediaItems[0]?.url && "pointer-events-none opacity-50")}
+            >
+              Watch Latest
+            </a>
+            <a
+              href={mediaItems[0]?.url || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn("im-btn im-btn-outline", !mediaItems[0]?.url && "pointer-events-none opacity-50")}
+            >
+              YouTube Channel
+            </a>
+          </div>
         </div>
       </section>
     </>
-  );
-}
-
-function FilterButton({
-  label,
-  active,
-  onClick,
-}: {
-  label: string;
-  active: boolean;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`border px-4 py-2 font-body text-xs font-bold tracking-widest uppercase transition-all duration-200 ${
-        active
-          ? "border-accent-red bg-accent-red/10 text-accent-red"
-          : "border-border text-foreground-muted hover:border-accent-red hover:text-accent-red"
-      }`}
-    >
-      {label}
-    </button>
   );
 }
